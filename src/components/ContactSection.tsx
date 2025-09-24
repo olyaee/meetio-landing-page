@@ -27,19 +27,19 @@ export const ContactSection = () => {
   };
 
   return (
-    <section className="py-20 px-6 bg-gradient-subtle">
+    <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-subtle">
       <div className="max-w-4xl mx-auto text-center">
         {/* Tolstoy Quote */}
         <div 
           ref={quoteRef}
-          className={`mb-16 transition-all duration-700 ${
+          className={`mb-12 sm:mb-16 transition-all duration-700 ${
             quoteInView ? 'animate-fade-in-up' : 'opacity-0'
           }`}
         >
-          <blockquote className="font-geist font-medium text-2xl md:text-4xl text-foreground mb-6 leading-relaxed italic">
+          <blockquote className="font-geist font-medium text-xl sm:text-2xl md:text-3xl lg:text-4xl text-foreground mb-4 sm:mb-6 leading-relaxed italic px-2">
             "Alle glücklichen Meetings sind einander ähnlich; jedes unglückliche Meeting ist auf seine Weise unglücklich."
           </blockquote>
-          <p className="font-poppins font-medium text-xl text-foreground/80">
+          <p className="font-poppins font-medium text-lg sm:text-xl text-foreground/80 px-2">
             Möchtest du mehr happy Meetings?
           </p>
         </div>
@@ -51,29 +51,29 @@ export const ContactSection = () => {
             contactInView ? 'animate-scale-in' : 'opacity-0'
           }`}
         >
-          <h2 className="font-geist font-bold text-3xl md:text-5xl text-foreground mb-6">
+          <h2 className="font-geist font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground mb-4 sm:mb-6 px-2">
             Lassen Sie uns Ihre Meeting-Herausforderungen lösen
           </h2>
-          <p className="font-poppins font-medium text-lg text-foreground/70 mb-12 max-w-2xl mx-auto">
+          <p className="font-poppins font-medium text-base sm:text-lg text-foreground/70 mb-8 sm:mb-12 max-w-2xl mx-auto px-2">
             Jedes Unternehmen ist einzigartig. Erfahren Sie, wie MeetioAI speziell für Ihre Branche und Ihre Bedürfnisse funktioniert.
           </p>
 
           {/* Contact CTAs */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
             <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
               <DialogTrigger asChild>
                 <Button 
                   size="lg"
-                  className="bg-brand-primary hover:bg-brand-primary-dark text-white font-poppins font-medium px-8 py-4 rounded-xl shadow-elegant hover:shadow-hover transition-all duration-300 group"
+                  className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-dark text-white font-poppins font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-elegant hover:shadow-hover transition-all duration-300 group"
                 >
                   Jetzt Kontakt aufnehmen
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </DialogTrigger>
               
-              <DialogContent className="sm:max-w-md">
+              <DialogContent className="sm:max-w-md mx-4">
                 <DialogHeader>
-                  <DialogTitle className="font-geist font-bold text-xl text-center">
+                  <DialogTitle className="font-geist font-bold text-lg sm:text-xl text-center">
                     Wie möchten Sie uns erreichen?
                   </DialogTitle>
                 </DialogHeader>
@@ -81,28 +81,28 @@ export const ContactSection = () => {
                   <Button
                     onClick={handleEmailContact}
                     variant="outline"
-                    className="w-full justify-start text-left h-auto p-4"
+                    className="w-full justify-start text-left h-auto p-3 sm:p-4"
                   >
-                    <Mail className="mr-3 h-5 w-5 text-brand-primary" />
+                    <Mail className="mr-3 h-4 w-4 sm:h-5 sm:w-5 text-brand-primary flex-shrink-0" />
                     <div>
-                      <div className="font-medium">📧 E-Mail</div>
-                      <div className="text-sm text-muted-foreground">hello@meetio.ai</div>
+                      <div className="font-medium text-sm sm:text-base">📧 E-Mail</div>
+                      <div className="text-xs sm:text-sm text-muted-foreground">hello@meetio.ai</div>
                     </div>
                   </Button>
                   
                   <Button
                     onClick={handleWhatsAppContact}
                     variant="outline"
-                    className="w-full justify-start text-left h-auto p-4"
+                    className="w-full justify-start text-left h-auto p-3 sm:p-4"
                   >
-                    <MessageSquare className="mr-3 h-5 w-5 text-brand-success" />
+                    <MessageSquare className="mr-3 h-4 w-4 sm:h-5 sm:w-5 text-brand-success flex-shrink-0" />
                     <div>
-                      <div className="font-medium">📱 WhatsApp</div>
-                      <div className="text-sm text-muted-foreground">Sofortige Antwort</div>
+                      <div className="font-medium text-sm sm:text-base">📱 WhatsApp</div>
+                      <div className="text-xs sm:text-sm text-muted-foreground">Sofortige Antwort</div>
                     </div>
                   </Button>
                   
-                  <p className="text-center text-sm text-muted-foreground pt-2">
+                  <p className="text-center text-xs sm:text-sm text-muted-foreground pt-2">
                     Wir melden uns binnen 24 Stunden zurück
                   </p>
                 </div>
@@ -112,7 +112,7 @@ export const ContactSection = () => {
             <Button 
               onClick={handleWhatsAppContact}
               size="lg"
-              className="bg-brand-success hover:bg-brand-success/90 text-white font-poppins font-medium px-8 py-4 rounded-xl shadow-elegant hover:shadow-hover transition-all duration-300"
+              className="w-full sm:w-auto bg-brand-success hover:bg-brand-success/90 text-white font-poppins font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-elegant hover:shadow-hover transition-all duration-300"
             >
               <MessageSquare className="mr-2 h-4 w-4" />
               WhatsApp uns

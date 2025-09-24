@@ -56,20 +56,20 @@ export const DemoSection = () => {
   }, []);
 
   return (
-    <section className="py-20 px-6 bg-gradient-subtle">
+    <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-subtle">
       <div className="max-w-6xl mx-auto">
         {/* Dynamic Text Section */}
         <div 
           ref={titleRef}
-          className={`text-center mb-16 transition-all duration-700 ${
+          className={`text-center mb-12 sm:mb-16 transition-all duration-700 ${
             titleInView ? 'animate-fade-in-up' : 'opacity-0'
           }`}
         >
-          <div className="mb-8">
-            <h2 className="font-geist font-bold text-4xl md:text-6xl text-foreground mb-4">
+          <div className="mb-6 sm:mb-8">
+            <h2 className="font-geist font-bold text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground mb-3 sm:mb-4 px-2">
               <span className="wave-hand">👋</span> Wave goodbye to
             </h2>
-            <div className="relative h-20 flex items-center justify-center">
+            <div className="relative h-16 sm:h-20 flex items-center justify-center px-2">
               {meetingProblems.map((problem, index) => (
                 <div
                   key={problem}
@@ -79,7 +79,7 @@ export const DemoSection = () => {
                       : 'opacity-0 transform translate-y-4'
                   }`}
                 >
-                  <span className="font-geist font-bold text-3xl md:text-5xl text-destructive">
+                  <span className="font-geist font-bold text-xl sm:text-2xl md:text-4xl lg:text-5xl text-destructive text-center">
                     {problem}
                   </span>
                 </div>
@@ -87,7 +87,7 @@ export const DemoSection = () => {
             </div>
           </div>
           
-          <p className="font-poppins font-medium text-xl text-foreground/70 max-w-3xl mx-auto">
+          <p className="font-poppins font-medium text-base sm:text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto px-2">
             Mit MeetioAI verwandeln Sie chaotische Meetings in strukturierte Geschäftsintelligenz
           </p>
         </div>
@@ -95,25 +95,25 @@ export const DemoSection = () => {
         {/* Statistics Grid */}
         <div 
           ref={statsRef}
-          className={`grid grid-cols-1 md:grid-cols-4 gap-8 transition-all duration-700 ${
+          className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 transition-all duration-700 ${
             statsInView ? 'animate-fade-in-up' : 'opacity-0'
           }`}
         >
           {statistics.map((stat, index) => (
             <div 
               key={index}
-              className="text-center p-6 rounded-xl bg-card shadow-card hover:shadow-hover transition-all duration-300 group"
+              className="text-center p-4 sm:p-6 rounded-xl bg-card shadow-card hover:shadow-hover transition-all duration-300 group"
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="mb-4 flex justify-center">
-                <div className="p-3 rounded-full bg-brand-primary/10 group-hover:bg-brand-primary/20 transition-colors">
-                  <stat.icon className="h-6 w-6 text-brand-primary" />
+              <div className="mb-3 sm:mb-4 flex justify-center">
+                <div className="p-2 sm:p-3 rounded-full bg-brand-primary/10 group-hover:bg-brand-primary/20 transition-colors">
+                  <stat.icon className="h-5 w-5 sm:h-6 sm:w-6 text-brand-primary" />
                 </div>
               </div>
-              <div className="font-geist font-bold text-2xl md:text-3xl text-foreground mb-2">
+              <div className="font-geist font-bold text-xl sm:text-2xl md:text-3xl text-foreground mb-1 sm:mb-2">
                 {stat.number}
               </div>
-              <p className="font-poppins text-sm text-foreground/70">
+              <p className="font-poppins text-xs sm:text-sm text-foreground/70">
                 {stat.label}
               </p>
             </div>

@@ -26,25 +26,25 @@ const TestimonialCard = ({
       }`}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <CardContent className="p-8">
+      <CardContent className="p-4 sm:p-6 md:p-8">
         {/* Stars */}
-        <div className="flex mb-4">
+        <div className="flex mb-3 sm:mb-4">
           {[...Array(5)].map((_, i) => (
-            <Star key={i} className="h-4 w-4 fill-brand-accent text-brand-accent" />
+            <Star key={i} className="h-3 w-3 sm:h-4 sm:w-4 fill-brand-accent text-brand-accent" />
           ))}
         </div>
         
         {/* Quote */}
-        <blockquote className="font-poppins italic text-foreground/80 mb-6 leading-relaxed">
+        <blockquote className="font-poppins italic text-sm sm:text-base text-foreground/80 mb-4 sm:mb-6 leading-relaxed">
           "{quote}"
         </blockquote>
         
         {/* Author */}
-        <div className="border-t border-foreground/10 pt-4">
-          <p className="font-poppins font-medium text-foreground mb-2">
+        <div className="border-t border-foreground/10 pt-3 sm:pt-4">
+          <p className="font-poppins font-medium text-xs sm:text-sm text-foreground mb-2">
             {author}
           </p>
-          <div className="inline-block bg-brand-success/10 text-brand-success font-geist font-bold px-3 py-1 rounded-full text-sm">
+          <div className="inline-block bg-brand-success/10 text-brand-success font-geist font-bold px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">
             {metric}
           </div>
         </div>
@@ -78,25 +78,25 @@ export const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="py-20 px-6 bg-gradient-subtle">
+    <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-subtle">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div 
           ref={titleRef}
-          className={`text-center mb-16 transition-all duration-700 ${
+          className={`text-center mb-12 sm:mb-16 transition-all duration-700 ${
             titleInView ? 'animate-fade-in-up' : 'opacity-0'
           }`}
         >
-          <h2 className="font-geist font-bold text-4xl md:text-6xl text-foreground mb-6">
+          <h2 className="font-geist font-bold text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground mb-4 sm:mb-6 px-2">
             Vertraut von 500+ Unternehmen
           </h2>
-          <p className="font-poppins font-medium text-xl text-foreground/70 max-w-3xl mx-auto">
+          <p className="font-poppins font-medium text-base sm:text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto px-2">
             Führende Organisationen nutzen MeetioAI bereits für messbare Geschäftsergebnisse.
           </p>
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard
               key={index}
