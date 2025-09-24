@@ -35,7 +35,7 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
       case 'interest':
         return 'Interesse ermitteln';
       case 'waitlist':
-        return 'Join Waitlist';
+        return 'Frühzugang sichern';
       case 'contact':
         return 'Kontaktiere uns';
       default:

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { Button } from "@/components/ui/button";
 import { Mail, MessageSquare, ArrowRight } from "lucide-react";
@@ -18,25 +18,47 @@ export const ContactSection = () => {
     threshold: 0.3,
     triggerOnce: true,
   });
+  
+  // Typewriter effect
+  const [displayedText, setDisplayedText] = useState('');
+  const fullQuote = "Alle glücklichen Meetings sind einander ähnlich; jedes unglückliche Meeting ist auf seine Weise unglücklich.";
+  
+  useEffect(() => {
+    if (quoteInView && displayedText.length < fullQuote.length) {
+      const timer = setTimeout(() => {
+        setDisplayedText(fullQuote.slice(0, displayedText.length + 1));
+      }, 50); // Adjust speed here
+      return () => clearTimeout(timer);
+    }
+  }, [quoteInView, displayedText, fullQuote]);
 
 
   return (
-    <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-subtle">
-      <div className="max-w-4xl mx-auto text-center">
-        {/* Tolstoy Quote */}
-        <div 
+    <section className="py-20 sm:py-24 px-4 sm:px-6 bg-gradient-subtle">
+      <div className="max-w-5xl mx-auto text-center">
+        {/* Tolstoy Quote with Typewriter Effect */}
+        <motion.div 
           ref={quoteRef}
-          className={`mb-12 sm:mb-16 transition-all duration-700 ${
-            quoteInView ? 'animate-fade-in-up' : 'opacity-0'
-          }`}
+          className="mb-16 sm:mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          animate={quoteInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8 }}
         >
-          <blockquote className="font-geist font-medium text-xl sm:text-2xl md:text-3xl lg:text-4xl text-foreground mb-4 sm:mb-6 leading-relaxed italic px-2">
-            "Alle glücklichen Meetings sind einander ähnlich; jedes unglückliche Meeting ist auf seine Weise unglücklich."
+          <blockquote className="font-geist font-medium text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground mb-6 sm:mb-8 leading-relaxed italic px-2">
+            "{displayedText}
+            {displayedText.length < fullQuote.length && (
+              <span className="animate-pulse">|</span>
+            )}"
           </blockquote>
-          <p className="font-poppins font-medium text-lg sm:text-xl text-foreground/80 px-2">
+          <motion.p 
+            className="font-poppins font-medium text-xl sm:text-2xl text-foreground/80 px-2"
+            initial={{ opacity: 0 }}
+            animate={displayedText.length >= fullQuote.length ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
             Möchtest du mehr happy Meetings?
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Contact Section */}
         <div 
@@ -48,12 +70,12 @@ export const ContactSection = () => {
           {/* <h2 className="font-geist font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground mb-4 sm:mb-6 px-2">
             Lass uns deine Meeting-Herausforderungen lösen
           </h2> */}
-          <p className="font-poppins font-medium text-base sm:text-lg text-foreground/70 mb-8 sm:mb-12 max-w-2xl mx-auto px-2">
+          <p className="font-poppins font-medium text-lg sm:text-xl text-foreground/70 mb-10 sm:mb-16 max-w-3xl mx-auto px-2 leading-relaxed">
             Jedes Unternehmen ist einzigartig. Erfahre, wie meetio.ai speziell für deine Branche und deine Bedürfnisse funktioniert.
           </p>
 
           {/* Contact CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
+          <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 justify-center items-center px-4">
             {/* <Button 
               size="lg"
               onClick={() => {

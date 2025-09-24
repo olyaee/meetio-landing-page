@@ -1,7 +1,9 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Brain, Zap, Shield, Briefcase, Users, DollarSign, ArrowRight, BarChart, Download } from 'lucide-react';
 import { InterestContactForm } from "./InterestContactForm";
 import { Button } from "@/components/ui/button";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 // --- Konfigurationskonstanten (Einfach zu aktualisieren) ---
 const ROLE_DATA = {
@@ -69,6 +71,26 @@ export const ROICalculatorSection = () => {
   const [stage, setStage] = useState<'personal' | 'company'>('personal');
   const [formModalOpen, setFormModalOpen] = useState(false);
   const [formType, setFormType] = useState<'interest' | 'contact' | 'waitlist'>('interest');
+  
+  // Animation controls
+  const titleControls = useAnimation();
+  const calculatorControls = useAnimation();
+  const resultsControls = useAnimation();
+  const [sectionRef, sectionInView] = useInView({ threshold: 0.2, triggerOnce: true });
+  
+  // Sequential animations
+  useEffect(() => {
+    if (sectionInView) {
+      const runAnimations = async () => {
+        await titleControls.start({ opacity: 1, y: 0 });
+        await Promise.all([
+          calculatorControls.start({ opacity: 1, x: 0 }),
+          resultsControls.start({ opacity: 1, x: 0 })
+        ]);
+      };
+      runAnimations();
+    }
+  }, [sectionInView, titleControls, calculatorControls, resultsControls]);
 
   const [personalInputs, setPersonalInputs] = useState({
     role: 'saas_pm',
@@ -120,7 +142,7 @@ export const ROICalculatorSection = () => {
 
   const companyResults = useMemo(() => {
     const { industry, employees, avgSalary, salesVelocity, knowledgeRetention, numSalesReps, turnoverRate } = companyInputs;
-    let baselineProductivity = employees * 5000;
+    const baselineProductivity = employees * 5000;
     let industryGains = 0;
     let knowledgeSavings = 0;
     if (knowledgeRetention) {
@@ -152,19 +174,31 @@ export const ROICalculatorSection = () => {
   };
 
   return (
-    <section className="py-16 sm:py-20 px-4 sm:px-6 bg-secondary/30">
+    <section ref={sectionRef} className="py-20 sm:py-24 px-4 sm:px-6 bg-secondary/30">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="font-geist font-bold text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground mb-4 sm:mb-6">
+        {/* Animated Title */}
+        <motion.div 
+          className="text-center mb-16 sm:mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          animate={titleControls}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="font-geist font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-foreground mb-6 sm:mb-8">
             Höre auf, deine besten Ideen zu verlieren
           </h2>
-          <p className="font-poppins font-medium text-base sm:text-lg md:text-xl text-foreground/70 max-w-4xl mx-auto">
+          <p className="font-poppins font-medium text-lg sm:text-xl md:text-2xl text-foreground/70 max-w-4xl mx-auto leading-relaxed">
             Eure Meetings enthalten das wertvollste, unausgesprochene Wissen Ihres Unternehmens. Sie aufzuzeichnen dient der Sicherung und Skalierung eurer kollektiven Intelligenz.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          <div className="bg-card p-6 sm:p-8 rounded-2xl shadow-lg border border-foreground/10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+          {/* Calculator Form */}
+          <motion.div 
+            className="bg-card p-8 sm:p-10 rounded-2xl shadow-lg border border-foreground/10"
+            initial={{ opacity: 0, x: -30 }}
+            animate={calculatorControls}
+            transition={{ duration: 0.8 }}
+          >
             <div className="flex border-b border-foreground/10 mb-6">
               <button onClick={() => setStage('personal')} className={`flex-1 font-geist font-semibold p-3 transition-colors ${stage === 'personal' ? 'text-brand-primary border-b-2 border-brand-primary' : 'text-foreground/60 hover:text-foreground'}`}>
                 Mein persönlicher ROI
@@ -223,9 +257,15 @@ export const ROICalculatorSection = () => {
                 </div>
               </div>
             )}
-          </div>
+          </motion.div>
           
-          <div className="bg-gradient-to-br from-brand-primary/10 to-secondary/10 p-6 sm:p-8 rounded-2xl border-2 border-brand-primary/20 sticky top-24">
+          {/* Results Panel */}
+          <motion.div 
+            className="bg-gradient-to-br from-brand-primary/10 to-secondary/10 p-8 sm:p-10 rounded-2xl border-2 border-brand-primary/20 sticky top-24"
+            initial={{ opacity: 0, x: 30 }}
+            animate={resultsControls}
+            transition={{ duration: 0.8 }}
+          >
             {stage === 'personal' && (
               <div className="text-center animate-fade-in">
                 <p className="font-poppins text-foreground/80 mb-2">Du kannst schätzungsweise</p>
@@ -266,10 +306,11 @@ export const ROICalculatorSection = () => {
                 </Button>
               </div>
             )}
-          </div>
+          </motion.div>
         </div>
       </div>
-    {/* Form Modal */}
+      
+      {/* Form Modal */}
       <InterestContactForm
         isOpen={formModalOpen}
         onClose={() => setFormModalOpen(false)}

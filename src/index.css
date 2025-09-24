@@ -127,3 +127,50 @@ All colors MUST be HSL. Sophisticated gradients and animations for enterprise ap
     @apply bg-background text-foreground;
   }
 }
+
+@layer base {
+  /* --- Custom Range Slider Styling --- */
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    /* Uses a light version of your brand purple for the track */
+    background: hsl(var(--brand-primary-light) / 0.5); 
+    border-radius: 9999px;
+    outline: none;
+  }
+
+  /* Slider Thumb (the dot) for Chrome, Safari, Edge */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    /* Uses your main brand purple for the thumb */
+    background: hsl(var(--brand-primary)); 
+    border: 2px solid hsl(var(--card)); /* Uses your card color for the border */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb:hover {
+    background: hsl(var(--brand-primary-dark));
+  }
+
+  /* Slider Thumb (the dot) for Firefox */
+  input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: hsl(var(--brand-primary));
+    border: 2px solid hsl(var(--card));
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+  }
+
+  input[type="range"]::-moz-range-thumb:hover {
+    background: hsl(var(--brand-primary-dark));
+  }
+}

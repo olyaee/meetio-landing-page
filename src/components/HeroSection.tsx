@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Play, ArrowRight } from "lucide-react";
-//import { MeetingIntelligenceCanvas } from "./MeetingIntelligenceCanvas";
+import { MeetingCanvas } from "./MeetingCanvas";
 import { InterestContactForm } from "./InterestContactForm";
 import { motion } from "framer-motion";
 
@@ -30,8 +30,8 @@ export const HeroSection = () => {
       ref={heroRef} 
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-subtle px-4 sm:px-6"
     >
-      {/* Meeting Intelligence Canvas Animation */}
-      {/* <MeetingIntelligenceCanvas /> */}
+      {/* Mirage-style Canvas Background */}
+      <MeetingCanvas />
       
       {/* Main Content */}
       <motion.div 

@@ -44,7 +44,7 @@ const AnimatedStatistic = ({
     >
       <div className="mb-4">
         <motion.span 
-          className="font-geist font-bold text-5xl sm:text-6xl md:text-7xl text-brand-accent block"
+          className="font-geist font-bold text-5xl sm:text-6xl md:text-7xl text-brand-primary block"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: (delay + 300) / 1000, duration: 0.6 }}
@@ -52,7 +52,7 @@ const AnimatedStatistic = ({
           {number}
         </motion.span>
         <motion.span 
-          className="font-geist font-bold text-xl sm:text-2xl text-brand-accent"
+          className="font-geist font-bold text-xl sm:text-2xl text-brand-primary"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: (delay + 500) / 1000, duration: 0.6 }}
@@ -176,7 +176,7 @@ export const ProblemSection = () => {
                       : 'opacity-0 transform -translate-y-4' // Changed to -translate-y for a better exit animation
                   }`}
                 >
-                  <span className="font-geist font-bold text-xl sm:text-2xl md:text-4xl lg:text-5xl text-destructive text-center">
+                  <span className="font-geist font-bold text-xl sm:text-2xl md:text-4xl lg:text-5xl bg-gradient-to-r from-brand-primary to-red-500 bg-clip-text text-transparent text-center">
                     {problem}
                   </span>
                 </div>

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Mail, MessageSquare, Linkedin, Twitter } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   const productLinks = [
@@ -24,17 +25,17 @@ export const Footer = () => {
   ];
 
   const companyLinks = [
-    { name: "Über uns", href: "#about" },
+    { name: "Über uns", href: "/uber-uns" },
     { name: "Karriere", href: "#careers" },
     { name: "Presse", href: "#press" },
     { name: "Kontakt", href: "#contact" }
   ];
 
   const legalLinks = [
-    { name: "Datenschutz", href: "#privacy" },
-    { name: "AGB", href: "#terms" },
-    { name: "Cookie-Richtlinie", href: "#cookies" },
-    { name: "Impressum", href: "#imprint" }
+    { name: "Datenschutz", href: "/datenschutz" },
+    { name: "AGB", href: "/agbs" },
+    { name: "Cookie-Richtlinie", href: "/cookie-richtlinie" },
+    { name: "Impressum", href: "/impressum" }
   ];
 
   return (
@@ -129,12 +130,12 @@ export const Footer = () => {
             <ul className="space-y-3">
               {companyLinks.map((link) => (
                 <li key={link.name}>
-                  <a 
-                    href={link.href}
+                  <Link 
+                    to={link.href}
                     className="font-poppins text-background/80 hover:text-background transition-colors duration-200"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -151,13 +152,13 @@ export const Footer = () => {
             </div>
             <div className="flex space-x-6">
               {legalLinks.map((link) => (
-                <a 
+                <Link 
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
                   className="font-poppins text-background/60 hover:text-background text-sm transition-colors duration-200"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
           </div>

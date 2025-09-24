@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { InterestContactForm } from "./InterestContactForm";
 
 export const Navigation = () => {
@@ -8,6 +9,9 @@ export const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [formModalOpen, setFormModalOpen] = useState(false);
   const [formType, setFormType] = useState<'interest' | 'contact' | 'waitlist'>('interest');
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,15 +22,41 @@ export const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
   const navItems = [
     { name: "Features", href: "#features" },
-    { name: "Über uns", href: "#about" },
+    { name: "Über uns", href: "/uber-uns" },
   ];
 
   const handleOpenForm = (type: 'interest' | 'contact' | 'waitlist') => {
     setFormType(type);
     setFormModalOpen(true);
     setIsMobileMenuOpen(false);
+  };
+
+  const handleNavLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      setIsMobileMenuOpen(false);
+      if (location.pathname !== "/") {
+        navigate(`/${href}`);
+      } else {
+        const element = document.getElementById(href.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    } else {
+      setIsMobileMenuOpen(false);
+    }
   };
 
   return (
@@ -40,27 +70,32 @@ export const Navigation = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center space-x-3">
-              <img 
-                src="/logo.png" 
-                alt="meetio.ai Logo" 
-                className="h-8 w-8"
-              />
-              <span className="font-geist font-bold text-xl text-foreground">
-                meetio.ai
-              </span>
+              <Link to="/" onClick={(e) => handleNavLinkClick(e, "/")}>
+                <img 
+                  src="/logo.png" 
+                  alt="meetio.ai Logo" 
+                  className="h-8 w-8"
+                />
+              </Link>
+              <Link to="/" onClick={(e) => handleNavLinkClick(e, "/")}>
+                <span className="font-geist font-bold text-xl text-foreground">
+                  meetio.ai
+                </span>
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href.startsWith("#") ? location.pathname + item.href : item.href}
+                  onClick={(e) => handleNavLinkClick(e, item.href)}
                   className="font-poppins text-foreground/80 hover:text-brand-primary transition-colors duration-200 relative group"
                 >
                   {item.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-primary transition-all duration-300 group-hover:w-full"></span>
-                </a>
+                </Link>
               ))}
             </div>
 
@@ -71,7 +106,7 @@ export const Navigation = () => {
                 onClick={() => handleOpenForm('waitlist')}
                 className="font-poppins text-foreground border-foreground/20 hover:border-brand-primary hover:text-brand-primary transition-all duration-300"
               >
-                Join Waitlist
+                Frühzugang sichern
               </Button>
               <Button 
                 onClick={() => handleOpenForm('contact')}
@@ -95,14 +130,14 @@ export const Navigation = () => {
             <div className="md:hidden mt-4 pb-4 border-t border-foreground/10">
               <div className="flex flex-col space-y-4 mt-4">
                 {navItems.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.href.startsWith("#") ? location.pathname + item.href : item.href}
+                    onClick={(e) => handleNavLinkClick(e, item.href)}
                     className="font-poppins text-foreground/80 hover:text-brand-primary transition-colors duration-200"
-                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
                 <div className="flex flex-col space-y-3 pt-4">
                   <Button 
@@ -110,7 +145,7 @@ export const Navigation = () => {
                     onClick={() => handleOpenForm('waitlist')}
                     className="justify-center border-foreground/20 hover:border-brand-primary hover:text-brand-primary"
                   >
-                    Join Waitlist
+                    Frühzugang sichern
                   </Button>
                   <Button 
                     onClick={() => handleOpenForm('contact')}
