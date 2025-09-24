@@ -269,7 +269,7 @@ export const ROICalculatorSection = () => {
             {stage === 'personal' && (
               <div className="text-center animate-fade-in">
                 <p className="font-poppins text-foreground/80 mb-2">Du kannst schätzungsweise</p>
-                <div className="font-geist font-bold text-5xl md:text-6xl text-brand-primary mb-4">{personalResults.totalHours} Stunden/Jahr</div>
+                <div className="font-geist font-bold text-5xl md:text-6xl text-brand-primary mb-4"><span>{personalResults.totalHours}</span> <span className="text-3xl md:text-4xl text-brand-primary">Stunden/Jahr</span></div>
                 <div className="font-poppins font-semibold text-xl text-foreground mb-6">im Wert von {personalResults.totalValue} zurückgewinnen</div>
                 <div className="text-left font-poppins text-sm space-y-3 bg-secondary/50 p-4 rounded-lg mb-6">
                   <p className="flex justify-between"><span>Smartere Meeting-Vorbereitung:</span> <strong>{personalResults.breakdown.prep} Std.</strong></p>

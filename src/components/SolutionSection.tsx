@@ -1,11 +1,13 @@
 import { useInView } from "react-intersection-observer";
 import { Brain, Zap, Shield, Clock, TrendingUp } from "lucide-react";
 import { motion, useAnimation } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { useIsMobile } from "../hooks/use-mobile";
 
 
 // Hauptkomponente, die Demo und Lösung kombiniert
 export const SolutionSection = () => {
+  const isMobile = useIsMobile();
   const [titleRef, titleInView] = useInView({ threshold: 0.5, triggerOnce: true });
   const [demoRef, demoInView] = useInView({ threshold: 0.2, triggerOnce: true });
   const [calloutRef, calloutInView] = useInView({ threshold: 0.3, triggerOnce: true });
@@ -18,14 +20,7 @@ export const SolutionSection = () => {
   const calloutAnimationControls = useAnimation();
   const [animationStep, setAnimationStep] = useState(0);
   
-  // Sequential animation trigger
-  useEffect(() => {
-    if (demoInView && animationStep === 0) {
-      startSequentialAnimation();
-    }
-  }, [demoInView, animationStep]);
-  
-  const startSequentialAnimation = async () => {
+  const startSequentialAnimation = useCallback(async () => {
     // Step 1: Show title
     setAnimationStep(1);
     await titleControls.start({ opacity: 1, y: 0 });
@@ -37,20 +32,30 @@ export const SolutionSection = () => {
     // Wait a bit for user to see full image
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    // Step 3: Move image left and make smaller, show ROI
-    setAnimationStep(3);
-    await Promise.all([
-      imageControls.start({ 
-        width: "70%", 
-        x: 0,
-        transition: { duration: 0.8, ease: "easeInOut" }
-      }),
-      roiControls.start({ 
+    // Step 3: Move image left and make smaller, show ROI (desktop only)
+    if (!isMobile) {
+      setAnimationStep(3);
+      await Promise.all([
+        imageControls.start({ 
+          width: "70%", 
+          x: 0,
+          transition: { duration: 0.8, ease: "easeInOut" }
+        }),
+        roiControls.start({ 
+          opacity: 1, 
+          x: 0,
+          transition: { duration: 0.8, ease: "easeInOut", delay: 0.3 }
+        })
+      ]);
+    } else {
+      // On mobile, just show the stats below the image
+      setAnimationStep(3);
+      await roiControls.start({ 
         opacity: 1, 
-        x: 0,
-        transition: { duration: 0.8, ease: "easeInOut", delay: 0.3 }
-      })
-    ]);
+        y: 0,
+        transition: { duration: 0.8, ease: "easeInOut" }
+      });
+    }
     
     // Step 4: Show 3-column pillars after stats are visible
     await new Promise(resolve => setTimeout(resolve, 800));
@@ -69,7 +74,15 @@ export const SolutionSection = () => {
       scale: 1,
       transition: { duration: 0.8, ease: "easeOut" }
     });
-  };
+  }, [isMobile, titleControls, imageControls, roiControls, pillarsAnimationControls, calloutAnimationControls, setAnimationStep]);
+
+  // Sequential animation trigger
+  useEffect(() => {
+    if (demoInView && animationStep === 0) {
+      startSequentialAnimation();
+    }
+  }, [demoInView, animationStep, startSequentialAnimation]);
+  
 
   const statistics = [
     { icon: Clock, number: "23h", label: "Meeting-Zeit wöchentlich gespart" },
@@ -108,11 +121,11 @@ export const SolutionSection = () => {
 
         {/* 2. Demo Animation Container */}
         <div ref={demoRef} className="mb-16 sm:mb-20">
-          <div className="flex items-start justify-center">
+          <div className="flex flex-col md:flex-row items-start justify-center">
             {/* Demo Image - starts full width, then moves left and shrinks */}
             <motion.div
-              className="relative"
-              initial={{ opacity: 0, scale: 0.8, width: "100%" }}
+              className="relative w-full md:w-auto"
+              initial={{ opacity: 0, scale: 0.8 }}
               animate={imageControls}
               transition={{ duration: 0.6 }}
             >
@@ -125,8 +138,8 @@ export const SolutionSection = () => {
             
             {/* ROI Statistics - appears on the right (25% width) */}
             <motion.div
-              className="w-1/4 ml-8 flex-shrink-0"
-              initial={{ opacity: 0, x: 50 }}
+              className="w-full md:w-1/4 md:ml-8 mt-8 md:mt-0 flex-shrink-0"
+              initial={{ opacity: 0, x: isMobile ? 0 : 0, y: isMobile ? 20 : 0 }}
               animate={roiControls}
               transition={{ duration: 0.8 }}
             >

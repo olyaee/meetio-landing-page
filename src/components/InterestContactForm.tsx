@@ -146,7 +146,7 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-lg mx-4 max-h-[90vh] overflow-y-auto">
+      <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="font-geist font-bold text-xl sm:text-2xl text-center pr-8">
             {getFormTitle()}
