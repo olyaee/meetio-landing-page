@@ -2,8 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/HeroSection";
 import { ProblemSection } from "@/components/ProblemSection";
 import { SolutionSection } from "@/components/SolutionSection";
-import { DemoSection } from "@/components/DemoSection";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { ROICalculatorSection } from "@/components/ROICalculator";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 
@@ -15,8 +14,7 @@ const Index = () => {
         <HeroSection />
         <ProblemSection />
         <SolutionSection />
-        <DemoSection />
-        <TestimonialsSection />
+        <ROICalculatorSection />
         <ContactSection />
       </main>
       <Footer />

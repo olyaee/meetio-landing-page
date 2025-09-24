@@ -61,7 +61,7 @@ export const TestimonialsSection = () => {
 
   const testimonials = [
     {
-      quote: "3 Monate Reduzierung der Einarbeitungszeit für neue Mandanten. MeetioAI hat unsere gesamte Client-Intelligence revolutioniert.",
+      quote: "3 Monate Reduzierung der Einarbeitungszeit für neue Mandanten. meetio.ai hat unsere gesamte Client-Intelligence revolutioniert.",
       author: "— Dr. Marcus Weber, Senior Partner, Globale Unternehmensberatung",
       metric: "3 Monate Reduzierung"
     },
@@ -91,7 +91,7 @@ export const TestimonialsSection = () => {
             Vertraut von 500+ Unternehmen
           </h2>
           <p className="font-poppins font-medium text-base sm:text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto px-2">
-            Führende Organisationen nutzen MeetioAI bereits für messbare Geschäftsergebnisse.
+            Führende Organisationen nutzen meetio.ai bereits für messbare Geschäftsergebnisse.
           </p>
         </div>
 

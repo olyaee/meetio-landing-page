@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* MeetioAI Design System - Premium Meeting Intelligence Platform
+/* meetio.ai Design System - Premium Meeting Intelligence Platform
 All colors MUST be HSL. Sophisticated gradients and animations for enterprise appeal.
 */
 
@@ -13,7 +13,7 @@ All colors MUST be HSL. Sophisticated gradients and animations for enterprise ap
     --foreground: 215 12% 25%; /* #40434f - Professional dark text */
     
     /* Brand Colors */
-    --brand-primary: 257 89% 59%; /* #7833ff - MeetioAI signature purple */
+    --brand-primary: 257 89% 59%; /* #7833ff - meetio.ai signature purple */
     --brand-primary-light: 257 89% 75%; /* Lighter purple for hover states */
     --brand-primary-dark: 257 89% 45%; /* Darker purple for active states */
     --brand-accent: 42 78% 60%; /* #f59e0b - Warm orange for highlights */

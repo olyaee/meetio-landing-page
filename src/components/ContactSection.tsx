@@ -2,10 +2,12 @@ import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { Button } from "@/components/ui/button";
 import { Mail, MessageSquare, ArrowRight } from "lucide-react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { InterestContactForm } from "./InterestContactForm";
+import { motion } from "framer-motion";
 
 export const ContactSection = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formModalOpen, setFormModalOpen] = useState(false);
+  const [formType, setFormType] = useState<'interest' | 'contact' | 'waitlist'>('contact');
   
   const [quoteRef, quoteInView] = useInView({
     threshold: 0.5,
@@ -17,14 +19,6 @@ export const ContactSection = () => {
     triggerOnce: true,
   });
 
-  const handleEmailContact = () => {
-    window.location.href = "mailto:hello@meetio.ai";
-  };
-
-  const handleWhatsAppContact = () => {
-    // Replace with actual WhatsApp number
-    window.open("https://wa.me/1234567890", "_blank");
-  };
 
   return (
     <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-subtle">
@@ -51,75 +45,48 @@ export const ContactSection = () => {
             contactInView ? 'animate-scale-in' : 'opacity-0'
           }`}
         >
-          <h2 className="font-geist font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground mb-4 sm:mb-6 px-2">
-            Lassen Sie uns Ihre Meeting-Herausforderungen lösen
-          </h2>
+          {/* <h2 className="font-geist font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground mb-4 sm:mb-6 px-2">
+            Lass uns deine Meeting-Herausforderungen lösen
+          </h2> */}
           <p className="font-poppins font-medium text-base sm:text-lg text-foreground/70 mb-8 sm:mb-12 max-w-2xl mx-auto px-2">
-            Jedes Unternehmen ist einzigartig. Erfahren Sie, wie MeetioAI speziell für Ihre Branche und Ihre Bedürfnisse funktioniert.
+            Jedes Unternehmen ist einzigartig. Erfahre, wie meetio.ai speziell für deine Branche und deine Bedürfnisse funktioniert.
           </p>
 
           {/* Contact CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
-            <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-              <DialogTrigger asChild>
-                <Button 
-                  size="lg"
-                  className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-dark text-white font-poppins font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-elegant hover:shadow-hover transition-all duration-300 group"
-                >
-                  Jetzt Kontakt aufnehmen
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </DialogTrigger>
-              
-              <DialogContent className="sm:max-w-md mx-4">
-                <DialogHeader>
-                  <DialogTitle className="font-geist font-bold text-lg sm:text-xl text-center">
-                    Wie möchten Sie uns erreichen?
-                  </DialogTitle>
-                </DialogHeader>
-                <div className="space-y-4 pt-4">
-                  <Button
-                    onClick={handleEmailContact}
-                    variant="outline"
-                    className="w-full justify-start text-left h-auto p-3 sm:p-4"
-                  >
-                    <Mail className="mr-3 h-4 w-4 sm:h-5 sm:w-5 text-brand-primary flex-shrink-0" />
-                    <div>
-                      <div className="font-medium text-sm sm:text-base">📧 E-Mail</div>
-                      <div className="text-xs sm:text-sm text-muted-foreground">hello@meetio.ai</div>
-                    </div>
-                  </Button>
-                  
-                  <Button
-                    onClick={handleWhatsAppContact}
-                    variant="outline"
-                    className="w-full justify-start text-left h-auto p-3 sm:p-4"
-                  >
-                    <MessageSquare className="mr-3 h-4 w-4 sm:h-5 sm:w-5 text-brand-success flex-shrink-0" />
-                    <div>
-                      <div className="font-medium text-sm sm:text-base">📱 WhatsApp</div>
-                      <div className="text-xs sm:text-sm text-muted-foreground">Sofortige Antwort</div>
-                    </div>
-                  </Button>
-                  
-                  <p className="text-center text-xs sm:text-sm text-muted-foreground pt-2">
-                    Wir melden uns binnen 24 Stunden zurück
-                  </p>
-                </div>
-              </DialogContent>
-            </Dialog>
+            {/* <Button 
+              size="lg"
+              onClick={() => {
+                setFormType('contact');
+                setFormModalOpen(true);
+              }}
+              className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-dark text-white font-poppins font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-elegant hover:shadow-hover transition-all duration-300 group"
+            >
+              Jetzt Kontakt aufnehmen
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Button> */}
 
             <Button 
-              onClick={handleWhatsAppContact}
+              onClick={() => {
+                setFormType('interest');
+                setFormModalOpen(true);
+              }}
               size="lg"
-              className="w-full sm:w-auto bg-brand-success hover:bg-brand-success/90 text-white font-poppins font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-elegant hover:shadow-hover transition-all duration-300"
+              className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-dark text-white font-poppins font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-elegant hover:shadow-hover transition-all duration-300 group"
             >
               <MessageSquare className="mr-2 h-4 w-4" />
-              WhatsApp uns
+              Interesse ermitteln
             </Button>
           </div>
         </div>
       </div>
+
+      {/* Form Modal */}
+      <InterestContactForm
+        isOpen={formModalOpen}
+        onClose={() => setFormModalOpen(false)}
+        formType={formType}
+      />
     </section>
   );
 };

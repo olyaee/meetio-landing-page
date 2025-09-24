@@ -1,11 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Play, ArrowRight } from "lucide-react";
-import { ParticleNetwork } from "./ParticleNetwork";
+//import { MeetingIntelligenceCanvas } from "./MeetingIntelligenceCanvas";
+import { InterestContactForm } from "./InterestContactForm";
+import { motion } from "framer-motion";
 
 export const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
+  const [formModalOpen, setFormModalOpen] = useState(false);
+  const [formType, setFormType] = useState<'interest' | 'contact' | 'waitlist'>('interest');
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 200);
@@ -13,8 +17,8 @@ export const HeroSection = () => {
   }, []);
 
   const handleInterestClick = () => {
-    // This would open a modal or contact form
-    console.log("Opening contact modal");
+    setFormType('interest');
+    setFormModalOpen(true);
   };
 
   const handleDemoClick = () => {
@@ -26,39 +30,61 @@ export const HeroSection = () => {
       ref={heroRef} 
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-subtle px-4 sm:px-6"
     >
-      {/* Particle Network Background */}
-      <ParticleNetwork />
+      {/* Meeting Intelligence Canvas Animation */}
+      {/* <MeetingIntelligenceCanvas /> */}
       
       {/* Main Content */}
-      <div className="relative z-10 max-w-6xl mx-auto text-center">
+      <motion.div 
+        className="relative z-10 max-w-6xl mx-auto text-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+      >
         {/* Main Headline */}
-        <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1 }}
+        >
           <h1 className="font-geist font-bold text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground mb-4 sm:mb-6 leading-tight px-2">
-            Verwandeln Sie jedes Meeting in{" "}
+            Verwandle jedes Meeting in{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent animate-gradient-move bg-[length:200%_200%]">
               umsetzbare Erkenntnisse
             </span>
           </h1>
-        </div>
+        </motion.div>
 
-        {/* Subtitle */}
-        <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <p className="font-poppins text-lg sm:text-xl md:text-2xl text-foreground/80 mb-3 sm:mb-4 max-w-4xl mx-auto leading-relaxed px-2">
-            Stoppen Sie den Verlust von 37 Milliarden Dollar durch unproduktive Meetings. 
-            Sparen Sie 4+ Stunden wöchentlich pro Mitarbeiter durch KI, die erfasst, was Menschen übersehen.
+        {/* Subtitle
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.5 }}
+        >
+          {/* <p className="font-poppins text-lg sm:text-xl md:text-2xl text-foreground/80 mb-3 sm:mb-4 max-w-4xl mx-auto leading-relaxed px-2">
+            Stoppe den Verlust von 37 Milliarden Dollar durch unproduktive Meetings. 
+            Spare 4+ Stunden wöchentlich pro Mitarbeiter durch KI, die erfasst, was Menschen übersehen.
           </p>
-        </div>
+        </motion.div> */}
 
         {/* Value Proposition */}
-        <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 2 }}
+        >
           <p className="font-poppins font-medium text-base sm:text-lg text-foreground/70 mb-8 sm:mb-12 max-w-3xl mx-auto px-2">
-            MeetioAI transformiert Meetings von Zeitfressern zu Intelligenz-Motoren. Erfassen Sie implizites Wissen, 
-            automatisieren Sie Arbeitsabläufe und bewahren Sie institutionelles Gedächtnis—mit einem ROI von 180% bis 20.000% branchenübergreifend.
+            meetio.ai transformiert Meetings von Zeitfressern zu Intelligenz-Motoren. Erfasse implizites Wissen, 
+            automatisiere Arbeitsabläufe und bewahre institutionelles Gedächtnis—mit einem ROI von 180% bis 20.000% branchenübergreifend.
           </p>
-        </div>
+        </motion.div>
 
         {/* CTA Buttons */}
-        <div className={`flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center transition-all duration-1000 delay-700 px-4 ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}>
+        <motion.div 
+          className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 2.5 }}
+        >
           <Button 
             onClick={handleInterestClick}
             size="lg"
@@ -77,35 +103,28 @@ export const HeroSection = () => {
             <Play className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
             3-Minuten Demo ansehen
           </Button>
-        </div>
+        </motion.div>
 
-        {/* Social Proof */}
-        <div className={`mt-12 sm:mt-16 transition-all duration-1000 delay-900 px-4 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <p className="font-poppins text-xs sm:text-sm text-foreground/60 mb-4 sm:mb-6">Vertraut von 500+ Unternehmen</p>
-          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 opacity-60">
-            {/* These would be actual customer logos */}
-            <div className="bg-foreground/10 rounded-lg px-3 sm:px-6 py-2 sm:py-3">
-              <span className="font-geist font-medium text-xs sm:text-sm text-foreground/70">Enterprise Corp</span>
-            </div>
-            <div className="bg-foreground/10 rounded-lg px-3 sm:px-6 py-2 sm:py-3">
-              <span className="font-geist font-medium text-xs sm:text-sm text-foreground/70">Global Consulting</span>
-            </div>
-            <div className="bg-foreground/10 rounded-lg px-3 sm:px-6 py-2 sm:py-3">
-              <span className="font-geist font-medium text-xs sm:text-sm text-foreground/70">Tech Solutions</span>
-            </div>
-            <div className="bg-foreground/10 rounded-lg px-3 sm:px-6 py-2 sm:py-3">
-              <span className="font-geist font-medium text-xs sm:text-sm text-foreground/70">Private Equity</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      </motion.div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <motion.div 
+        className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 3, repeat: Infinity, repeatType: "reverse", repeatDelay: 1 }}
+      >
         <div className="w-5 sm:w-6 h-8 sm:h-10 border-2 border-foreground/20 rounded-full flex justify-center">
           <div className="w-1 h-2 sm:h-3 bg-brand-primary rounded-full mt-1 sm:mt-2 animate-pulse"></div>
         </div>
-      </div>
+      </motion.div>
+
+      {/* Form Modal */}
+      <InterestContactForm
+        isOpen={formModalOpen}
+        onClose={() => setFormModalOpen(false)}
+        formType={formType}
+      />
     </section>
   );
 };

@@ -46,14 +46,14 @@ export const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <img 
-                src="/lovable-uploads/7734cd4a-c927-4520-aafb-e3d822dfe71e.png" 
-                alt="MeetioAI Logo" 
+                src="/logo.png" 
+                alt="meetio.ai Logo" 
                 className="h-8 w-8 filter brightness-0 invert"
               />
-              <span className="font-geist font-bold text-xl">MeetioAI</span>
+              <span className="font-geist font-bold text-xl">meetio.ai</span>
             </div>
             <p className="font-poppins text-background/80 leading-relaxed mb-6">
-              Verwandeln Sie jedes Meeting in umsetzbare Geschäftsintelligenz. 
+              Verwandle jedes Meeting in umsetzbare Geschäftsintelligenz. 
               Der führende KI-Assistent für Meeting-Intelligence.
             </p>
             <div className="flex space-x-4">
@@ -146,7 +146,7 @@ export const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <p className="font-poppins text-background/60 text-sm">
-                © 2024 MeetioAI. Alle Rechte vorbehalten.
+                © 2025 meetio.ai. Alle Rechte vorbehalten.
               </p>
             </div>
             <div className="flex space-x-6">
