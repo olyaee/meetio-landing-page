@@ -97,7 +97,7 @@ export const ContactSection = () => {
               className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-dark text-white font-poppins font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-elegant hover:shadow-hover transition-all duration-300 group"
             >
               <MessageSquare className="mr-2 h-4 w-4" />
-              Interesse ermitteln
+              Interesse geweckt?
             </Button>
           </div>
         </div>

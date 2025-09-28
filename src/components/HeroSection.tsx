@@ -74,7 +74,7 @@ export const HeroSection = () => {
         >
           <p className="font-poppins font-medium text-base sm:text-lg text-foreground/70 mb-8 sm:mb-12 max-w-3xl mx-auto px-2">
             meetio.ai transformiert Meetings von Zeitfressern zu Intelligenz-Motoren. Erfasse implizites Wissen, 
-            automatisiere Arbeitsabläufe und bewahre institutionelles Gedächtnis—mit einem ROI von 180% bis 20.000% branchenübergreifend.
+            automatisiere Arbeitsabläufe und sichere Firmenwissen — mit einem ROI von 180% bis 20.000% branchenübergreifend.
           </p>
         </motion.div>
 
@@ -90,7 +90,7 @@ export const HeroSection = () => {
             size="lg"
             className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-dark text-white font-geist font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-elegant hover:shadow-hover transition-all duration-300 group"
           >
-            Interesse ermitteln
+            Neugierig geworden?
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Button>
           
