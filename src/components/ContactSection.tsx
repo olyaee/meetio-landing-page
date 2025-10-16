@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { Button } from "@/components/ui/button";
 import { Mail, MessageSquare, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { InterestContactForm } from "./InterestContactForm";
 import { motion } from "framer-motion";
 
 export const ContactSection = () => {
   const [formModalOpen, setFormModalOpen] = useState(false);
   const [formType, setFormType] = useState<'interest' | 'contact' | 'waitlist'>('contact');
+  const { t } = useTranslation('pages');
   
   const [quoteRef, quoteInView] = useInView({
     threshold: 0.5,
@@ -21,7 +23,7 @@ export const ContactSection = () => {
   
   // Typewriter effect
   const [displayedText, setDisplayedText] = useState('');
-  const fullQuote = "Alle glücklichen Meetings sind einander ähnlich; jedes unglückliche Meeting ist auf seine Weise unglücklich.";
+  const fullQuote = t('contact.quote');
   
   useEffect(() => {
     if (quoteInView && displayedText.length < fullQuote.length) {
@@ -56,7 +58,7 @@ export const ContactSection = () => {
             animate={displayedText.length >= fullQuote.length ? { opacity: 1 } : { opacity: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
           >
-            Möchtest du mehr happy Meetings?
+            {t('contact.title')}
           </motion.p>
         </motion.div>
 
@@ -68,7 +70,7 @@ export const ContactSection = () => {
           }`}
         >
           {/* <h2 className="font-geist font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground mb-4 sm:mb-6 px-2">
-            Lass uns deine Meeting-Herausforderungen lösen
+            {t('contact.subtitle')}
           </h2> */}
           <p className="font-poppins font-medium text-lg sm:text-xl text-foreground/70 mb-10 sm:mb-16 max-w-3xl mx-auto px-2 leading-relaxed">
             Jedes Unternehmen ist einzigartig. Erfahre, wie meetio.ai speziell für deine Branche und deine Bedürfnisse funktioniert.

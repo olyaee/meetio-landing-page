@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Mail, MessageSquare, Linkedin, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const Footer = () => {
+  const { t } = useTranslation('pages');
   const productLinks = [
     { name: "Features", href: "#features" },
     { name: "Integrationen", href: "#integrations" },
@@ -54,8 +56,7 @@ export const Footer = () => {
               <span className="font-geist font-bold text-xl">meetio.ai</span>
             </div>
             <p className="font-poppins text-background/80 leading-relaxed mb-6">
-              Verwandle jedes Meeting in umsetzbare Geschäftsintelligenz. 
-              Der führende KI-Assistent für Meeting-Intelligence.
+              {t('footer.description')}
             </p>
             <div className="flex space-x-4">
               <Button variant="ghost" size="sm" className="text-background/80 hover:text-background hover:bg-background/10">

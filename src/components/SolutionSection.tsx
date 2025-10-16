@@ -2,12 +2,14 @@ import { useInView } from "react-intersection-observer";
 import { Brain, Zap, Shield, Clock, TrendingUp } from "lucide-react";
 import { motion, useAnimation } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { useIsMobile } from "../hooks/use-mobile";
 
 
 // Hauptkomponente, die Demo und Lösung kombiniert
 export const SolutionSection = () => {
   const isMobile = useIsMobile();
+  const { t } = useTranslation('pages');
   const [titleRef, titleInView] = useInView({ threshold: 0.5, triggerOnce: true });
   const [demoRef, demoInView] = useInView({ threshold: 0.2, triggerOnce: true });
   const [calloutRef, calloutInView] = useInView({ threshold: 0.3, triggerOnce: true });
@@ -85,15 +87,15 @@ export const SolutionSection = () => {
   
 
   const statistics = [
-    { icon: Clock, number: "23h", label: "Meeting-Zeit wöchentlich gespart" },
-    { icon: TrendingUp, number: "180%", label: "Durchschnittlicher ROI" },
-    { icon: Zap, number: "50%", label: "Weniger unproduktive Meetings" },
+    { icon: Clock, number: "23h", label: t('solution.stats.time') },
+    { icon: TrendingUp, number: "180%", label: t('solution.stats.roi') },
+    { icon: Zap, number: "50%", label: t('solution.stats.productive') },
   ];
 
   const pillars = [
-    { icon: Brain, title: "Entscheidungen bewegen sich 3x schneller", description: "Mit vollständigem Kontext. Keine verlorenen Diskussionen mehr." },
-    { icon: Zap, title: "Nie wieder Multitasken um Notizen machen", description: "Konzentriere dich voll auf die Diskussion, während meetio.ai automatisch alles erfasst." },
-    { icon: Shield, title: "Implizites Wissen bewahren", description: "Das normalerweise mit kündigenden Mitarbeitern das Unternehmen verlässt." }
+    { icon: Brain, title: t('solution.pillars.decisions.title'), description: t('solution.pillars.decisions.description') },
+    { icon: Zap, title: t('solution.pillars.notes.title'), description: t('solution.pillars.notes.description') },
+    { icon: Shield, title: t('solution.pillars.knowledge.title'), description: t('solution.pillars.knowledge.description') }
   ];
 
   return (
@@ -108,13 +110,13 @@ export const SolutionSection = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="font-geist font-bold text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground mb-4 sm:mb-6 px-2">
-              Mehr als Transkription:{" "}
+              {t('solution.titlePrefix')}{" "}
               <span className="bg-gradient-primary bg-clip-text text-transparent">
-                Echte Meeting-Intelligence
+                {t('solution.title')}
               </span>
             </h2>
             <p className="font-poppins font-medium text-base sm:text-lg md:text-xl text-foreground/70 max-w-4xl mx-auto px-2">
-              meetio.ai verwandelt chaotische Gespräche in strukturierte, durchsuchbare und umsetzbare Geschäftsintelligenz.
+              {t('solution.description')}
             </p>
           </motion.div>
         </div>
@@ -207,11 +209,10 @@ export const SolutionSection = () => {
         >
           <div className="bg-secondary/50 border-2 border-brand-primary/20 rounded-2xl p-6 sm:p-8 text-center shadow-card">
             <h3 className="font-geist font-bold text-xl sm:text-2xl text-foreground mb-3 sm:mb-4">
-              Implizites Wissen erfassen
+              {t('solution.subtitle')}
             </h3>
             <p className="font-poppins text-base sm:text-lg text-foreground/80 leading-relaxed">
-              Wir hören nicht nur, was gesagt wird—wir verstehen, was gemeint ist. 
-              Erfasse unausgesprochene Bedenken, Beziehungsdynamiken und strategischen Kontext.
+              {t('solution.capture')}
             </p>
           </div>
         </motion.div>

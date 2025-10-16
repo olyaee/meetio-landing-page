@@ -1,0 +1,18 @@
+{
+  "navigation": {
+    "features": "Features",
+    "about": "Über uns",
+    "earlyAccess": "Frühzugang sichern",
+    "contact": "Kontaktiere uns"
+  },
+  "buttons": {
+    "getStarted": "Loslegen",
+    "learnMore": "Mehr erfahren",
+    "signUp": "Anmelden",
+    "close": "Schließen"
+  },
+  "language": {
+    "switchTo": "Wechseln zu {{language}}",
+    "current": "Aktuelle Sprache: {{language}}"
+  }
+}

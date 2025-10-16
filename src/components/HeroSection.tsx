@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Play, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { MeetingCanvas } from "./MeetingCanvas";
 import { InterestContactForm } from "./InterestContactForm";
 import { motion } from "framer-motion";
@@ -10,6 +11,7 @@ export const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const [formModalOpen, setFormModalOpen] = useState(false);
   const [formType, setFormType] = useState<'interest' | 'contact' | 'waitlist'>('interest');
+  const { t } = useTranslation('pages');
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 200);
@@ -22,7 +24,7 @@ export const HeroSection = () => {
   };
 
   const handleDemoClick = () => {
-    window.open("https://youtu.be/qWjb6uPpT80", "_blank");
+    window.open("https://youtu.be/-7oqsJ8nvzw", "_blank");
   };
 
   return (
@@ -47,9 +49,9 @@ export const HeroSection = () => {
           transition={{ duration: 1, delay: 1 }}
         >
           <h1 className="font-geist font-bold text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground mb-4 sm:mb-6 leading-tight px-2">
-            Verwandle jedes Meeting in{" "}
+            {t('hero.title')}{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent animate-gradient-move bg-[length:200%_200%]">
-              umsetzbare Erkenntnisse
+              {t('hero.titleHighlight')}
             </span>
           </h1>
         </motion.div>
@@ -73,8 +75,7 @@ export const HeroSection = () => {
           transition={{ duration: 0.8, delay: 2 }}
         >
           <p className="font-poppins font-medium text-base sm:text-lg text-foreground/70 mb-8 sm:mb-12 max-w-3xl mx-auto px-2">
-            meetio.ai transformiert Meetings von Zeitfressern zu Intelligenz-Motoren. Erfasse implizites Wissen, 
-            automatisiere Arbeitsabläufe und sichere Firmenwissen — mit einem ROI von 180% bis 20.000% branchenübergreifend.
+            {t('hero.subtitle')}
           </p>
         </motion.div>
 
@@ -90,7 +91,7 @@ export const HeroSection = () => {
             size="lg"
             className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-dark text-white font-geist font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-elegant hover:shadow-hover transition-all duration-300 group"
           >
-            Neugierig geworden?
+            {t('hero.ctaPrimary')}
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Button>
           
@@ -101,7 +102,7 @@ export const HeroSection = () => {
             className="w-full sm:w-auto border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white font-geist font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 group"
           >
             <Play className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
-            3-Minuten Demo ansehen
+            {t('hero.ctaDemo')}
           </Button>
         </motion.div>
 

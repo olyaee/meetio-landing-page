@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { InterestContactForm } from "./InterestContactForm";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,6 +14,7 @@ export const Navigation = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,8 +35,8 @@ export const Navigation = () => {
   }, [location]);
 
   const navItems = [
-    { name: "Features", href: "#features" },
-    { name: "Über uns", href: "/uber-uns" },
+    { name: t("navigation.features"), href: "#features" },
+    { name: t("navigation.about"), href: "/uber-uns" },
   ];
 
   const handleOpenForm = (type: 'interest' | 'contact' | 'waitlist') => {
@@ -101,18 +104,19 @@ export const Navigation = () => {
 
             {/* Desktop CTAs */}
             <div className="hidden md:flex items-center space-x-4">
+              <LanguageSwitcher />
               <Button 
                 variant="outline" 
                 onClick={() => handleOpenForm('waitlist')}
                 className="font-poppins text-foreground border-foreground/20 hover:border-brand-primary hover:text-brand-primary transition-all duration-300"
               >
-                Frühzugang sichern
+                {t("navigation.earlyAccess")}
               </Button>
               <Button 
                 onClick={() => handleOpenForm('contact')}
                 className="bg-brand-primary hover:bg-brand-primary-dark text-white font-poppins font-medium px-6 py-2 rounded-lg shadow-elegant hover:shadow-hover transition-all duration-300"
               >
-                Kontaktiere uns
+                {t("navigation.contact")}
               </Button>
             </div>
 
@@ -140,18 +144,21 @@ export const Navigation = () => {
                   </Link>
                 ))}
                 <div className="flex flex-col space-y-3 pt-4">
+                  <div className="flex justify-center pb-2">
+                    <LanguageSwitcher />
+                  </div>
                   <Button 
                     variant="outline" 
                     onClick={() => handleOpenForm('waitlist')}
                     className="justify-center border-foreground/20 hover:border-brand-primary hover:text-brand-primary"
                   >
-                    Frühzugang sichern
+                    {t("navigation.earlyAccess")}
                   </Button>
                   <Button 
                     onClick={() => handleOpenForm('contact')}
                     className="justify-center bg-brand-primary hover:bg-brand-primary-dark text-white"
                   >
-                    Kontaktiere uns
+                    {t("navigation.contact")}
                   </Button>
                 </div>
               </div>

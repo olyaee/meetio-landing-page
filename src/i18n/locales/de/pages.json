@@ -1,0 +1,110 @@
+{
+  "hero": {
+    "title": "Verwandle jedes Meeting in",
+    "titleHighlight": "umsetzbare Erkenntnisse",
+    "subtitle": "meetio.ai transformiert Meetings von Zeitfressern zu Intelligenz-Motoren. Erfasse implizites Wissen, automatisiere Arbeitsabläufe und sichere Firmenwissen — mit einem ROI von 180% bis 20.000% branchenübergreifend.",
+    "ctaPrimary": "Neugierig geworden?",
+    "ctaDemo": "3-Minuten Demo ansehen"
+  },
+  "problem": {
+    "title": "Die 37-Milliarden-Dollar Meeting-Krise",
+    "subtitle": "Wissen, Ideen und Entscheidungen verschwinden, sobald das Meeting endet.",
+    "transform": "Mit meetio.ai verwandelst du chaotische Meetings in strukturierte Geschäftsintelligenz",
+    "stats": {
+      "lost": "aller Aktionspunkte gehen nach Meetings verloren",
+      "time": "verbringen Führungskräfte wöchentlich in Meetings—72% ihrer Arbeitszeit"
+    }
+  },
+  "solution": {
+    "titlePrefix": "Mehr als Transkription:",
+    "title": "Echte Meeting-Intelligence",
+    "subtitle": "Implizites Wissen erfassen",
+    "description": "meetio.ai verwandelt chaotische Gespräche in strukturierte, durchsuchbare und umsetzbare Geschäftsintelligenz.",
+    "pillars": {
+      "decisions": {
+        "title": "Entscheidungen bewegen sich 3x schneller",
+        "description": "Mit vollständigem Kontext. Keine verlorenen Diskussionen mehr."
+      },
+      "notes": {
+        "title": "Nie wieder Multitasken um Notizen machen",
+        "description": "Konzentriere dich voll auf die Diskussion, während meetio.ai automatisch alles erfasst."
+      },
+      "knowledge": {
+        "title": "Implizites Wissen bewahren",
+        "description": "Das normalerweise mit kündigenden Mitarbeitern das Unternehmen verlässt."
+      }
+    },
+    "capture": "Wir hören nicht nur, was gesagt wird—wir verstehen, was gemeint ist. Erfasse unausgesprochene Bedenken, Beziehungsdynamiken und strategischen Kontext.",
+    "stats": {
+      "time": "Meeting-Zeit wöchentlich gespart",
+      "roi": "Durchschnittlicher ROI",
+      "productive": "Weniger unproduktive Meetings"
+    }
+  },
+  "roi": {
+    "title": "Eure Meetings enthalten das wertvollste, unausgesprochene Wissen Ihres Unternehmens. Sie aufzuzeichnen dient der Sicherung und Skalierung eurer kollektiven Intelligenz.",
+    "personalTab": "Mein persönlicher ROI",
+    "companyTab": "ROI für die Firma",
+    "inputs": {
+      "meetings": "Stunden in Meetings pro Woche:",
+      "prep": "Vorbereitungszeit pro Meeting:",
+      "followUp": "Nachbereitungszeit pro Meeting:",
+      "employees": "Anzahl Mitarbeiter in Meetings",
+      "avgSalary": "Durchschnittsgehalt (jährlich)"
+    },
+    "breakdown": {
+      "prep": "Smartere Meeting-Vorbereitung:",
+      "notes": "Automatisierte Notizen:",
+      "followup": "Sofortige Follow-ups:"
+    },
+    "calculate": "ROI für die Firma berechnen",
+    "potential": "Potenzieller ROI"
+  },
+  "contact": {
+    "title": "Möchtest du mehr happy Meetings?",
+    "subtitle": "Lass uns deine Meeting-Herausforderungen lösen",
+    "quote": "Alle glücklichen Meetings sind einander ähnlich; jedes unglückliche Meeting ist auf seine Weise unglücklich."
+  },
+  "footer": {
+    "description": "Verwandle jedes Meeting in umsetzbare Geschäftsintelligenz. Der führende KI-Assistent für Meeting-Intelligence.",
+    "sections": {
+      "product": "Produkt",
+      "company": "Unternehmen",
+      "legal": "Rechtliches"
+    },
+    "links": {
+      "roiStudies": "ROI-Studien",
+      "about": "Über uns",
+      "privacy": "Datenschutz",
+      "terms": "AGB",
+      "imprint": "Impressum"
+    },
+    "copyright": "© {{year}} meetio.ai. Alle Rechte vorbehalten."
+  },
+  "forms": {
+    "interest": {
+      "title": "Frühzugang erhalten",
+      "description": "Erzähle uns von deinen Meeting-Herausforderungen. Wir melden uns binnen 24 Stunden."
+    },
+    "contact": {
+      "title": "Kontaktiere uns",
+      "description": "Hast du Fragen oder möchtest eine Demo? Wir sind hier, um zu helfen."
+    },
+    "waitlist": {
+      "title": "Zur Warteliste",
+      "description": "Erzähle uns von deinen Meeting-Herausforderungen oder stelle deine Fragen..."
+    },
+    "fields": {
+      "name": "Vollständiger Name",
+      "email": "E-Mail-Adresse",
+      "company": "Unternehmen",
+      "role": "Position",
+      "message": "Nachricht",
+      "placeholder": "Erzähle uns von deinen Meeting-Herausforderungen oder stelle deine Fragen..."
+    },
+    "submit": "Nachricht senden",
+    "sending": "Wird gesendet...",
+    "success": "Vielen Dank! Wir melden uns bald bei dir.",
+    "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+  }
+}

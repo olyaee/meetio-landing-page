@@ -1,0 +1,110 @@
+{
+  "hero": {
+    "title": "Transform every meeting into",
+    "titleHighlight": "actionable insights",
+    "subtitle": "meetio.ai transforms meetings from time-wasters to intelligence engines. Capture implicit knowledge, automate workflows and secure company knowledge — with an ROI of 180% to 20,000% across industries.",
+    "ctaPrimary": "Curious?",
+    "ctaDemo": "Watch 3-minute demo"
+  },
+  "problem": {
+    "title": "The $37 Billion Meeting Crisis",
+    "subtitle": "Knowledge, ideas, and decisions disappear the moment the meeting ends.",
+    "transform": "With meetio.ai you transform chaotic meetings into structured business intelligence",
+    "stats": {
+      "lost": "of all action items are lost after meetings",
+      "time": "executives spend weekly in meetings—72% of their work time"
+    }
+  },
+  "solution": {
+    "titlePrefix": "More than transcription:",
+    "title": "Real Meeting Intelligence",
+    "subtitle": "Capture implicit knowledge",
+    "description": "meetio.ai transforms chaotic conversations into structured, searchable and actionable business intelligence.",
+    "pillars": {
+      "decisions": {
+        "title": "Decisions move 3x faster",
+        "description": "With complete context. No more lost discussions."
+      },
+      "notes": {
+        "title": "Never multitask to take notes again",
+        "description": "Focus fully on the discussion while meetio.ai automatically captures everything."
+      },
+      "knowledge": {
+        "title": "Preserve implicit knowledge",
+        "description": "That normally leaves the company with departing employees."
+      }
+    },
+    "capture": "We don't just hear what's said—we understand what's meant. Capture unspoken concerns, relationship dynamics and strategic context.",
+    "stats": {
+      "time": "Meeting time saved weekly",
+      "roi": "Average ROI",
+      "productive": "Less unproductive meetings"
+    }
+  },
+  "roi": {
+    "title": "Your meetings contain your company's most valuable, unspoken knowledge. Recording them serves to secure and scale your collective intelligence.",
+    "personalTab": "My personal ROI",
+    "companyTab": "Company ROI",
+    "inputs": {
+      "meetings": "Hours in meetings per week:",
+      "prep": "Prep time per meeting:",
+      "followUp": "Follow-up time per meeting:",
+      "employees": "Number of employees in meetings",
+      "avgSalary": "Average salary (annual)"
+    },
+    "breakdown": {
+      "prep": "Smarter meeting preparation:",
+      "notes": "Automated notes:",
+      "followup": "Instant follow-ups:"
+    },
+    "calculate": "Calculate company ROI",
+    "potential": "Potential ROI"
+  },
+  "contact": {
+    "title": "Want more happy meetings?",
+    "subtitle": "Let us solve your meeting challenges",
+    "quote": "All happy meetings are alike; every unhappy meeting is unhappy in its own way."
+  },
+  "footer": {
+    "description": "Transform every meeting into actionable business intelligence. The leading AI assistant for meeting intelligence.",
+    "sections": {
+      "product": "Product",
+      "company": "Company", 
+      "legal": "Legal"
+    },
+    "links": {
+      "roiStudies": "ROI Studies",
+      "about": "About Us",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "imprint": "Imprint"
+    },
+    "copyright": "© {{year}} meetio.ai. All rights reserved."
+  },
+  "forms": {
+    "interest": {
+      "title": "Get Early Access",
+      "description": "Tell us about your meeting challenges. We'll get back to you within 24 hours."
+    },
+    "contact": {
+      "title": "Contact Us", 
+      "description": "Have questions or want a demo? We're here to help."
+    },
+    "waitlist": {
+      "title": "Join Waitlist",
+      "description": "Tell us about your meeting challenges or ask your questions..."
+    },
+    "fields": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "company": "Company",
+      "role": "Role",
+      "message": "Message",
+      "placeholder": "Tell us about your meeting challenges or ask your questions..."
+    },
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "success": "Thank you! We'll be in touch soon.",
+    "error": "Something went wrong. Please try again."
+  }
+}

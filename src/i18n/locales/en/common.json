@@ -1,0 +1,18 @@
+{
+  "navigation": {
+    "features": "Features",
+    "about": "About Us",
+    "earlyAccess": "Get Early Access",
+    "contact": "Contact Us"
+  },
+  "buttons": {
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "signUp": "Sign Up",
+    "close": "Close"
+  },
+  "language": {
+    "switchTo": "Switch to {{language}}",
+    "current": "Current language: {{language}}"
+  }
+}

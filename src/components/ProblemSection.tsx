@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 // This component is now clean and only contains its own logic.
 const AnimatedStatistic = ({ 
@@ -109,9 +110,11 @@ export const ProblemSection = () => {
     triggerOnce: true,
   });
 
+  const { t } = useTranslation('pages');
+  
   const statistics = [
-    { number: "50", unit: "%", description: "aller Aktionspunkte gehen nach Meetings verloren" },
-    { number: "23", unit: "Stunden", description: "verbringen Führungskräfte wöchentlich in Meetings—72% ihrer Arbeitszeit" },
+    { number: "50", unit: "%", description: t('problem.stats.lost') },
+    { number: "23", unit: t('problem.stats.time').split(' ')[1], description: t('problem.stats.time') },
     { number: "5.500", unit: "€", description: "kostet jeder Mitarbeiter jährlich durch Wissensmanagement-Versagen" }
   ];
 
@@ -128,7 +131,7 @@ export const ProblemSection = () => {
           className="text-center mb-8 sm:mb-12"
         >
           <h2 className="font-geist font-bold text-3xl sm:text-4xl md:text-6xl text-foreground mb-4 sm:mb-6">
-            Die 37-Milliarden-Dollar Meeting-Krise
+            {t('problem.title')}
           </h2>
         </motion.div>
         {/* Animated Statistics */}
@@ -149,9 +152,7 @@ export const ProblemSection = () => {
           className="text-center"
         >
           <p className="font-poppins text-base sm:text-lg text-foreground/70 max-w-4xl mx-auto leading-relaxed">
-            Während deine Teams sprechen, entscheiden und planen, verschwindet kritisches Wissen ins Nichts. 
-            Kundeneinblicke, strategische Überlegungen und Entscheidungslogik—alles geht verloren, 
-            sobald das Meeting endet.
+            {t('problem.subtitle')}
           </p>
         </motion.div>
 
@@ -185,7 +186,7 @@ export const ProblemSection = () => {
           </div>
           
           <p className="font-poppins font-medium text-base sm:text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto px-2">
-            Mit meetio.ai verwandelst du chaotische Meetings in strukturierte Geschäftsintelligenz
+            {t('problem.transform')}
           </p>
         </div>
       </div>
