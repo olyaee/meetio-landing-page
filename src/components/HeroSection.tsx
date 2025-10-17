@@ -18,13 +18,16 @@ export const HeroSection = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleInterestClick = () => {
-    setFormType('interest');
-    setFormModalOpen(true);
-  };
-
   const handleDemoClick = () => {
     window.open("https://youtu.be/-7oqsJ8nvzw", "_blank");
+  };
+
+  const handleROIClick = () => {
+    // Scroll to ROI section on the same page
+    const roiSection = document.getElementById('roi');
+    if (roiSection) {
+      roiSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -87,22 +90,22 @@ export const HeroSection = () => {
           transition={{ duration: 0.8, delay: 2.5 }}
         >
           <Button 
-            onClick={handleInterestClick}
+            onClick={handleDemoClick}
             size="lg"
             className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-dark text-white font-geist font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-elegant hover:shadow-hover transition-all duration-300 group"
           >
+            <Play className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
             {t('hero.ctaPrimary')}
-            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Button>
           
           <Button 
-            onClick={handleDemoClick}
+            onClick={handleROIClick}
             variant="outline"
             size="lg"
             className="w-full sm:w-auto border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white font-geist font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 group"
           >
-            <Play className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
             {t('hero.ctaDemo')}
+            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </motion.div>
 

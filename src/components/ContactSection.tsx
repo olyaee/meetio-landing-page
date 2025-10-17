@@ -73,7 +73,7 @@ export const ContactSection = () => {
             {t('contact.subtitle')}
           </h2> */}
           <p className="font-poppins font-medium text-lg sm:text-xl text-foreground/70 mb-10 sm:mb-16 max-w-3xl mx-auto px-2 leading-relaxed">
-            Jedes Unternehmen ist einzigartig. Erfahre, wie meetio.ai speziell für deine Branche und deine Bedürfnisse funktioniert.
+            {t('contact.subtitle')}
           </p>
 
           {/* Contact CTAs */}
@@ -99,7 +99,7 @@ export const ContactSection = () => {
               className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-dark text-white font-poppins font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-elegant hover:shadow-hover transition-all duration-300 group"
             >
               <MessageSquare className="mr-2 h-4 w-4" />
-              Interesse geweckt?
+              {t('hero.ctaPrimary')}
             </Button>
           </div>
         </div>

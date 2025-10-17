@@ -1,83 +1,147 @@
 {
   "hero": {
-    "title": "Verwandle jedes Meeting in",
-    "titleHighlight": "umsetzbare Erkenntnisse",
-    "subtitle": "meetio.ai transformiert Meetings von Zeitfressern zu Intelligenz-Motoren. Erfasse implizites Wissen, automatisiere Arbeitsabläufe und sichere Firmenwissen — mit einem ROI von 180% bis 20.000% branchenübergreifend.",
-    "ctaPrimary": "Neugierig geworden?",
-    "ctaDemo": "3-Minuten Demo ansehen"
+    "title": "Dein letztes Feature hatte 3% Adoption.",
+    "titleHighlight": "Das, was Kunden wollten, ist noch im Backlog.",
+    "subtitle": "Jedes Kundengespräch, automatisch erfasst. Jede Feature-Anfrage, nach Umsatz sortiert. Jede Konkurrenz-Erwähnung, sofort markiert. Hör auf, Features zu bauen, die sterben.",
+    "ctaPrimary": "Neugierig?",
+    "ctaDemo": "Feature-Verschwendung berechnen"
   },
   "problem": {
-    "title": "Die 37-Milliarden-Dollar Meeting-Krise",
-    "subtitle": "Wissen, Ideen und Entscheidungen verschwinden, sobald das Meeting endet.",
-    "transform": "Mit meetio.ai verwandelst du chaotische Meetings in strukturierte Geschäftsintelligenz",
+    "title": "Du baust nicht falsch. Du baust blind.",
+    "subtitle": "Deine Roadmap basiert auf den 3 Kunden, die Sales zufällig in Slack erwähnt hat. Dieses \"dringende\" Feature? Ein Kunde. Der trotzdem gekündigt hat.",
+    "transform": "Währenddessen haben 23 Kunden nach CSV-Export gefragt. Sales hat es vergessen zu erwähnen. Du hast stattdessen Dark Mode gebaut. Keiner nutzt es.",
     "stats": {
-      "lost": "aller Aktionspunkte gehen nach Meetings verloren",
-      "time": "verbringen Führungskräfte wöchentlich in Meetings—72% ihrer Arbeitszeit"
+      "lost": "der Features werden selten oder nie genutzt",
+      "time": "400K€ durchschnittliche Kosten eines ungenutzten Features"
     }
   },
   "solution": {
-    "titlePrefix": "Mehr als Transkription:",
-    "title": "Echte Meeting-Intelligence",
-    "subtitle": "Implizites Wissen erfassen",
-    "description": "meetio.ai verwandelt chaotische Gespräche in strukturierte, durchsuchbare und umsetzbare Geschäftsintelligenz.",
+    "titlePrefix": "Vom Kundengespräch zum Jira-Ticket.",
+    "title": "In Minuten, nicht Wochen.",
+    "subtitle": "Drei Schritte, um nie wieder eine Feature-Anfrage zu verpassen",
+    "description": "Meetio automatisiert die mühsame Arbeit des Durchsuchens von Aufzeichnungen, damit sich dein Team auf das Wesentliche konzentrieren kann: großartige Produkte zu bauen. Keine manuelle Suche mehr, keine verpassten Erkenntnisse.",
     "pillars": {
       "decisions": {
-        "title": "Entscheidungen bewegen sich 3x schneller",
-        "description": "Mit vollständigem Kontext. Keine verlorenen Diskussionen mehr."
+        "title": "1. Sales redet (passiert sowieso)",
+        "description": "Dein Team hat 50+ Kundengespräche wöchentlich in Zoom, Teams, Meet. Nutzt ihr Gong? Behaltet es. Fireflies? Passt. Nichts? Wir haben euch."
       },
       "notes": {
-        "title": "Nie wieder Multitasken um Notizen machen",
-        "description": "Konzentriere dich voll auf die Diskussion, während meetio.ai automatisch alles erfasst."
+        "title": "2. Wir extrahieren, was wichtig ist",
+        "description": "Nicht Transkription. Intelligenz. Jede Feature-Anfrage getaggt. Jeder Schmerzpunkt kategorisiert. Jedes \"euer Konkurrent macht X\" markiert."
       },
       "knowledge": {
-        "title": "Implizites Wissen bewahren",
-        "description": "Das normalerweise mit kündigenden Mitarbeitern das Unternehmen verlässt."
+        "title": "3. Deine Tools werden smarter",
+        "description": "Wach auf mit Jira-Tickets mit Beweisen. Linear-Roadmap-Items mit ARR-Impact. Slack-Zusammenfassung dessen, was du verpasst hast."
       }
     },
-    "capture": "Wir hören nicht nur, was gesagt wird—wir verstehen, was gemeint ist. Erfasse unausgesprochene Bedenken, Beziehungsdynamiken und strategischen Kontext.",
+    "capture": "Montag: Kunde fragt nach SSO. Dienstag: Es ist in deinem Backlog mit 22 anderen Anfragen im Wert von 2,4M€. Mittwoch: Du pitchst es im Planning mit echten Daten.",
     "stats": {
-      "time": "Meeting-Zeit wöchentlich gespart",
-      "roi": "Durchschnittlicher ROI",
-      "productive": "Weniger unproduktive Meetings"
+      "time": "Stunden/Woche auf der Suche nach Kunden-Kontext",
+      "roi": "Chance, dass der CEO fragt \"was wollen Kunden?\" und du rätst",
+      "productive": "Feature-Adoption stieg von 12% auf 64%"
     }
   },
   "roi": {
-    "title": "Eure Meetings enthalten das wertvollste, unausgesprochene Wissen Ihres Unternehmens. Sie aufzuzeichnen dient der Sicherung und Skalierung eurer kollektiven Intelligenz.",
+    "title": "Hör auf, deine besten Ideen zu verlieren",
+    "subtitle": "Jedes Kundengespräch enthält Feature-Anfragen im Millionenwert. Berechne, was du verpasst.",
     "personalTab": "Mein persönlicher ROI",
     "companyTab": "ROI für die Firma",
+    "personalTitle": "Berechne deine persönliche Zeitersparnis",
+    "companyTitle": "Erstelle deinen Business Case",
     "inputs": {
+      "role": "Was ist deine primäre Rolle?",
       "meetings": "Stunden in Meetings pro Woche:",
-      "prep": "Vorbereitungszeit pro Meeting:",
-      "followUp": "Nachbereitungszeit pro Meeting:",
+      "followUp": "Wöchentlicher Zeitaufwand für Follow-ups:",
+      "industry": "Was ist deine Branche?",
       "employees": "Anzahl Mitarbeiter in Meetings",
-      "avgSalary": "Durchschnittsgehalt (jährlich)"
+      "avgSalary": "Durchschnittliches Jahresgehalt",
+      "salesVelocity": "Vertriebs-/Projektgeschwindigkeit erhöhen?",
+      "knowledgeRetention": "Wissensverlust durch Fluktuation mindern?",
+      "numSalesReps": "Anzahl Vertriebler/Projektpartner",
+      "turnoverRate": "Jährliche Fluktuationsrate (%):"
     },
     "breakdown": {
       "prep": "Smartere Meeting-Vorbereitung:",
       "notes": "Automatisierte Notizen:",
       "followup": "Sofortige Follow-ups:"
     },
+    "results": {
+      "personalPrefix": "Du kannst schätzungsweise",
+      "personalSuffix": "Stunden/Jahr",
+      "personalValue": "im Wert von",
+      "companyPrefix": "Geschätzter jährlicher Mehrwert für Ihre Firma",
+      "potentialROI": "Potenzieller ROI",
+      "paybackTime": "Amortisationszeit",
+      "disclaimer": "Diese Schätzung basiert auf eurer Branche, Teamgröße und Zielen. Sie berücksichtigt Gewinne aus Produktivität, Effizienz und Wissenssicherung. Die Zahlen scheinen nicht korrekt? Lasse uns das gemeinsam validieren.",
+      "validateButton": "Zahlen mit uns validieren"
+    },
     "calculate": "ROI für die Firma berechnen",
-    "potential": "Potenzieller ROI"
+    "roles": {
+      "consultant": "Unternehmensberater/in",
+      "saas_pm": "Produktmanager/in (SaaS)",
+      "saas_sales": "Sales Executive (SaaS)",
+      "lawyer": "Anwalt/Anwältin / Partner/in",
+      "manufacturing": "Betriebsleiter/in",
+      "other": "Wissensarbeiter/in"
+    },
+    "industries": {
+      "consulting": "Unternehmensberatung",
+      "saas": "Enterprise SaaS",
+      "pe": "Private Equity",
+      "law": "Anwaltskanzlei",
+      "manufacturing": "Produzierendes Gewerbe"
+    }
   },
   "contact": {
-    "title": "Möchtest du mehr happy Meetings?",
-    "subtitle": "Lass uns deine Meeting-Herausforderungen lösen",
-    "quote": "Alle glücklichen Meetings sind einander ähnlich; jedes unglückliche Meeting ist auf seine Weise unglücklich."
+    "title": "Bereit, Features zu bauen, die tatsächlich genutzt werden?",
+    "subtitle": "Jeder PM hat zwei Möglichkeiten: Weiter raten, was Kunden wollen, oder genau wissen, was sie brauchen.",
+    "quote": "Jeder PM hat zwei Möglichkeiten: Option 1: Weiter raten. Features mit 3% Adoption bauen. Option 2: Genau wissen, was Kunden wollen."
   },
   "footer": {
-    "description": "Verwandle jedes Meeting in umsetzbare Geschäftsintelligenz. Der führende KI-Assistent für Meeting-Intelligence.",
+    "description": "Hör auf, Features zu bauen, die sterben. Erfasse automatisch jedes Kundengespräch, sortiere Feature-Anfragen nach Umsatz und baue, was wirklich wichtig ist.",
     "sections": {
       "product": "Produkt",
+      "solutions": "Lösungen",
+      "resources": "Ressourcen",
       "company": "Unternehmen",
       "legal": "Rechtliches"
     },
     "links": {
-      "roiStudies": "ROI-Studien",
-      "about": "Über uns",
-      "privacy": "Datenschutz",
-      "terms": "AGB",
-      "imprint": "Impressum"
+      "product": {
+        "howItWorks": "So funktioniert's",
+        "integrations": "Integrationen",
+        "security": "Sicherheit",
+        "api": "API"
+      },
+      "solutions": {
+        "productTeams": "Product Teams",
+        "saas": "SaaS-Unternehmen",
+        "startups": "Startups",
+        "enterprise": "Enterprise"
+      },
+      "resources": {
+        "documentation": "Dokumentation",
+        "helpCenter": "Help Center",
+        "roiStudies": "ROI-Studien",
+        "bestPractices": "Best Practices"
+      },
+      "company": {
+        "about": "Über uns",
+        "careers": "Karriere",
+        "press": "Presse",
+        "contact": "Kontakt"
+      },
+      "legal": {
+        "privacy": "Datenschutz",
+        "terms": "AGB",
+        "cookies": "Cookie-Richtlinie",
+        "imprint": "Impressum"
+      }
+    },
+    "contact": {
+      "support": "Support",
+      "enterprise": "Enterprise",
+      "security": "Sicherheit"
     },
     "copyright": "© {{year}} meetio.ai. Alle Rechte vorbehalten."
   },

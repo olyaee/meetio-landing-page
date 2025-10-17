@@ -78,12 +78,12 @@ export const ProblemSection = () => {
   const [currentProblem, setCurrentProblem] = useState(0);
 
   const meetingProblems = [
-    "verlorene Aktionspunkte",
-    "vergessene Entscheidungen", 
-    "unklare Verantwortlichkeiten",
-    "wiederholte Diskussionen",
-    "verschwendete Zeit",
-    "verpasste Deadlines"
+    "unused features",
+    "guessing what customers want", 
+    "building in the dark",
+    "missing feature requests",
+    "wasted development time",
+    "wrong roadmap priorities"
   ];
   
   useEffect(() => {
@@ -113,9 +113,9 @@ export const ProblemSection = () => {
   const { t } = useTranslation('pages');
   
   const statistics = [
-    { number: "50", unit: "%", description: t('problem.stats.lost') },
-    { number: "23", unit: t('problem.stats.time').split(' ')[1], description: t('problem.stats.time') },
-    { number: "5.500", unit: "€", description: "kostet jeder Mitarbeiter jährlich durch Wissensmanagement-Versagen" }
+    { number: "67", unit: "%", description: t('problem.stats.lost') },
+    { number: "$400K", unit: "", description: t('problem.stats.time') },
+    { number: "10", unit: "hrs/week", description: "hunting for customer context" }
   ];
 
   return (

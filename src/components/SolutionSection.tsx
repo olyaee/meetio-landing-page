@@ -1,5 +1,5 @@
 import { useInView } from "react-intersection-observer";
-import { Brain, Zap, Shield, Clock, TrendingUp } from "lucide-react";
+import { Phone, Brain, ArrowRight, Clock, TrendingUp, Zap } from "lucide-react";
 import { motion, useAnimation } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
 import { useTranslation } from "react-i18next";
@@ -87,15 +87,15 @@ export const SolutionSection = () => {
   
 
   const statistics = [
-    { icon: Clock, number: "23h", label: t('solution.stats.time') },
-    { icon: TrendingUp, number: "180%", label: t('solution.stats.roi') },
-    { icon: Zap, number: "50%", label: t('solution.stats.productive') },
+    { icon: Clock, number: "10h", label: t('solution.stats.time') },
+    { icon: TrendingUp, number: "100%", label: t('solution.stats.roi') },
+    { icon: Zap, number: "64%", label: t('solution.stats.productive') },
   ];
 
   const pillars = [
-    { icon: Brain, title: t('solution.pillars.decisions.title'), description: t('solution.pillars.decisions.description') },
-    { icon: Zap, title: t('solution.pillars.notes.title'), description: t('solution.pillars.notes.description') },
-    { icon: Shield, title: t('solution.pillars.knowledge.title'), description: t('solution.pillars.knowledge.description') }
+    { icon: Phone, title: t('solution.pillars.decisions.title'), description: t('solution.pillars.decisions.description') },
+    { icon: Brain, title: t('solution.pillars.notes.title'), description: t('solution.pillars.notes.description') },
+    { icon: ArrowRight, title: t('solution.pillars.knowledge.title'), description: t('solution.pillars.knowledge.description') }
   ];
 
   return (
@@ -132,7 +132,7 @@ export const SolutionSection = () => {
               transition={{ duration: 0.6 }}
             >
               <img 
-                src="/interface_demo.png" 
+                src="/dashboard_ui.jpeg" 
                 alt="Meetio AI Interface - Meeting Intelligence Dashboard" 
                 className="w-full rounded-2xl shadow-2xl border border-foreground/10"
               />

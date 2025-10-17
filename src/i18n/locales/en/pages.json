@@ -1,83 +1,147 @@
 {
   "hero": {
-    "title": "Transform every meeting into",
-    "titleHighlight": "actionable insights",
-    "subtitle": "meetio.ai transforms meetings from time-wasters to intelligence engines. Capture implicit knowledge, automate workflows and secure company knowledge — with an ROI of 180% to 20,000% across industries.",
+    "title": "Your Last Feature Had 3% Adoption.",
+    "titleHighlight": "The One Customers Wanted Is Still in the Backlog.",
+    "subtitle": "Every customer conversation, automatically captured. Every feature request, ranked by revenue. Every competitor mention, flagged instantly. Stop shipping features that die.",
     "ctaPrimary": "Curious?",
-    "ctaDemo": "Watch 3-minute demo"
+    "ctaDemo": "Calculate Your Feature Waste"
   },
   "problem": {
-    "title": "The $37 Billion Meeting Crisis",
-    "subtitle": "Knowledge, ideas, and decisions disappear the moment the meeting ends.",
-    "transform": "With meetio.ai you transform chaotic meetings into structured business intelligence",
+    "title": "You're Not Building Wrong. You're Building Blind.",
+    "subtitle": "Your roadmap is based on the 3 customers Sales remembered to mention in Slack. That \"urgent\" feature? One customer. Who churned anyway.",
+    "transform": "Meanwhile, 23 customers asked for CSV export. Sales forgot to mention it. You shipped dark mode instead. Nobody uses it.",
     "stats": {
-      "lost": "of all action items are lost after meetings",
-      "time": "executives spend weekly in meetings—72% of their work time"
+      "lost": "of features rarely or never used",
+      "time": "$400K average cost of an unused feature"
     }
   },
   "solution": {
-    "titlePrefix": "More than transcription:",
-    "title": "Real Meeting Intelligence",
-    "subtitle": "Capture implicit knowledge",
-    "description": "meetio.ai transforms chaotic conversations into structured, searchable and actionable business intelligence.",
+    "titlePrefix": "From Customer Call to Jira Ticket.",
+    "title": "In Minutes, Not Weeks.",
+    "subtitle": "Three Steps to Never Missing Another Feature Request",
+    "description": "Meetio automates the tedious work of hunting through recordings so your team can focus on what matters: building great products. No more manual searching, no more missed insights.",
     "pillars": {
       "decisions": {
-        "title": "Decisions move 3x faster",
-        "description": "With complete context. No more lost discussions."
+        "title": "1. Sales Talks (Happens Anyway)",
+        "description": "Your team has 50+ customer calls weekly on Zoom, Teams, Meet. Using Gong? Keep it. Using Fireflies? Fine. Nothing? We've got you."
       },
       "notes": {
-        "title": "Never multitask to take notes again",
-        "description": "Focus fully on the discussion while meetio.ai automatically captures everything."
+        "title": "2. We Extract What Matters",
+        "description": "Not transcription. Intelligence. Every feature request tagged. Every pain point categorized. Every \"your competitor does X\" flagged."
       },
       "knowledge": {
-        "title": "Preserve implicit knowledge",
-        "description": "That normally leaves the company with departing employees."
+        "title": "3. Your Tools Get Smarter",
+        "description": "Wake up to Jira tickets with evidence attached. Linear roadmap items with ARR impact. Slack digest of what you missed."
       }
     },
-    "capture": "We don't just hear what's said—we understand what's meant. Capture unspoken concerns, relationship dynamics and strategic context.",
+    "capture": "Monday: Customer asks for SSO. Tuesday: It's in your backlog with 22 other requests totaling $2.4M. Wednesday: You pitch it in planning with actual data.",
     "stats": {
-      "time": "Meeting time saved weekly",
-      "roi": "Average ROI",
-      "productive": "Less unproductive meetings"
+      "time": "Hours/week hunting for customer context",
+      "roi": "Chance the CEO asks \"what do customers want?\" and you're guessing",
+      "productive": "Feature adoption went from 12% to 64%"
     }
   },
   "roi": {
-    "title": "Your meetings contain your company's most valuable, unspoken knowledge. Recording them serves to secure and scale your collective intelligence.",
-    "personalTab": "My personal ROI",
+    "title": "Stop Losing Your Best Ideas",
+    "subtitle": "Every customer conversation contains feature requests worth millions. Calculate what you're missing.",
+    "personalTab": "My Personal ROI",
     "companyTab": "Company ROI",
+    "personalTitle": "Calculate Your Personal Time Savings",
+    "companyTitle": "Build Your Business Case",
     "inputs": {
+      "role": "What is your primary role?",
       "meetings": "Hours in meetings per week:",
-      "prep": "Prep time per meeting:",
-      "followUp": "Follow-up time per meeting:",
+      "followUp": "Weekly time spent on follow-ups:",
+      "industry": "What is your industry?",
       "employees": "Number of employees in meetings",
-      "avgSalary": "Average salary (annual)"
+      "avgSalary": "Average annual salary",
+      "salesVelocity": "Increase sales/project velocity?",
+      "knowledgeRetention": "Reduce knowledge loss from turnover?",
+      "numSalesReps": "Number of sales reps/project partners",
+      "turnoverRate": "Annual turnover rate (%):"
     },
     "breakdown": {
       "prep": "Smarter meeting preparation:",
       "notes": "Automated notes:",
       "followup": "Instant follow-ups:"
     },
+    "results": {
+      "personalPrefix": "You can save approximately",
+      "personalSuffix": "hours/year",
+      "personalValue": "worth",
+      "companyPrefix": "Estimated annual value for your company",
+      "potentialROI": "Potential ROI",
+      "paybackTime": "Payback time",
+      "disclaimer": "This estimate is based on your industry, team size, and goals. It considers gains from productivity, efficiency, and knowledge retention. Numbers don't look right? Let's validate this together.",
+      "validateButton": "Validate numbers with us"
+    },
     "calculate": "Calculate company ROI",
-    "potential": "Potential ROI"
+    "roles": {
+      "consultant": "Business Consultant",
+      "saas_pm": "Product Manager (SaaS)",
+      "saas_sales": "Sales Executive (SaaS)",
+      "lawyer": "Lawyer/Partner",
+      "manufacturing": "Operations Manager",
+      "other": "Knowledge Worker"
+    },
+    "industries": {
+      "consulting": "Management Consulting",
+      "saas": "Enterprise SaaS",
+      "pe": "Private Equity",
+      "law": "Law Firm",
+      "manufacturing": "Manufacturing"
+    }
   },
   "contact": {
-    "title": "Want more happy meetings?",
-    "subtitle": "Let us solve your meeting challenges",
-    "quote": "All happy meetings are alike; every unhappy meeting is unhappy in its own way."
+    "title": "Ready to Ship Features That Actually Get Used?",
+    "subtitle": "Every PM has two choices: Keep guessing what customers want, or know exactly what they need.",
+    "quote": "Every PM Has Two Choices: Option 1: Keep guessing. Ship features with 3% adoption. Option 2: Know exactly what customers want."
   },
   "footer": {
-    "description": "Transform every meeting into actionable business intelligence. The leading AI assistant for meeting intelligence.",
+    "description": "Stop shipping features that die. Automatically capture every customer conversation, rank feature requests by revenue, and build what actually matters.",
     "sections": {
       "product": "Product",
+      "solutions": "Solutions",
+      "resources": "Resources",
       "company": "Company", 
       "legal": "Legal"
     },
     "links": {
-      "roiStudies": "ROI Studies",
-      "about": "About Us",
-      "privacy": "Privacy",
-      "terms": "Terms",
-      "imprint": "Imprint"
+      "product": {
+        "howItWorks": "How It Works",
+        "integrations": "Integrations",
+        "security": "Security",
+        "api": "API"
+      },
+      "solutions": {
+        "productTeams": "Product Teams",
+        "saas": "SaaS Companies",
+        "startups": "Startups",
+        "enterprise": "Enterprise"
+      },
+      "resources": {
+        "documentation": "Documentation",
+        "helpCenter": "Help Center",
+        "roiStudies": "ROI Studies",
+        "bestPractices": "Best Practices"
+      },
+      "company": {
+        "about": "About Us",
+        "careers": "Careers",
+        "press": "Press",
+        "contact": "Contact"
+      },
+      "legal": {
+        "privacy": "Privacy",
+        "terms": "Terms",
+        "cookies": "Cookie Policy",
+        "imprint": "Imprint"
+      }
+    },
+    "contact": {
+      "support": "Support",
+      "enterprise": "Enterprise",
+      "security": "Security"
     },
     "copyright": "© {{year}} meetio.ai. All rights reserved."
   },
