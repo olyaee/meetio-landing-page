@@ -291,21 +291,21 @@ export const ROICalculatorSection = () => {
           >
             {stage === 'personal' && (
               <div className="text-center animate-fade-in">
-                <p className="font-poppins text-foreground/80 mb-4">You can save approximately</p>
+                <p className="font-poppins text-foreground/80 mb-4">{t('roi.results.personalPrefix')}</p>
                 <div className="font-geist font-bold text-5xl md:text-6xl text-brand-primary mb-2">{personalResults.timeSaved}</div>
-                <div className="text-3xl md:text-4xl text-brand-primary mb-4">hours/year</div>
-                <div className="font-poppins font-semibold text-xl text-foreground mb-6">worth {personalResults.valueSaved}</div>
+                <div className="text-3xl md:text-4xl text-brand-primary mb-4">{t('roi.results.personalSuffix')}</div>
+                <div className="font-poppins font-semibold text-xl text-foreground mb-6">{t('roi.results.personalValue')} {personalResults.valueSaved}</div>
                 
                 <div className="grid grid-cols-2 gap-4 text-left font-poppins text-sm bg-secondary/50 p-4 rounded-lg mb-6">
                   <div>
-                    <p className="font-semibold text-foreground/70 mb-2">Before Meetio:</p>
-                    <p>Research: {personalResults.before.research} hrs/year</p>
-                    <p>Feature adoption: {personalResults.before.adoption}</p>
+                    <p className="font-semibold text-foreground/70 mb-2">{t('roi.results.beforeMeetio')}</p>
+                    <p>{t('roi.results.research')} {personalResults.before.research} hrs/year</p>
+                    <p>{t('roi.results.featureAdoption')} {personalResults.before.adoption}</p>
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground/70 mb-2">With Meetio:</p>
-                    <p>Research: {personalResults.after.research} hrs/year</p>
-                    <p>Feature adoption: {personalResults.after.adoption}</p>
+                    <p className="font-semibold text-foreground/70 mb-2">{t('roi.results.withMeetio')}</p>
+                    <p>{t('roi.results.research')} {personalResults.after.research} hrs/year</p>
+                    <p>{t('roi.results.featureAdoption')} {personalResults.after.adoption}</p>
                   </div>
                 </div>
                 
