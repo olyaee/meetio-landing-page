@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { InterestContactForm } from "./InterestContactForm";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { getLocalizedRoute } from "@/utils/routes";
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,7 +15,7 @@ export const Navigation = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +37,7 @@ export const Navigation = () => {
 
   const navItems = [
     { name: t("navigation.features"), href: "#features" },
-    { name: t("navigation.about"), href: "/uber-uns" },
+    { name: t("navigation.about"), href: getLocalizedRoute('aboutUs', i18n.language) },
   ];
 
   const handleOpenForm = (type: 'interest' | 'contact' | 'waitlist') => {

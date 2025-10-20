@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Globe } from 'lucide-react';
@@ -12,8 +12,30 @@ const languages = [
 export const LanguageSwitcher = () => {
   const { i18n, t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const [currentLang, setCurrentLang] = useState<string>('');
 
-  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
+  // Sync with i18n language changes and wait for initialization
+  useEffect(() => {
+    const handleLanguageChanged = (lng: string) => {
+      setCurrentLang(lng);
+    };
+
+    // Set initial language once i18n is ready
+    if (i18n.isInitialized) {
+      setCurrentLang(i18n.language);
+    }
+
+    // Listen for language changes
+    i18n.on('languageChanged', handleLanguageChanged);
+    i18n.on('initialized', () => setCurrentLang(i18n.language));
+
+    return () => {
+      i18n.off('languageChanged', handleLanguageChanged);
+      i18n.off('initialized', () => setCurrentLang(i18n.language));
+    };
+  }, [i18n]);
+
+  const currentLanguage = languages.find(lang => lang.code === currentLang) || languages[0];
 
   const handleLanguageChange = (languageCode: string) => {
     i18n.changeLanguage(languageCode);
@@ -66,7 +88,7 @@ export const LanguageSwitcher = () => {
                   key={language.code}
                   onClick={() => handleLanguageChange(language.code)}
                   className={`w-full px-4 py-3 text-left hover:bg-brand-primary/5 transition-colors duration-200 flex items-center gap-3 ${
-                    i18n.language === language.code 
+                    currentLang === language.code 
                       ? 'bg-brand-primary/10 text-brand-primary' 
                       : 'text-foreground/80 hover:text-foreground'
                   }`}
@@ -77,7 +99,7 @@ export const LanguageSwitcher = () => {
                     <span className="text-sm font-medium">{language.name}</span>
                     <span className="text-xs opacity-60 uppercase">{language.code}</span>
                   </div>
-                  {i18n.language === language.code && (
+                  {currentLang === language.code && (
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}

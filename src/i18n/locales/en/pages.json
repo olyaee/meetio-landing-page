@@ -61,9 +61,9 @@
       "turnoverRate": "Annual turnover rate (%):"
     },
     "breakdown": {
-      "prep": "Smarter meeting preparation:",
-      "notes": "Automated notes:",
-      "followup": "Instant follow-ups:"
+      "prep": "Customer research time saved:",
+      "notes": "More efficient meetings:",
+      "followup": "Automated insights:"
     },
     "results": {
       "personalPrefix": "You can save approximately",
@@ -170,5 +170,40 @@
     "sending": "Sending...",
     "success": "Thank you! We'll be in touch soon.",
     "error": "Something went wrong. Please try again."
+  },
+  "aboutUs": {
+    "title": "About Us",
+    "subtitle": "We transform meetings from time wasters into strategic capital.",
+    "intro1": "We are Elina, Ehsan and Juan. Before we founded Meetio.ai, we spent years in leading technology corporations, consulting and heavily regulated industries. We all had one thing in common: Our calendar was full of meetings.",
+    "intro2": "And in these meetings something paradoxical happened: The most valuable information was exchanged, brilliant ideas were born and critical decisions were made. But as soon as the \"Leave\" button was clicked, this knowledge began to evaporate.",
+    "frustration": {
+      "title": "The frustration that drove us",
+      "intro": "Each of us experienced the consequences of this knowledge loss from a different perspective:",
+      "elina": "For Elina, it was the weekly nightmare of manually updating Salesforce after every customer conversation, just to keep other teams informed. Critical insights were lost when this manual process became a bottleneck.",
+      "ehsan": "For Ehsan, it was the constant struggle to translate the essence of stakeholder meetings into concrete, deliverable features. Too often, the true needs and the \"why\" behind decisions remained hidden.",
+      "juan": "For Juan, it was the realization of how often technical knowledge remained trapped in silos and had to be explained again and again in subsequent meetings, slowing down development.",
+      "conclusion": "We realized: The most valuable capital of a company – the implicit knowledge, the justifications for decisions and the strategic context – evaporates the moment a meeting ends. Companies thereby lose not only time, but above all their collective intelligence."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "intro": "Meetio.ai was born from exactly this frustration. We're not just building another note-taking assistant. We're creating organizational memory.",
+      "description": "Our platform doesn't just capture what was said, but also extracts the why and what's next. We automate tedious follow-ups, feed insights directly into the systems you already use (CRM, project management), and make your company's collective knowledge searchable and usable.",
+      "conclusion": "We want you and your teams to be able to focus on what really matters: the discussion, the strategy, the human connection. Meetio.ai takes care of the rest."
+    },
+    "team": {
+      "title": "Our Team: Three Perspectives, One Mission",
+      "elina": {
+        "name": "Elina Lesyk",
+        "description": "Elina is the architect for the big picture. With her experience in designing enterprise systems, she bridges the gap between sales, IT security and technical implementation. She understands the complex requirements of large enterprises, from GDPR audits to data sovereignty, and ensures that Meetio.ai is not only intelligent, but also secure and scalable."
+      },
+      "ehsan": {
+        "name": "Ehsan Olyaee", 
+        "description": "Ehsan is the translator between AI potential and real business value. He has led AI projects from start to finish and knows how to develop concrete product features from abstract conversations. His strength lies in understanding the needs of all stakeholders and translating AI research into measurable results for practice."
+      },
+      "juan": {
+        "name": "Juan Carlos Suarez Mora",
+        "description": "Juan is the technical foundation on which our vision is built. With his experience in building machine learning systems at Siemens Healthineers and developing LLM backends for production use, he brings the engineering expertise essential for a robust enterprise product. He has worked in heavily regulated environments and successfully led multiple software teams."
+      }
+    }
   }
 }

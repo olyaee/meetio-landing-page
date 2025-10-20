@@ -170,5 +170,40 @@
     "sending": "Wird gesendet...",
     "success": "Vielen Dank! Wir melden uns bald bei dir.",
     "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+  },
+  "aboutUs": {
+    "title": "Über Uns",
+    "subtitle": "Wir verwandeln Meetings von Zeitfressern in strategisches Kapital.",
+    "intro1": "Wir sind Elina, Ehsan und Juan. Bevor wir Meetio.ai gründeten, haben wir Jahre in führenden Technologiekonzernen, im Consulting und in stark regulierten Branchen verbracht. Eines hatten wir alle gemeinsam: Unser Kalender war voll mit Meetings.",
+    "intro2": "Und in diesen Meetings passierte etwas Paradoxes: Wertvollste Informationen wurden ausgetauscht, brillante Ideen geboren und kritische Entscheidungen getroffen. Doch sobald der \"Verlassen\"-Button geklickt wurde, begann dieses Wissen zu verfliegen.",
+    "frustration": {
+      "title": "Die Frustration, die uns antrieb",
+      "intro": "Jeder von uns erlebte die Folgen dieses Wissensverlusts aus einer anderen Perspektive:",
+      "elina": "Für Elina war es der wöchentliche Albtraum, nach jedem Kundengespräch manuell Salesforce zu aktualisieren, nur damit andere Teams auf dem Laufenden blieben. Kritische Insights gingen verloren, wenn dieser manuelle Prozess einen Blocker darstellte.",
+      "ehsan": "Für Ehsan war es der ständige Kampf, die Essenz aus Stakeholder-Meetings in konkrete, lieferbare Features zu übersetzen. Zu oft blieben die wahren Bedürfnisse und das \"Warum\" hinter den Entscheidungen im Verborgenen.",
+      "juan": "Für Juan war es die Erkenntnis, wie oft technisches Wissen in Silos gefangen blieb und in nachfolgenden Meetings immer wieder neu erklärt werden musste, was die Entwicklung verlangsamte.",
+      "conclusion": "Uns wurde klar: Das wertvollste Kapital eines Unternehmens – das implizite Wissen, die Begründungen für Entscheidungen und der strategische Kontext – verdunstet in dem Moment, in dem ein Meeting endet. Unternehmen verlieren dadurch nicht nur Zeit, sondern vor allem ihre kollektive Intelligenz."
+    },
+    "mission": {
+      "title": "Unsere Mission",
+      "intro": "Meetio.ai wurde aus genau dieser Frustration geboren. Wir bauen nicht einfach nur einen weiteren Notiz-Assistenten. Wir schaffen ein organisatorisches Gedächtnis.",
+      "description": "Unsere Plattform erfasst nicht nur, was gesagt wurde, sondern extrahiert auch das Warum und das Was als Nächstes. Wir automatisieren die mühsamen Follow-ups, speisen Erkenntnisse direkt in die Systeme ein, die Sie bereits nutzen (CRM, Projektmanagement), und machen das kollektive Wissen Ihres Unternehmens durchsuchbar und nutzbar.",
+      "conclusion": "Wir wollen, dass Sie und Ihre Teams sich auf das konzentrieren können, was wirklich zählt: die Diskussion, die Strategie, die menschliche Verbindung. Den Rest erledigt Meetio.ai."
+    },
+    "team": {
+      "title": "Unser Team: Drei Perspektiven, eine Mission",
+      "elina": {
+        "name": "Elina Lesyk",
+        "description": "Elina ist die Architektin für das große Ganze. Mit ihrer Erfahrung in der Konzeption von Enterprise-Systemen schlägt sie die Brücke zwischen Vertrieb, IT-Sicherheit und technischer Umsetzung. Sie versteht die komplexen Anforderungen von Großunternehmen, von DSGVO-Prüfungen bis hin zu Datenhoheit, und stellt sicher, dass Meetio.ai nicht nur intelligent, sondern auch sicher und skalierbar ist."
+      },
+      "ehsan": {
+        "name": "Ehsan Olyaee",
+        "description": "Ehsan ist der Übersetzer zwischen KI-Potenzial und realem Geschäftswert. Er hat KI-Projekte von Anfang bis Ende geleitet und weiß, wie man aus abstrakten Gesprächen konkrete Produkt-Features entwickelt. Seine Stärke liegt darin, die Bedürfnisse aller Stakeholder zu verstehen und KI-Forschung in messbare Ergebnisse für die Praxis umzusetzen."
+      },
+      "juan": {
+        "name": "Juan Carlos Suarez Mora",
+        "description": "Juan ist das technische Fundament, auf dem unsere Vision gebaut ist. Mit seiner Erfahrung im Aufbau von Machine-Learning-Systemen bei Siemens Healthineers und der Entwicklung von LLM-Backends für den Produktionseinsatz bringt er die Ingenieurskunst mit, die für ein robustes Enterprise-Produkt unerlässlich ist. Er hat in stark regulierten Umgebungen gearbeitet und erfolgreich mehrere Softwareteams geleitet."
+      }
+    }
   }
 }

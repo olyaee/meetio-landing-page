@@ -1,44 +1,52 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Mail, MessageSquare, Linkedin, Twitter } from "lucide-react";
+import { Mail, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { getLocalizedRoute } from "@/utils/routes";
+import { InterestContactForm } from "./InterestContactForm";
 
 export const Footer = () => {
-  const { t } = useTranslation('pages');
+  const { t, i18n } = useTranslation('pages');
+  const [formModalOpen, setFormModalOpen] = useState(false);
+
+  const handleOpenContactForm = () => {
+    setFormModalOpen(true);
+  };
   
-  const productLinks = [
-    { name: t('footer.links.product.howItWorks'), href: "#features" },
-    { name: t('footer.links.product.integrations'), href: "#integrations" },
-    { name: t('footer.links.product.security'), href: "#security" },
-    { name: t('footer.links.product.api'), href: "#api" }
-  ];
+  // const productLinks = [
+  //   { name: t('footer.links.product.howItWorks'), href: "#features" },
+  //   { name: t('footer.links.product.integrations'), href: "#integrations" },
+  //   { name: t('footer.links.product.security'), href: "#security" },
+  //   { name: t('footer.links.product.api'), href: "#api" }
+  // ];
 
-  const solutionLinks = [
-    { name: t('footer.links.solutions.productTeams'), href: "#product-teams" },
-    { name: t('footer.links.solutions.saas'), href: "#saas" },
-    { name: t('footer.links.solutions.startups'), href: "#startups" },
-    { name: t('footer.links.solutions.enterprise'), href: "#enterprise" }
-  ];
+  // const solutionLinks = [
+  //   { name: t('footer.links.solutions.productTeams'), href: "#product-teams" },
+  //   { name: t('footer.links.solutions.saas'), href: "#saas" },
+  //   { name: t('footer.links.solutions.startups'), href: "#startups" },
+  //   { name: t('footer.links.solutions.enterprise'), href: "#enterprise" }
+  // ];
 
-  const resourceLinks = [
-    { name: t('footer.links.resources.documentation'), href: "#docs" },
-    { name: t('footer.links.resources.helpCenter'), href: "#help" },
-    { name: t('footer.links.resources.roiStudies'), href: "#roi" },
-    { name: t('footer.links.resources.bestPractices'), href: "#practices" }
-  ];
+  // const resourceLinks = [
+  //   { name: t('footer.links.resources.documentation'), href: "#docs" },
+  //   { name: t('footer.links.resources.helpCenter'), href: "#help" },
+  //   { name: t('footer.links.resources.roiStudies'), href: "#roi" },
+  //   { name: t('footer.links.resources.bestPractices'), href: "#practices" }
+  // ];
 
-  const companyLinks = [
-    { name: t('footer.links.company.about'), href: "/uber-uns" },
-    { name: t('footer.links.company.careers'), href: "#careers" },
-    { name: t('footer.links.company.press'), href: "#press" },
-    { name: t('footer.links.company.contact'), href: "#contact" }
-  ];
+  // const companyLinks = [
+  //   { name: t('footer.links.company.about'), href: getLocalizedRoute('aboutUs', i18n.language) },
+  //   { name: t('footer.links.company.careers'), href: "#careers" },
+  //   { name: t('footer.links.company.press'), href: "#press" },
+  //   { name: t('footer.links.company.contact'), href: "#contact" }
+  // ];
 
   const legalLinks = [
-    { name: t('footer.links.legal.privacy'), href: "/datenschutz" },
-    { name: t('footer.links.legal.terms'), href: "/agbs" },
-    { name: t('footer.links.legal.cookies'), href: "/cookie-richtlinie" },
-    { name: t('footer.links.legal.imprint'), href: "/impressum" }
+    { name: t('footer.links.legal.privacy'), href: getLocalizedRoute('privacy', i18n.language) },
+    { name: t('footer.links.legal.terms'), href: getLocalizedRoute('terms', i18n.language) },
+    { name: t('footer.links.legal.cookies'), href: getLocalizedRoute('cookies', i18n.language) },
+    { name: t('footer.links.legal.imprint'), href: getLocalizedRoute('imprint', i18n.language) }
   ];
 
   return (
@@ -60,23 +68,41 @@ export const Footer = () => {
               {t('footer.description')}
             </p>
             <div className="flex space-x-4">
-              <Button variant="ghost" size="sm" className="text-background/80 hover:text-background hover:bg-background/10">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="text-background/80 hover:text-background hover:bg-background/10"
+                onClick={handleOpenContactForm}
+                aria-label="Contact us"
+              >
                 <Mail className="h-4 w-4" />
               </Button>
-              <Button variant="ghost" size="sm" className="text-background/80 hover:text-background hover:bg-background/10">
+              {/* <Button variant="ghost" size="sm" className="text-background/80 hover:text-background hover:bg-background/10">
                 <MessageSquare className="h-4 w-4" />
+              </Button> */}
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="text-background/80 hover:text-background hover:bg-background/10"
+                asChild
+              >
+                <a 
+                  href="https://www.linkedin.com/company/meetio-ai/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  aria-label="Follow meetio.ai on LinkedIn"
+                >
+                  <Linkedin className="h-4 w-4" />
+                </a>
               </Button>
-              <Button variant="ghost" size="sm" className="text-background/80 hover:text-background hover:bg-background/10">
-                <Linkedin className="h-4 w-4" />
-              </Button>
-              <Button variant="ghost" size="sm" className="text-background/80 hover:text-background hover:bg-background/10">
+              {/* <Button variant="ghost" size="sm" className="text-background/80 hover:text-background hover:bg-background/10">
                 <Twitter className="h-4 w-4" />
-              </Button>
+              </Button> */}
             </div>
           </div>
 
           {/* Product Links */}
-          <div>
+          {/* <div>
             <h3 className="font-geist font-bold text-lg mb-4">{t('footer.sections.product')}</h3>
             <ul className="space-y-3">
               {productLinks.map((link) => (
@@ -90,10 +116,10 @@ export const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* Solution Links */}
-          <div>
+          {/* <div>
             <h3 className="font-geist font-bold text-lg mb-4">{t('footer.sections.solutions')}</h3>
             <ul className="space-y-3">
               {solutionLinks.map((link) => (
@@ -107,10 +133,10 @@ export const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* Resource Links */}
-          <div>
+          {/* <div>
             <h3 className="font-geist font-bold text-lg mb-4">{t('footer.sections.resources')}</h3>
             <ul className="space-y-3">
               {resourceLinks.map((link) => (
@@ -124,10 +150,10 @@ export const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* Company Links */}
-          <div>
+          {/* <div>
             <h3 className="font-geist font-bold text-lg mb-4">{t('footer.sections.company')}</h3>
             <ul className="space-y-3">
               {companyLinks.map((link) => (
@@ -141,7 +167,7 @@ export const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
         </div>
 
         {/* Bottom Section */}
@@ -166,7 +192,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Contact Information */}
+        {/* Contact Information
         <div className="mt-8 pt-8 border-t border-background/20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
             <div>
@@ -182,8 +208,15 @@ export const Footer = () => {
               <p className="font-poppins text-background/60 text-sm">security@meetio.ai</p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
+
+      {/* Contact Form Modal */}
+      <InterestContactForm
+        isOpen={formModalOpen}
+        onClose={() => setFormModalOpen(false)}
+        formType="contact"
+      />
     </footer>
   );
 };

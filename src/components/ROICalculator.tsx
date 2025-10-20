@@ -122,42 +122,54 @@ export const ROICalculatorSection = () => {
   const personalResults = useMemo(() => {
     const salary = ROLE_SALARY_DATA[personalInputs.role as keyof typeof ROLE_SALARY_DATA];
     const hourlyRate = salary / ANNUAL_WORK_HOURS;
-    const prepSavings = 2 * WORK_WEEKS;
-    const inMeetingSavings = (personalInputs.meetings * 0.25) * WORK_WEEKS;
-    const postMeetingSavings = (personalInputs.followUp * 0.9) * WORK_WEEKS;
-    const totalHours = prepSavings + inMeetingSavings + postMeetingSavings;
-    const totalValue = totalHours * hourlyRate;
+    
+    // Current state: Time spent on customer research per week
+    const weeklyResearchHours = 6; // Industry average
+    const currentResearchTime = weeklyResearchHours * WORK_WEEKS;
+    
+    // With Meetio: 75% reduction in research time
+    const newResearchTime = currentResearchTime * 0.25;
+    const timeSaved = currentResearchTime - newResearchTime;
+    const valueSaved = timeSaved * hourlyRate;
     
     const currency = i18n.language === 'de' ? 'EUR' : 'USD';
     const locale = i18n.language === 'de' ? 'de-DE' : 'en-US';
     
     return {
-      totalHours: totalHours.toFixed(0),
-      totalValue: totalValue.toLocaleString(locale, { style: 'currency', currency, minimumFractionDigits: 0 }),
-      breakdown: { prep: prepSavings.toFixed(0), inMeeting: inMeetingSavings.toFixed(0), postMeeting: postMeetingSavings.toFixed(0) }
+      timeSaved: timeSaved.toFixed(0),
+      valueSaved: valueSaved.toLocaleString(locale, { style: 'currency', currency, minimumFractionDigits: 0 }),
+      before: { research: currentResearchTime.toFixed(0), adoption: '12%' },
+      after: { research: newResearchTime.toFixed(0), adoption: '64%' }
     };
   }, [personalInputs, i18n.language]);
 
   const companyResults = useMemo(() => {
-    const { industry, employees, avgSalary, salesVelocity, knowledgeRetention, numSalesReps, turnoverRate } = companyInputs;
-    const baselineProductivity = employees * 5000;
-    let industryGains = 0;
-    let knowledgeSavings = 0;
-    if (knowledgeRetention) {
-        const totalTurnoverCost = (employees * (turnoverRate / 100)) * (avgSalary * TURNOVER_COST_MULTIPLIER);
-        knowledgeSavings = totalTurnoverCost * KNOWLEDGE_RETENTION_SAVINGS_PERCENTAGE;
-    }
-    switch (industry) {
-        case 'saas': if (salesVelocity) industryGains = numSalesReps * 350000; break;
-        case 'consulting': industryGains = (employees * 0.15) * 350000; break;
-        case 'manufacturing': industryGains = 1800000; break;
-        case 'law': industryGains = (employees * 0.15) * 360000; break;
-        case 'pe': industryGains = (employees * 0.20) * 90000 + 900000; break;
-    }
-    const totalValue = baselineProductivity + industryGains + knowledgeSavings;
+    const { employees, avgSalary } = companyInputs;
+    const hourlyRate = avgSalary / ANNUAL_WORK_HOURS;
+    
+    // Before Meetio: Current feature development waste
+    const currentFeatureAdoption = 0.12; // 12% adoption rate
+    const currentResearchHours = 6 * employees * WORK_WEEKS; // 6h per employee per week
+    
+    // After Meetio: Improved metrics
+    const newFeatureAdoption = 0.64; // 64% adoption rate
+    const newResearchHours = currentResearchHours * 0.25; // 75% reduction
+    
+    // Calculate savings
+    const hoursSaved = currentResearchHours - newResearchHours;
+    const timeSavings = hoursSaved * hourlyRate;
+    
+    // Feature development efficiency gains
+    const avgFeatureCost = 50000; // Average cost to build a feature
+    const featuresPerYear = employees * 4; // 4 features per employee per year
+    const wastedFeatures = featuresPerYear * (1 - currentFeatureAdoption);
+    const newWastedFeatures = featuresPerYear * (1 - newFeatureAdoption);
+    const featureSavings = (wastedFeatures - newWastedFeatures) * avgFeatureCost;
+    
+    const totalSavings = timeSavings + featureSavings;
     const investment = employees * AVG_PRICE_PER_USER_MONTHLY * 12;
-    const roi = investment > 0 ? ((totalValue - investment) / investment) * 100 : 0;
-    const paybackMonths = totalValue > 0 ? (investment / totalValue) * 12 : 0;
+    const roi = investment > 0 ? ((totalSavings - investment) / investment) * 100 : 0;
+    const paybackMonths = totalSavings > 0 ? (investment / (totalSavings / 12)) : 0;
     
     const currency = i18n.language === 'de' ? 'EUR' : 'USD';
     const locale = i18n.language === 'de' ? 'de-DE' : 'en-US';
@@ -165,10 +177,17 @@ export const ROICalculatorSection = () => {
     const monthsText = i18n.language === 'de' ? 'Monate' : 'Months';
     
     return {
-      totalValue: totalValue.toLocaleString(locale, { style: 'currency', currency, minimumFractionDigits: 0 }),
-      investment: investment.toLocaleString(locale, { style: 'currency', currency, minimumFractionDigits: 0 }),
+      totalSavings: totalSavings.toLocaleString(locale, { style: 'currency', currency, minimumFractionDigits: 0 }),
       roi: roi.toLocaleString(locale, { maximumFractionDigits: 0 }),
       payback: paybackMonths < 1 ? `< 1 ${monthText}` : `${paybackMonths.toFixed(1)} ${monthsText}`,
+      before: { 
+        adoption: (currentFeatureAdoption * 100).toFixed(0) + '%',
+        research: currentResearchHours.toFixed(0) + ' hours'
+      },
+      after: { 
+        adoption: (newFeatureAdoption * 100).toFixed(0) + '%',
+        research: newResearchHours.toFixed(0) + ' hours'
+      }
     };
   }, [companyInputs, i18n.language]);
 
@@ -272,14 +291,24 @@ export const ROICalculatorSection = () => {
           >
             {stage === 'personal' && (
               <div className="text-center animate-fade-in">
-                <p className="font-poppins text-foreground/80 mb-2">{t('roi.results.personalPrefix')}</p>
-                <div className="font-geist font-bold text-5xl md:text-6xl text-brand-primary mb-4"><span>{personalResults.totalHours}</span> <span className="text-3xl md:text-4xl text-brand-primary">{t('roi.results.personalSuffix')}</span></div>
-                <div className="font-poppins font-semibold text-xl text-foreground mb-6">{t('roi.results.personalValue')} {personalResults.totalValue}</div>
-                <div className="text-left font-poppins text-sm space-y-3 bg-secondary/50 p-4 rounded-lg mb-6">
-                  <p className="flex justify-between"><span>{t('roi.breakdown.prep')}</span> <strong>{personalResults.breakdown.prep} {i18n.language === 'de' ? 'Std.' : 'hrs'}</strong></p>
-                  <p className="flex justify-between"><span>{t('roi.breakdown.notes')}</span> <strong>{personalResults.breakdown.inMeeting} {i18n.language === 'de' ? 'Std.' : 'hrs'}</strong></p>
-                  <p className="flex justify-between"><span>{t('roi.breakdown.followup')}</span> <strong>{personalResults.breakdown.postMeeting} {i18n.language === 'de' ? 'Std.' : 'hrs'}</strong></p>
+                <p className="font-poppins text-foreground/80 mb-4">You can save approximately</p>
+                <div className="font-geist font-bold text-5xl md:text-6xl text-brand-primary mb-2">{personalResults.timeSaved}</div>
+                <div className="text-3xl md:text-4xl text-brand-primary mb-4">hours/year</div>
+                <div className="font-poppins font-semibold text-xl text-foreground mb-6">worth {personalResults.valueSaved}</div>
+                
+                <div className="grid grid-cols-2 gap-4 text-left font-poppins text-sm bg-secondary/50 p-4 rounded-lg mb-6">
+                  <div>
+                    <p className="font-semibold text-foreground/70 mb-2">Before Meetio:</p>
+                    <p>Research: {personalResults.before.research} hrs/year</p>
+                    <p>Feature adoption: {personalResults.before.adoption}</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground/70 mb-2">With Meetio:</p>
+                    <p>Research: {personalResults.after.research} hrs/year</p>
+                    <p>Feature adoption: {personalResults.after.adoption}</p>
+                  </div>
                 </div>
+                
                 <button onClick={() => setStage('company')} className="w-full bg-brand-primary text-primary-foreground font-semibold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
                   {t('roi.calculate')} <ArrowRight size={20} />
                 </button>
@@ -288,18 +317,33 @@ export const ROICalculatorSection = () => {
 
             {stage === 'company' && (
               <div className="text-center animate-fade-in">
-                <p className="font-poppins text-foreground/80 mb-2">{t('roi.results.companyPrefix')}</p>
-                <div className="font-geist font-bold text-5xl md:text-6xl text-brand-primary mb-4">{companyResults.totalValue}</div>
+                <p className="font-poppins text-foreground/80 mb-2">Estimated annual savings for your company</p>
+                <div className="font-geist font-bold text-5xl md:text-6xl text-brand-primary mb-4">{companyResults.totalSavings}</div>
+                
                 <div className="grid grid-cols-2 gap-4 text-center my-6">
                   <div>
-                    <p className="font-poppins text-sm text-foreground/70">{t('roi.results.potentialROI')}</p>
+                    <p className="font-poppins text-sm text-foreground/70">ROI</p>
                     <p className="font-geist font-bold text-2xl text-foreground">{companyResults.roi}%</p>
                   </div>
                   <div>
-                    <p className="font-poppins text-sm text-foreground/70">{t('roi.results.paybackTime')}</p>
+                    <p className="font-poppins text-sm text-foreground/70">Payback time</p>
                     <p className="font-geist font-bold text-2xl text-foreground">{companyResults.payback}</p>
                   </div>
                 </div>
+                
+                <div className="grid grid-cols-2 gap-4 text-left font-poppins text-sm bg-secondary/50 p-4 rounded-lg mb-6">
+                  <div>
+                    <p className="font-semibold text-foreground/70 mb-2">Current State:</p>
+                    <p>Feature adoption: {companyResults.before.adoption}</p>
+                    <p>Research time: {companyResults.before.research}</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground/70 mb-2">With Meetio:</p>
+                    <p>Feature adoption: {companyResults.after.adoption}</p>
+                    <p>Research time: {companyResults.after.research}</p>
+                  </div>
+                </div>
+                
                 <div className="text-left font-poppins text-sm space-y-2 mb-6">
                   <p>{t('roi.results.disclaimer')}</p>
                 </div>
