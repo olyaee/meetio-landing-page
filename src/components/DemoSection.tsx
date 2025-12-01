@@ -43,7 +43,6 @@ export const DemoSection = () => {
               src="/demo-video.mp4"
               controls
               className="w-full h-full object-contain"
-              poster="/demo-poster.jpg"
             >
               Your browser does not support the video tag.
             </video>
