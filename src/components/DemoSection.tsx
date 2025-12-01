@@ -2,6 +2,9 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
+const CLOUDINARY_VIDEO_URL = "https://res.cloudinary.com/dvxnhjnfy/video/upload/q_auto/input1_v4u5jj.mp4";
+const CLOUDINARY_POSTER_URL = "https://res.cloudinary.com/dvxnhjnfy/video/upload/so_0,f_jpg,q_auto/input1_v4u5jj.jpg";
+
 export const DemoSection = () => {
   const { t } = useTranslation('pages');
   const [ref, inView] = useInView({
@@ -40,7 +43,8 @@ export const DemoSection = () => {
         >
           <div className="aspect-video bg-foreground/[0.02] rounded-xl border border-foreground/[0.08] overflow-hidden">
             <video
-              src="/demo-video.mp4#t=0.001"
+              src={CLOUDINARY_VIDEO_URL}
+              poster={CLOUDINARY_POSTER_URL}
               controls
               playsInline
               preload="metadata"
