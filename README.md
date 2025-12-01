@@ -1,57 +1,79 @@
-# MeetioAI Canvas Flow
+# Meetio Landing Page
 
-Eine moderne React-Anwendung für Meeting Intelligence und Workflow-Automatisierung.
+A modern React application for Meeting Intelligence and Workflow Automation.
 
-## Entwicklung
+## Development
 
-**Lokale Entwicklung**
+**Local Development**
 
-Klone dieses Repository und starte die Entwicklungsumgebung:
+Clone this repository and start the development environment:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Der Entwicklungsserver läuft auf http://localhost:8080
+The development server runs on http://localhost:8080
 
-## Befehle
+## Commands
 
-- `npm run dev` - Startet den Entwicklungsserver
-- `npm run build` - Erstellt die Produktionsversion
-- `npm run build:dev` - Erstellt die Entwicklungsversion
-- `npm run lint` - Führt ESLint aus
-- `npm run preview` - Zeigt die erstellte Anwendung an
+- `npm run dev` - Starts the development server
+- `npm run build` - Creates the production build
+- `npm run build:dev` - Creates the development build
+- `npm run lint` - Runs ESLint
+- `npm run preview` - Previews the built application
 
 ## Tech Stack
 
 - **Frontend**: React, TypeScript, Vite
 - **Styling**: Tailwind CSS, shadcn/ui
-- **Animation**: Framer Motion, CSS-Animationen
+- **Animation**: Framer Motion, CSS Animations
 - **Icons**: Lucide React
-- **Formulare**: React Hook Form mit Zod-Validierung
+- **Forms**: React Hook Form with Zod validation
 
-## Projektstruktur
+## Project Structure
 
 ```
 src/
-├── components/          # React-Komponenten
-├── pages/              # Seiten-Komponenten
-├── lib/                # Utility-Funktionen
-└── styles/             # Globale Styles
+├── components/          # React components
+├── pages/              # Page components
+├── lib/                # Utility functions
+└── styles/             # Global styles
 ```
 
 ## Deployment
 
-Das Projekt kann auf jeder modernen Web-Plattform deployed werden, die statische Seiten unterstützt:
+### Netlify (Recommended)
 
-- Vercel
-- Netlify  
-- GitHub Pages
-- AWS S3 + CloudFront
+This project is configured for Netlify deployment with `netlify.toml`.
 
-Führe `npm run build` aus, um die Produktionsversion im `dist/` Ordner zu erstellen.
+**Option 1: Deploy via Netlify UI**
+1. Go to [app.netlify.com](https://app.netlify.com)
+2. Click "Add new site" → "Import an existing project"
+3. Connect your GitHub account and select this repository
+4. Build settings are auto-detected from `netlify.toml`
+5. Click "Deploy site"
 
-## Custom Domain
+**Option 2: Deploy via CLI**
+```bash
+npm install -g netlify-cli
+netlify login
+netlify deploy --prod --dir=dist
+```
 
-Für eine benutzerdefinierte Domain, konfiguriere deinen DNS-Provider entsprechend der gewählten Hosting-Plattform.
+### Custom Domain (Namecheap)
+
+1. In Netlify: Site settings → Domain management → Add custom domain
+2. In Namecheap: Domain List → Manage → Advanced DNS
+3. Add these DNS records:
+
+| Type  | Host | Value                          |
+|-------|------|--------------------------------|
+| A     | @    | 75.2.60.5                      |
+| CNAME | www  | your-site-name.netlify.app     |
+
+4. Back in Netlify, verify DNS and provision SSL certificate
+
+### Manual Build
+
+Run `npm run build` to create the production build in the `dist/` folder.

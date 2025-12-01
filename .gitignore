@@ -26,3 +26,9 @@ dist-ssr
 # Env
 .env.local
 .env
+# Local Netlify folder
+.netlify
+.gitignore
+netlify.toml
+package.json
+README.md
