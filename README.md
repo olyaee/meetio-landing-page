@@ -77,3 +77,37 @@ netlify deploy --prod --dir=dist
 ### Manual Build
 
 Run `npm run build` to create the production build in the `dist/` folder.
+
+## Email Setup (EmailJS)
+
+The contact form uses [EmailJS](https://www.emailjs.com/) to send emails.
+
+### Environment Variables
+
+Create a `.env` file with:
+
+```env
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID=your_autoreply_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+For Netlify, add these in: **Site Settings** → **Environment Variables**
+
+### Email Templates
+
+Template HTML files are in `docs/`:
+- `1-notification-to-founders.html` - Notification sent to founders
+- `2-autoreply-to-user.html` - Auto-reply sent to user
+
+### DNS Records Required (for custom domain emails)
+
+Add these TXT records in your DNS provider:
+
+| Type | Host | Value |
+|------|------|-------|
+| TXT | @ | `v=spf1 include:_spf.google.com ~all` |
+| TXT | google._domainkey | (DKIM key from Google Workspace Admin) |
+
+Enable DKIM in: **Google Admin** → **Apps** → **Google Workspace** → **Gmail** → **Authenticate email**

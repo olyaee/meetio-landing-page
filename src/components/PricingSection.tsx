@@ -131,7 +131,7 @@ export const PricingSection = () => {
       price: "59€",
       roi: "Amortisation in 3 Wochen",
       features: [
-        "Kern-Meeting-Intelligence",
+        "Kern Bug-Intelligence",
         "Standard-Integrationen", 
         "Business Support",
         "Bis zu 50 Nutzer"
@@ -142,8 +142,8 @@ export const PricingSection = () => {
       price: "99€",
       roi: "Amortisation in 2 Wochen",
       features: [
-        "Erweiterte Konversationsintelligenz",
-        "Unbegrenzte Meeting-Stunden",
+        "Erweiterte Bug-Analyse",
+        "Unbegrenzte Bug-Reports",
         "Priority Support",
         "Erweiterte CRM-Integration"
       ],

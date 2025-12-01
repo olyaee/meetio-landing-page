@@ -33,24 +33,24 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
   const getFormTitle = () => {
     switch (formType) {
       case 'interest':
-        return 'Interesse ermitteln';
+        return 'Get Early Access';
       case 'waitlist':
-        return 'Frühzugang sichern';
+        return 'Join Waitlist';
       case 'contact':
-        return 'Kontaktiere uns';
+        return 'Contact Us';
       default:
-        return 'Kontakt';
+        return 'Contact';
     }
   };
 
   const getFormDescription = () => {
     switch (formType) {
       case 'interest':
-        return 'Erzähle uns von deinen Meeting-Herausforderungen. Wir melden uns binnen 24 Stunden.';
+        return 'Tell us about your bug reproduction challenges. We\'ll get back to you within 24 hours.';
       case 'waitlist':
-        return 'Sichere dir frühzeitigen Zugang zu MeetioAI. Wir informieren dich, sobald wir verfügbar sind.';
+        return 'Be first to try the AI Intake Engineer.';
       case 'contact':
-        return 'Hast du Fragen oder möchtest eine Demo? Wir sind hier, um zu helfen.';
+        return 'Have questions or want a demo? We\'re here to help.';
       default:
         return '';
     }
@@ -60,27 +60,27 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
     const newErrors: Record<string, string> = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Name ist erforderlich';
+      newErrors.name = 'Name is required';
     }
 
     if (contactMethod === 'email') {
       if (!formData.email.trim()) {
-        newErrors.email = 'E-Mail ist erforderlich';
+        newErrors.email = 'Email is required';
       } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-        newErrors.email = 'Bitte gib eine gültige E-Mail-Adresse ein';
+        newErrors.email = 'Please enter a valid email address';
       }
     }
 
     if (contactMethod === 'whatsapp') {
       if (!formData.whatsapp.trim()) {
-        newErrors.whatsapp = 'WhatsApp-Nummer ist erforderlich';
+        newErrors.whatsapp = 'WhatsApp number is required';
       } else if (!/^\+?[\d\s-()]+$/.test(formData.whatsapp)) {
-        newErrors.whatsapp = 'Bitte gib eine gültige Telefonnummer ein';
+        newErrors.whatsapp = 'Please enter a valid phone number';
       }
     }
 
     if (formType === 'contact' && !formData.message.trim()) {
-      newErrors.message = 'Nachricht ist erforderlich';
+      newErrors.message = 'Message is required';
     }
 
     setErrors(newErrors);
@@ -89,41 +89,64 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
 
     setIsSubmitting(true);
+
+    // Dynamic content based on form type
+    const isWaitlist = formType === 'waitlist';
 
     // This object's keys MUST match the variable names in your EmailJS template
     const templateParams = {
       formType: formType,
       contactMethod: contactMethod,
       name: formData.name,
-      company: formData.company || 'Nicht angegeben',
+      company: formData.company || 'Not specified',
       email: formData.email,
       whatsapp: formData.whatsapp,
-      message: formData.message || 'Keine zusätzliche Nachricht hinterlassen.',
+      message: formData.message || 'No additional message.',
+      // Dynamic auto-reply content
+      autoReplyTitle: isWaitlist ? "You're on the list!" : "Thanks for reaching out!",
+      autoReplyIntro: isWaitlist
+        ? "Thanks for joining the MeetioAI early access list! You're now in line to be among the first to experience the AI Intake Engineer."
+        : "Thank you for your interest in MeetioAI. Our team will review your inquiry and get back to you within 24 hours.",
+      autoReplyNextTitle: isWaitlist ? "What's next?" : "What's next?",
+      autoReplyNextText: isWaitlist
+        ? "We'll notify you as soon as MeetioAI is ready for you to try. Stay tuned!"
+        : "We'll review your inquiry and get back to you within 24 hours.",
+      autoReplySignoff: isWaitlist ? "See you soon," : "Best regards,",
     };
-    
+
     try {
-      // Use the environment variables from your .env file
+      // Send notification to founders
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         templateParams,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
-      
+
+      // Send auto-reply to user (only if they provided email)
+      if (formData.email) {
+        await emailjs.send(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID,
+          templateParams,
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        );
+      }
+
       setIsSubmitted(true);
-      
+
       // Close modal after success message
       setTimeout(() => {
         handleClose(); // handleClose resets the form
       }, 2000);
-      
+
     } catch (error) {
       console.error('FAILED...', error);
-      alert('Fehler beim Senden. Bitte versuchen Sie es erneut.');
+      alert('Error sending message. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -163,9 +186,9 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
               className="text-center py-8"
             >
               <CheckCircle className="h-16 w-16 text-brand-success mx-auto mb-4" />
-              <h3 className="font-geist font-bold text-lg mb-2">Erfolgreich gesendet!</h3>
+              <h3 className="font-geist font-bold text-lg mb-2">Successfully sent!</h3>
               <p className="font-poppins text-foreground/70">
-                Danke für dein Interesse. Wir melden uns binnen 24 Stunden bei dir.
+                Thanks for your interest. We'll get back to you within 24 hours.
               </p>
             </motion.div>
           ) : (
@@ -189,7 +212,7 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
                     id="name"
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
-                    placeholder="Dein Name"
+                    placeholder="Your name"
                     className={errors.name ? 'border-destructive' : ''}
                   />
                   {errors.name && (
@@ -200,22 +223,22 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
                 {/* Company Field */}
                 <div className="space-y-2">
                   <Label htmlFor="company" className="font-medium">
-                    Unternehmen
+                    Company
                   </Label>
                   <Input
                     id="company"
                     value={formData.company}
                     onChange={(e) => handleInputChange('company', e.target.value)}
-                    placeholder="Dein Unternehmen (optional)"
+                    placeholder="Your company (optional)"
                   />
                 </div>
 
                 {/* Contact Method Selection */}
                 <div className="space-y-4">
                   <Label className="font-medium">
-                    Wie sollen wir dich erreichen? *
+                    How should we reach you? *
                   </Label>
-                  
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <Button
                       type="button"
@@ -225,11 +248,11 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
                     >
                       <Mail className="mr-3 h-5 w-5" />
                       <div className="text-left">
-                        <div className="font-medium">📧 E-Mail</div>
-                        <div className="text-xs opacity-70">Professionell</div>
+                        <div className="font-medium">Email</div>
+                        <div className="text-xs opacity-70">Professional</div>
                       </div>
                     </Button>
-                    
+
                     <Button
                       type="button"
                       variant={contactMethod === 'whatsapp' ? 'default' : 'outline'}
@@ -238,8 +261,8 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
                     >
                       <MessageSquare className="mr-3 h-5 w-5" />
                       <div className="text-left">
-                        <div className="font-medium">📱 WhatsApp</div>
-                        <div className="text-xs opacity-70">Schnell</div>
+                        <div className="font-medium">WhatsApp</div>
+                        <div className="text-xs opacity-70">Quick</div>
                       </div>
                     </Button>
                   </div>
@@ -254,14 +277,14 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
                     className="space-y-2"
                   >
                     <Label htmlFor="email" className="font-medium">
-                      E-Mail Adresse *
+                      Email Address *
                     </Label>
                     <Input
                       id="email"
                       type="email"
                       value={formData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
-                      placeholder="deine@email.com"
+                      placeholder="your@email.com"
                       className={errors.email ? 'border-destructive' : ''}
                     />
                     {errors.email && (
@@ -279,14 +302,14 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
                     className="space-y-2"
                   >
                     <Label htmlFor="whatsapp" className="font-medium">
-                      WhatsApp Nummer *
+                      WhatsApp Number *
                     </Label>
                     <Input
                       id="whatsapp"
                       type="tel"
                       value={formData.whatsapp}
                       onChange={(e) => handleInputChange('whatsapp', e.target.value)}
-                      placeholder="+49 123 456 7890"
+                      placeholder="+1 234 567 8900"
                       className={errors.whatsapp ? 'border-destructive' : ''}
                     />
                     {errors.whatsapp && (
@@ -299,13 +322,13 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
                 {formType === 'contact' && (
                   <div className="space-y-2">
                     <Label htmlFor="message" className="font-medium">
-                      Nachricht *
+                      Message *
                     </Label>
                     <Textarea
                       id="message"
                       value={formData.message}
                       onChange={(e) => handleInputChange('message', e.target.value)}
-                      placeholder="Erzähle uns von deinen Meeting-Herausforderungen oder stelle deine Fragen..."
+                      placeholder="Tell us about your bug reproduction challenges or ask your questions..."
                       rows={4}
                       className={errors.message ? 'border-destructive' : ''}
                     />
@@ -319,13 +342,13 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
                 {(formType === 'interest' || formType === 'waitlist') && (
                   <div className="space-y-2">
                     <Label htmlFor="message" className="font-medium">
-                      Nachricht (optional)
+                      Message (optional)
                     </Label>
                     <Textarea
                       id="message"
                       value={formData.message}
                       onChange={(e) => handleInputChange('message', e.target.value)}
-                      placeholder="Zusätzliche Informationen oder spezielle Anforderungen..."
+                      placeholder="Additional information or special requirements..."
                       rows={3}
                     />
                   </div>
@@ -340,16 +363,16 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
                   {isSubmitting ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Wird gesendet...
+                      Sending...
                     </>
                   ) : (
-                    'Absenden'
+                    'Submit'
                   )}
                 </Button>
               </form>
 
               <p className="text-center text-xs text-foreground/60 mt-4">
-                Wir antworten normalerweise binnen 24 Stunden. Deine Daten werden vertraulich behandelt.
+                We typically respond within 24 hours. Your data is kept confidential.
               </p>
             </motion.div>
           )}

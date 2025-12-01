@@ -1,0 +1,80 @@
+<!--
+TEMPLATE: Notification to Founders (Sales + Waitlist)
+SUBJECT: New {{formType}} from {{name}}
+TO EMAIL: founders@meetio.ai
+FROM NAME: MeetioAI Website
+REPLY TO: {{email}}
+-->
+
+<div style="font-family: 'Segoe UI', system-ui, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
+
+  <!-- Header -->
+  <div style="background-color: #0f172a; padding: 32px 24px; border-radius: 12px 12px 0 0;">
+    <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 600;">
+      New {{formType}}
+    </h1>
+    <p style="color: rgba(255,255,255,0.6); margin: 8px 0 0 0; font-size: 14px;">
+      via MeetioAI Website
+    </p>
+  </div>
+
+  <!-- Content -->
+  <div style="padding: 32px 24px; background-color: #f8fafc; border: 1px solid #e2e8f0; border-top: none;">
+
+    <!-- Contact Card -->
+    <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 20px;">
+      <table style="width: 100%;">
+        <tr>
+          <td style="vertical-align: top; width: 48px;">
+            <div style="width: 48px; height: 48px; background-color: #0f172a; border-radius: 50%; text-align: center; line-height: 48px; color: white; font-size: 20px; font-weight: 600;">
+              {{name}}
+            </div>
+          </td>
+          <td style="vertical-align: top; padding-left: 16px;">
+            <div style="font-size: 18px; font-weight: 600; color: #1e293b;">{{name}}</div>
+            <div style="font-size: 14px; color: #64748b;">{{company}}</div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Contact Details -->
+      <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <tr>
+          <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9;">
+            <span style="color: #64748b; font-size: 13px;">Email</span><br>
+            <a href="mailto:{{email}}" style="color: #0f172a; text-decoration: none; font-weight: 500;">{{email}}</a>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9;">
+            <span style="color: #64748b; font-size: 13px;">WhatsApp</span><br>
+            <span style="color: #1e293b; font-weight: 500;">{{whatsapp}}</span>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 12px 0;">
+            <span style="color: #64748b; font-size: 13px;">Preferred Contact</span><br>
+            <span style="display: inline-block; background: #f1f5f9; color: #0f172a; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 500; text-transform: capitalize;">{{contactMethod}}</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Message Box -->
+    <div style="background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+      <div style="font-size: 13px; color: #64748b; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">
+        Message
+      </div>
+      <div style="font-size: 15px; color: #334155; line-height: 1.6;">{{message}}</div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div style="padding: 20px 24px; background-color: #0f172a; border-radius: 0 0 12px 12px; text-align: center;">
+    <p style="color: rgba(255,255,255,0.5); font-size: 12px; margin: 0;">
+      MeetioAI - Automated notification
+    </p>
+  </div>
+
+</div>

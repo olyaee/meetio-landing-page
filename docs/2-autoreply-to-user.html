@@ -1,0 +1,56 @@
+<!--
+TEMPLATE: Auto-reply to User (Sales + Waitlist - Dynamic Content)
+SUBJECT: {{autoReplyTitle}}, {{name}}!
+TO EMAIL: {{email}}
+FROM NAME: MeetioAI Team
+REPLY TO: founders@meetio.ai
+-->
+
+<div style="font-family: 'Segoe UI', system-ui, sans-serif; max-width: 600px; margin: 0 auto; background-color: #f8fafc;">
+
+  <!-- Header -->
+  <div style="background-color: #0f172a; padding: 40px 24px; border-radius: 12px 12px 0 0; text-align: center;">
+    <div style="font-size: 28px; margin-bottom: 12px;">&#10024;</div>
+    <h1 style="color: #ffffff; margin: 0; font-size: 26px; font-weight: 600; letter-spacing: -0.5px;">
+      {{autoReplyTitle}}
+    </h1>
+  </div>
+
+  <!-- Content -->
+  <div style="padding: 40px 24px; background-color: #ffffff; border-left: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0;">
+
+    <p style="font-size: 16px; color: #334155; line-height: 1.7; margin: 0 0 24px 0;">
+      Hi <strong>{{name}}</strong>,
+    </p>
+
+    <p style="font-size: 16px; color: #334155; line-height: 1.7; margin: 0 0 24px 0;">
+      {{autoReplyIntro}}
+    </p>
+
+    <!-- Highlight Box -->
+    <div style="background: linear-gradient(135deg, #f0fdf4 0%, #f8fafc 100%); border-left: 4px solid #22c55e; border-radius: 0 8px 8px 0; padding: 20px; margin: 28px 0;">
+      <p style="font-size: 15px; color: #1e293b; margin: 0; line-height: 1.6;">
+        <strong>{{autoReplyNextTitle}}</strong><br>
+        {{autoReplyNextText}}
+      </p>
+    </div>
+
+    <p style="font-size: 16px; color: #334155; line-height: 1.7; margin: 24px 0 0 0;">
+      In the meantime, feel free to reply to this email if you have any questions.
+    </p>
+
+    <p style="font-size: 16px; color: #334155; line-height: 1.7; margin: 32px 0 0 0;">
+      {{autoReplySignoff}}<br>
+      <strong style="color: #0f172a;">The MeetioAI Team</strong>
+    </p>
+
+  </div>
+
+  <!-- Footer -->
+  <div style="padding: 24px; background-color: #0f172a; border-radius: 0 0 12px 12px; text-align: center;">
+    <p style="color: rgba(255,255,255,0.5); font-size: 13px; margin: 0;">
+      MeetioAI - AI-Powered Meeting Intelligence
+    </p>
+  </div>
+
+</div>
