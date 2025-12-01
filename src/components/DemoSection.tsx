@@ -42,6 +42,7 @@ export const DemoSection = () => {
             <video
               src="/demo-video.mp4"
               controls
+              preload="metadata"
               className="w-full h-full object-contain"
             >
               Your browser does not support the video tag.
