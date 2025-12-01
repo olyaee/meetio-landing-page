@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Mail, MessageSquare, X, CheckCircle, Loader2 } from "lucide-react";
 import emailjs from '@emailjs/browser';
+import posthog from 'posthog-js';
 
 type FormType = 'interest' | 'contact' | 'waitlist';
 type ContactMethod = 'email' | 'whatsapp';
@@ -137,6 +138,21 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
         );
       }
 
+      // Track successful submission in PostHog
+      posthog.capture('form_submitted', {
+        form_type: formType,
+        contact_method: contactMethod,
+        has_company: !!formData.company,
+      });
+
+      // Identify user if email provided
+      if (formData.email) {
+        posthog.identify(formData.email, {
+          name: formData.name,
+          company: formData.company || undefined,
+        });
+      }
+
       setIsSubmitted(true);
 
       // Close modal after success message
@@ -146,6 +162,7 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
 
     } catch (error) {
       console.error('FAILED...', error);
+      posthog.capture('form_error', { form_type: formType });
       alert('Error sending message. Please try again.');
     } finally {
       setIsSubmitting(false);
