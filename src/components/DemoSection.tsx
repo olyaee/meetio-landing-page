@@ -40,8 +40,9 @@ export const DemoSection = () => {
         >
           <div className="aspect-video bg-foreground/[0.02] rounded-xl border border-foreground/[0.08] overflow-hidden">
             <video
-              src="/demo-video.mp4"
+              src="/demo-video.mp4#t=0.001"
               controls
+              playsInline
               preload="metadata"
               className="w-full h-full object-contain"
             >
