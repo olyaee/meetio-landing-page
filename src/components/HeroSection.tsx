@@ -22,10 +22,7 @@ export const HeroSection = () => {
   };
 
   const handleDemoClick = () => {
-    const demoSection = document.getElementById('demo');
-    if (demoSection) {
-      demoSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -57,7 +54,7 @@ export const HeroSection = () => {
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 text-sm font-body font-medium text-foreground/70 bg-foreground/[0.03] border border-foreground/[0.08] rounded-full">
             <Sparkles className="w-3.5 h-3.5 text-brand-primary" />
-            AI-powered meeting intelligence
+            AI Intake Engineer for bug reports
           </span>
         </motion.div>
 

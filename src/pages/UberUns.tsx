@@ -5,73 +5,52 @@ const UberUns: React.FC = () => {
   const { t } = useTranslation('pages');
 
   return (
-    <div className="container mx-auto px-4 py-24 max-w-3xl">
-      <h1 className="text-4xl font-bold mb-8 text-center">{t('aboutUs.title')}</h1>
+    <div className="min-h-screen bg-background">
+      <div className="max-w-2xl mx-auto px-4 py-24 sm:py-32">
+        {/* Header */}
+        <p className="font-body text-xs uppercase tracking-[0.2em] text-foreground/40 mb-4 text-center">
+          About
+        </p>
+        <h1 className="font-display text-4xl sm:text-5xl text-foreground mb-6 text-center tracking-[-0.02em]">
+          {t('aboutUs.title')}
+        </h1>
 
-      <p className="text-xl mb-6 text-center">
-        {t('aboutUs.subtitle')}
-      </p>
+        <p className="font-body text-lg text-foreground/60 mb-12 text-center leading-relaxed">
+          {t('aboutUs.subtitle')}
+        </p>
 
-      <p className="mb-4">
-        {t('aboutUs.intro1')}
-      </p>
+        {/* Story */}
+        <div className="space-y-6 mb-16">
+          <p className="font-body text-foreground/70 leading-relaxed">
+            {t('aboutUs.intro1')}
+          </p>
 
-      <p className="mb-8">
-        {t('aboutUs.intro2')}
-      </p>
+          <p className="font-body text-foreground/70 leading-relaxed">
+            {t('aboutUs.intro2')}
+          </p>
+        </div>
 
-      <h2 className="text-3xl font-semibold mb-6">{t('aboutUs.frustration.title')}</h2>
+        {/* Founder */}
+        <div className="border-t border-foreground/[0.08] pt-12">
+          <p className="font-body text-xs uppercase tracking-[0.2em] text-foreground/40 mb-6">
+            Founder
+          </p>
 
-      <p className="mb-4">
-        {t('aboutUs.frustration.intro')}
-      </p>
-
-      <p className="mb-4">
-        {t('aboutUs.frustration.elina')}
-      </p>
-
-      <p className="mb-4">
-        {t('aboutUs.frustration.ehsan')}
-      </p>
-
-      <p className="mb-8">
-        {t('aboutUs.frustration.juan')}
-      </p>
-
-      <p className="mb-8">
-        {t('aboutUs.frustration.conclusion')}
-      </p>
-
-      <h2 className="text-3xl font-semibold mb-6">{t('aboutUs.mission.title')}</h2>
-
-      <p className="mb-4">
-        {t('aboutUs.mission.intro')}
-      </p>
-
-      <p className="mb-8">
-        {t('aboutUs.mission.description')}
-      </p>
-
-      <p className="mb-8">
-        {t('aboutUs.mission.conclusion')}
-      </p>
-
-      <h2 className="text-3xl font-semibold mb-6">{t('aboutUs.team.title')}</h2>
-
-      <h3 className="text-2xl font-semibold mb-3">{t('aboutUs.team.elina.name')}</h3>
-      <p className="mb-8">
-        {t('aboutUs.team.elina.description')}
-      </p>
-
-      <h3 className="text-2xl font-semibold mb-3">{t('aboutUs.team.ehsan.name')}</h3>
-      <p className="mb-8">
-        {t('aboutUs.team.ehsan.description')}
-      </p>
-
-      <h3 className="text-2xl font-semibold mb-3">{t('aboutUs.team.juan.name')}</h3>
-      <p className="mb-8">
-        {t('aboutUs.team.juan.description')}
-      </p>
+          <div className="flex items-start gap-4">
+            <div className="w-14 h-14 rounded-full bg-foreground/[0.06] flex items-center justify-center flex-shrink-0">
+              <span className="font-display text-xl text-foreground/60">E</span>
+            </div>
+            <div>
+              <h3 className="font-body font-semibold text-lg text-foreground mb-1">
+                {t('aboutUs.founder.name')}
+              </h3>
+              <p className="font-body text-foreground/50 text-[15px] leading-relaxed">
+                {t('aboutUs.founder.description')}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

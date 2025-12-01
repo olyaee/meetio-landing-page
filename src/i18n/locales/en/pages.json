@@ -172,23 +172,12 @@
   },
   "aboutUs": {
     "title": "About Us",
-    "subtitle": "We're building the AI Intake Engineer for bug reports.",
-    "intro1": "We are Elina, Ehsan and Juan. After talking to 30+ B2B SaaS teams, we discovered a universal pain: engineers spend 30-120 minutes trying to reproduce each bug, burning €20,000-40,000 per month in productivity.",
-    "intro2": "Existing tools capture screenshots. We capture reality. Our AI interviews users, captures the exact DOM state, and generates deterministic test scripts.",
-    "team": {
-      "title": "Our Team",
-      "elina": {
-        "name": "Elina Lesyk",
-        "description": "Enterprise systems architect with deep expertise in security and data governance."
-      },
-      "ehsan": {
-        "name": "Ehsan Olyaee",
-        "description": "AI product leader who translates research into production-ready features."
-      },
-      "juan": {
-        "name": "Juan Carlos Suarez Mora",
-        "description": "ML engineer with experience building LLM systems at Siemens Healthineers."
-      }
+    "subtitle": "Building the AI Intake Engineer for bug reports.",
+    "intro1": "After talking to 30+ B2B SaaS teams, I discovered a universal pain: engineers spend 30-120 minutes trying to reproduce each bug, burning €20,000-40,000 per month in productivity.",
+    "intro2": "Existing tools capture screenshots. Meetio captures reality. The AI interviews users, captures the exact DOM state, and generates deterministic test scripts.",
+    "founder": {
+      "name": "Ehsan Olyaee",
+      "description": "AI product leader with experience translating research into production-ready features. Previously built AI systems at enterprise scale."
     }
   }
 }
