@@ -1,21 +1,18 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { InterestContactForm } from "./InterestContactForm";
-import { LanguageSwitcher } from "./LanguageSwitcher";
-import { getLocalizedRoute } from "@/utils/routes";
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [formModalOpen, setFormModalOpen] = useState(false);
-  const [formType, setFormType] = useState<'interest' | 'contact' | 'waitlist'>('interest');
+  const [formType, setFormType] = useState<'interest' | 'contact' | 'waitlist'>('waitlist');
 
   const location = useLocation();
   const navigate = useNavigate();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,8 +33,8 @@ export const Navigation = () => {
   }, [location]);
 
   const navItems = [
-    { name: t("navigation.features"), href: "#features" },
-    { name: t("navigation.about"), href: getLocalizedRoute('aboutUs', i18n.language) },
+    { name: "Features", href: "#features" },
+    { name: "About", href: "/about-us" },
   ];
 
   const handleOpenForm = (type: 'interest' | 'contact' | 'waitlist') => {
@@ -66,101 +63,80 @@ export const Navigation = () => {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-background/90 backdrop-blur-md shadow-elegant" 
+        isScrolled
+          ? "bg-background/95 backdrop-blur-md border-b border-foreground/[0.06]"
           : "bg-transparent"
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <div className="flex items-center space-x-3">
-              <Link to="/" onClick={(e) => handleNavLinkClick(e, "/")}>
-                <img 
-                  src="/logo.png" 
-                  alt="meetio.ai Logo" 
-                  className="h-8 w-8"
+            <div className="flex items-center gap-2.5">
+              <Link to="/" onClick={(e) => handleNavLinkClick(e, "/")} className="flex items-center gap-2.5">
+                <img
+                  src="/logo.png"
+                  alt="meetio.ai Logo"
+                  className="h-7 w-7"
                 />
-              </Link>
-              <Link to="/" onClick={(e) => handleNavLinkClick(e, "/")}>
-                <span className="font-geist font-bold text-xl text-foreground">
+                <span className="font-body font-semibold text-lg text-foreground tracking-tight">
                   meetio.ai
                 </span>
               </Link>
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center gap-8">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href.startsWith("#") ? location.pathname + item.href : item.href}
                   onClick={(e) => handleNavLinkClick(e, item.href)}
-                  className="font-poppins text-foreground/80 hover:text-brand-primary transition-colors duration-200 relative group"
+                  className="font-body text-sm text-foreground/60 hover:text-foreground transition-colors duration-200"
                 >
                   {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-primary transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
             </div>
 
             {/* Desktop CTAs */}
-            <div className="hidden md:flex items-center space-x-4">
-              <LanguageSwitcher />
-              <Button 
-                variant="outline" 
+            <div className="hidden md:flex items-center gap-3">
+              <button
                 onClick={() => handleOpenForm('waitlist')}
-                className="font-poppins text-foreground border-foreground/20 hover:border-brand-primary hover:text-brand-primary transition-all duration-300"
+                className="inline-flex items-center justify-center px-4 py-2 text-sm font-body font-medium text-white bg-foreground hover:bg-foreground/90 rounded-md transition-all duration-200"
               >
-                {t("navigation.earlyAccess")}
-              </Button>
-              <Button 
-                onClick={() => handleOpenForm('contact')}
-                className="bg-brand-primary hover:bg-brand-primary-dark text-white font-poppins font-medium px-6 py-2 rounded-lg shadow-elegant hover:shadow-hover transition-all duration-300"
-              >
-                {t("navigation.contact")}
-              </Button>
+                Join Waitlist
+              </button>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-foreground hover:text-brand-primary transition-colors"
+              className="md:hidden p-2 text-foreground/70 hover:text-foreground transition-colors"
             >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
 
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 border-t border-foreground/10">
-              <div className="flex flex-col space-y-4 mt-4">
+            <div className="md:hidden mt-4 pb-4 border-t border-foreground/[0.06]">
+              <div className="flex flex-col gap-1 mt-4">
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
                     to={item.href.startsWith("#") ? location.pathname + item.href : item.href}
                     onClick={(e) => handleNavLinkClick(e, item.href)}
-                    className="font-poppins text-foreground/80 hover:text-brand-primary transition-colors duration-200"
+                    className="font-body text-sm text-foreground/70 hover:text-foreground py-2 transition-colors duration-200"
                   >
                     {item.name}
                   </Link>
                 ))}
-                <div className="flex flex-col space-y-3 pt-4">
-                  <div className="flex justify-center pb-2">
-                    <LanguageSwitcher />
-                  </div>
-                  <Button 
-                    variant="outline" 
+                <div className="pt-4 mt-2 border-t border-foreground/[0.06]">
+                  <button
                     onClick={() => handleOpenForm('waitlist')}
-                    className="justify-center border-foreground/20 hover:border-brand-primary hover:text-brand-primary"
+                    className="w-full inline-flex items-center justify-center px-4 py-2.5 text-sm font-body font-medium text-white bg-foreground hover:bg-foreground/90 rounded-md transition-all duration-200"
                   >
-                    {t("navigation.earlyAccess")}
-                  </Button>
-                  <Button 
-                    onClick={() => handleOpenForm('contact')}
-                    className="justify-center bg-brand-primary hover:bg-brand-primary-dark text-white"
-                  >
-                    {t("navigation.contact")}
-                  </Button>
+                    Join Waitlist
+                  </button>
                 </div>
               </div>
             </div>

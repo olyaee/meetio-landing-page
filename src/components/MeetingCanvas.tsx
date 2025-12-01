@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 interface WaveLayer {
@@ -19,7 +19,6 @@ export const MeetingCanvas = () => {
   const timeRef = useRef(0);
   const mouseRef = useRef({ x: 0, y: 0, active: false });
   const scrollRef = useRef(0);
-  const [isVisible, setIsVisible] = useState(true);
 
   // 4-layer parallax wave system with different scroll speeds and fill types
   const waveLayers: WaveLayer[] = [
@@ -154,7 +153,7 @@ export const MeetingCanvas = () => {
         speed: 0.2, radius: 15, layer: 1, scrollMultiplier: 0.1
       },
       {
-        baseX: width * 0.45, baseY: height * 0.25,
+        baseX: width * 0.45, baseY: height * 0.45,
         size: 5, maxSize: 15, phase: Math.PI / 2,
         moveType: 'growing', color: '147, 51, 234',
         speed: 0.5, radius: 0, layer: 2, scrollMultiplier: 0.3
@@ -172,17 +171,17 @@ export const MeetingCanvas = () => {
         speed: 0.6, radius: 10, layer: 4, scrollMultiplier: 0.6
       },
       {
-        baseX: width * 0.65, baseY: height * 0.15,
+        baseX: width * 0.65, baseY: height * 0.4,
         size: 3.5, maxSize: 9, phase: Math.PI * 0.8,
         moveType: 'bouncing', color: '147, 51, 234',
         speed: 0.4, radius: 15, layer: 4, scrollMultiplier: 0.6
       },
       // --- ADDED: Four New Bubbles ---
       {
-        baseX: width * 0.9, baseY: height * 0.2, // New position
-        size: 4, maxSize: 10, phase: Math.PI * 0.3, // New phase
+        baseX: width * 0.9, baseY: height * 0.5, // Moved down from 0.2
+        size: 4, maxSize: 10, phase: Math.PI * 0.3,
         moveType: 'growing', color: '196, 181, 253',
-        speed: 0.45, radius: 0, layer: 1, scrollMultiplier: 0.1 // Background layer
+        speed: 0.45, radius: 0, layer: 1, scrollMultiplier: 0.1
       },
       {
         baseX: width * 0.1, baseY: height * 0.8, // New position
@@ -197,10 +196,10 @@ export const MeetingCanvas = () => {
         speed: 0.5, radius: 18, layer: 3, scrollMultiplier: 0.4 // Middle layer 3
       },
       {
-        baseX: width * 0.3, baseY: height * 0.1, // New position
-        size: 3.5, maxSize: 8, phase: Math.PI * 1.7, // New phase
+        baseX: width * 0.3, baseY: height * 0.45, // Moved down from 0.1
+        size: 3.5, maxSize: 8, phase: Math.PI * 1.7,
         moveType: 'bouncing', color: '147, 51, 234',
-        speed: 0.45, radius: 12, layer: 4, scrollMultiplier: 0.6 // Foreground layer
+        speed: 0.45, radius: 12, layer: 4, scrollMultiplier: 0.6
       }
     ];
     
@@ -334,11 +333,6 @@ export const MeetingCanvas = () => {
 
     const handleScroll = () => {
       scrollRef.current = window.scrollY;
-      
-      // Hide canvas much earlier - as soon as user scrolls past hero section
-      // Hide waves when reaching end of ProblemSection (before SolutionSection appears)
-      const hideWavesAt = window.innerHeight * 1.2; // Much earlier - just past hero + half of problem
-      setIsVisible(window.scrollY < hideWavesAt);
     };
 
 
@@ -367,15 +361,13 @@ export const MeetingCanvas = () => {
   return (
     <motion.canvas
       ref={canvasRef}
-      className="fixed inset-0 w-full h-full pointer-events-none z-10"
-      style={{ 
+      className="absolute inset-0 w-full h-full pointer-events-none"
+      style={{
         mixBlendMode: 'normal',
-        opacity: isVisible ? 0.8 : 0,
-        transition: 'opacity 0.5s ease-out'
       }}
       initial={{ opacity: 0 }}
-      animate={{ opacity: isVisible ? 0.8 : 0 }}
-      transition={{ duration: isVisible ? 2 : 0.5, delay: isVisible ? 0.5 : 0 }}
+      animate={{ opacity: 0.6 }}
+      transition={{ duration: 2, delay: 0.5 }}
     />
   );
 };

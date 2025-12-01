@@ -1,17 +1,19 @@
 import { HeroSection } from "@/components/HeroSection";
+import { DemoSection } from "@/components/DemoSection";
 import { ProblemSection } from "@/components/ProblemSection";
 import { SolutionSection } from "@/components/SolutionSection";
-import { ROICalculatorSection } from "@/components/ROICalculator";
-import { ContactSection } from "@/components/ContactSection";
+import { DifferentiationSection } from "@/components/DifferentiationSection";
+import { TractionSection } from "@/components/TractionSection";
 
 const Index = () => {
   return (
     <>
       <HeroSection />
+      <DemoSection />
       <ProblemSection />
       <SolutionSection />
-      <ROICalculatorSection />
-      <ContactSection />
+      <DifferentiationSection />
+      <TractionSection />
     </>
   );
 };

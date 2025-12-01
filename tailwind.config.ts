@@ -14,8 +14,11 @@ export default {
     },
     extend: {
       fontFamily: {
-        'geist': ['Geist', 'system-ui', '-apple-system', 'sans-serif'],
-        'poppins': ['Poppins', 'system-ui', '-apple-system', 'sans-serif'],
+        'display': ['Instrument Serif', 'Georgia', 'serif'],
+        'body': ['DM Sans', 'system-ui', '-apple-system', 'sans-serif'],
+        // Keep old names for backwards compatibility during transition
+        'geist': ['DM Sans', 'system-ui', '-apple-system', 'sans-serif'],
+        'poppins': ['DM Sans', 'system-ui', '-apple-system', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

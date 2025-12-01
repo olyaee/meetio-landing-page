@@ -1,166 +1,161 @@
 {
   "hero": {
-    "title": "Your Last Feature Had 3% Adoption.",
-    "titleHighlight": "The One Customers Wanted Is Still in the Backlog.",
-    "subtitle": "Every customer conversation, automatically captured. Every feature request, ranked by revenue. Every competitor mention, flagged instantly. Stop shipping features that die.",
-    "ctaPrimary": "Curious?",
-    "ctaDemo": "Calculate Your Feature Waste"
+    "painLine": "Stop Burning 30-120 Minutes Per Bug.",
+    "solutionLine": "Turn every bug report into a reproducible test.",
+    "subtitle": "The first AI Intake Engineer that interviews your users, captures the DOM, and creates a deterministic test script.",
+    "ctaPrimary": "Join Waitlist",
+    "ctaDemo": "Watch Demo"
+  },
+  "demo": {
+    "title": "See how a vague bug report becomes a deterministic test in under 2 minutes."
   },
   "problem": {
-    "title": "You're Not Building Wrong. You're Building Blind.",
-    "subtitle": "Your roadmap is based on the 3 customers Sales remembered to mention in Slack. That \"urgent\" feature? One customer. Who churned anyway.",
-    "transform": "Meanwhile, 23 customers asked for CSV export. Sales forgot to mention it. You shipped dark mode instead. Nobody uses it.",
-    "stats": {
-      "lost": "of features rarely or never used",
-      "time": "$400K average cost of an unused feature"
+    "title": "The real cost of bad bug reports",
+    "subtitle": "It's the reproduction tax they create.",
+    "painPoints": {
+      "reproductionTax": {
+        "title": "Reproduction Tax",
+        "description": "Developers spend hours rebuilding what already happened with almost no context."
+      },
+      "vagueReports": {
+        "title": "Vague Reports",
+        "description": "Support, PM, and engineering waste entire days chasing missing details."
+      },
+      "cannotReproduce": {
+        "title": "Cannot Reproduce",
+        "description": "20-40% of bugs end closed without resolution."
+      }
+    },
+    "tax": {
+      "volume": "50-300 bugs/month",
+      "time": "30-120 minutes each",
+      "cost": "€20,000-40,000 burned, every month",
+      "tagline": "You pay this \"Reproduction Tax\" whether you like it or not."
     }
   },
   "solution": {
-    "titlePrefix": "From Customer Call to Jira Ticket.",
-    "title": "In Minutes, Not Weeks.",
-    "subtitle": "Three Steps to Never Missing Another Feature Request",
-    "description": "Meetio automates the tedious work of hunting through recordings so your team can focus on what matters: building great products. No more manual searching, no more missed insights.",
-    "pillars": {
-      "decisions": {
-        "title": "1. Sales Talks (Happens Anyway)",
-        "description": "Your team has 50+ customer calls weekly on Zoom, Teams, Meet. Using Gong? Keep it. Using Fireflies? Fine. Nothing? We've got you."
+    "title": "The AI Intake Engineer that does the hard work for you",
+    "tagline": "From \"The app is broken\" to a fully reproducible test, automatically.",
+    "steps": {
+      "interview": {
+        "title": "Real-time AI Interview",
+        "points": [
+          "Clarifies intent",
+          "Extracts real steps and context",
+          "Eliminates unclear reports"
+        ]
       },
-      "notes": {
-        "title": "2. We Extract What Matters",
-        "description": "Not transcription. Intelligence. Every feature request tagged. Every pain point categorized. Every \"your competitor does X\" flagged."
+      "snapshot": {
+        "title": "Inspectable DOM Snapshot",
+        "points": [
+          "Full user journey",
+          "Console and network logs",
+          "Exact UI state"
+        ]
       },
-      "knowledge": {
-        "title": "3. Your Tools Get Smarter",
-        "description": "Wake up to Jira tickets with evidence attached. Linear roadmap items with ARR impact. Slack digest of what you missed."
+      "test": {
+        "title": "Auto-generated Test Script",
+        "points": [
+          "Deterministic test script",
+          "Works with Playwright/Cypress",
+          "Transforms user pain into regression tests"
+        ]
       }
     },
-    "capture": "Monday: Customer asks for SSO. Tuesday: It's in your backlog with 22 other requests totaling $2.4M. Wednesday: You pitch it in planning with actual data.",
-    "stats": {
-      "time": "Hours/week hunting for customer context",
-      "roi": "Chance the CEO asks \"what do customers want?\" and you're guessing",
-      "productive": "Feature adoption went from 12% to 64%"
+    "output": {
+      "title": "The Output",
+      "ticket": "Descriptive Jira Ticket",
+      "scripts": "QA Test Scripts"
     }
   },
-  "roi": {
-    "title": "Stop Losing Your Best Ideas",
-    "subtitle": "Every customer conversation contains feature requests worth millions. Calculate what you're missing.",
-    "personalTab": "My Personal ROI",
-    "companyTab": "Company ROI",
-    "personalTitle": "Calculate Your Personal Time Savings",
-    "companyTitle": "Build Your Business Case",
-    "inputs": {
-      "role": "What is your primary role?",
-      "meetings": "Hours in meetings per week:",
-      "followUp": "Weekly time spent on follow-ups:",
-      "industry": "What is your industry?",
-      "employees": "Number of employees in meetings",
-      "avgSalary": "Average annual salary",
-      "salesVelocity": "Increase sales/project velocity?",
-      "knowledgeRetention": "Reduce knowledge loss from turnover?",
-      "numSalesReps": "Number of sales reps/project partners",
-      "turnoverRate": "Annual turnover rate (%):"
-    },
-    "breakdown": {
-      "prep": "Customer research time saved:",
-      "notes": "More efficient meetings:",
-      "followup": "Automated insights:"
-    },
-    "results": {
-      "personalPrefix": "You can save approximately",
-      "personalSuffix": "hours/year",
-      "personalValue": "worth",
-      "beforeMeetio": "Before Meetio:",
-      "withMeetio": "With Meetio:",
-      "research": "Research:",
-      "featureAdoption": "Feature adoption:",
-      "companyPrefix": "Estimated annual value for your company",
-      "potentialROI": "Potential ROI",
-      "paybackTime": "Payback time",
-      "disclaimer": "This estimate is based on your industry, team size, and goals. It considers gains from productivity, efficiency, and knowledge retention. Numbers don't look right? Let's validate this together.",
-      "validateButton": "Validate numbers with us"
-    },
-    "calculate": "Calculate company ROI",
-    "roles": {
-      "consultant": "Business Consultant",
-      "saas_pm": "Product Manager (SaaS)",
-      "saas_sales": "Sales Executive (SaaS)",
-      "lawyer": "Lawyer/Partner",
-      "manufacturing": "Operations Manager",
-      "other": "Knowledge Worker"
-    },
-    "industries": {
-      "consulting": "Management Consulting",
-      "saas": "Enterprise SaaS",
-      "pe": "Private Equity",
-      "law": "Law Firm",
-      "manufacturing": "Manufacturing"
+  "differentiation": {
+    "title": "Existing tools capture screenshots.",
+    "titleHighlight": "We capture reality.",
+    "columns": {
+      "bugTools": {
+        "title": "Bug Reporting Tools",
+        "points": [
+          "Static screenshots or videos",
+          "Manual typing, incomplete info",
+          "No reproducible test"
+        ]
+      },
+      "sessionReplay": {
+        "title": "Session Replay Tools",
+        "points": [
+          "Records everything passively",
+          "Good for analysis, not reproduction",
+          "Not user-facing, doesn't record bugs explicitly"
+        ]
+      },
+      "meetio": {
+        "title": "Meetio.ai",
+        "points": [
+          "AI interviews users directly",
+          "Captures rich DOM state and context",
+          "Generates runnable test scripts"
+        ]
+      }
+    }
+  },
+  "traction": {
+    "title": "Early traction",
+    "stats": {
+      "interviews": {
+        "number": "30+",
+        "label": "interviews with SaaS teams"
+      },
+      "lois": {
+        "number": "2",
+        "label": "LOIs already issued"
+      },
+      "pilots": {
+        "label": "Pilots starting soon"
+      }
     }
   },
   "contact": {
-    "title": "Ready to Ship Features That Actually Get Used?",
-    "subtitle": "Every PM has two choices: Keep guessing what customers want, or know exactly what they need.",
-    "quote": "Every PM Has Two Choices: Option 1: Keep guessing. Ship features with 3% adoption. Option 2: Know exactly what customers want."
+    "title": "Stop wasting hours reproducing bugs.",
+    "subtitle": "Let the AI Intake Engineer do it for you.",
+    "ctaPrimary": "Join Waitlist",
+    "ctaSecondary": "Request Demo"
   },
   "footer": {
-    "description": "Stop shipping features that die. Automatically capture every customer conversation, rank feature requests by revenue, and build what actually matters.",
+    "description": "The AI Intake Engineer that turns vague bug reports into reproducible tests. Automatically.",
     "sections": {
       "product": "Product",
-      "solutions": "Solutions",
-      "resources": "Resources",
-      "company": "Company", 
+      "company": "Company",
       "legal": "Legal"
     },
     "links": {
       "product": {
         "howItWorks": "How It Works",
-        "integrations": "Integrations",
-        "security": "Security",
-        "api": "API"
-      },
-      "solutions": {
-        "productTeams": "Product Teams",
-        "saas": "SaaS Companies",
-        "startups": "Startups",
-        "enterprise": "Enterprise"
-      },
-      "resources": {
-        "documentation": "Documentation",
-        "helpCenter": "Help Center",
-        "roiStudies": "ROI Studies",
-        "bestPractices": "Best Practices"
+        "integrations": "Integrations"
       },
       "company": {
         "about": "About Us",
-        "careers": "Careers",
-        "press": "Press",
         "contact": "Contact"
       },
       "legal": {
         "privacy": "Privacy",
         "terms": "Terms",
-        "cookies": "Cookie Policy",
         "imprint": "Imprint"
       }
-    },
-    "contact": {
-      "support": "Support",
-      "enterprise": "Enterprise",
-      "security": "Security"
     },
     "copyright": "© {{year}} meetio.ai. All rights reserved."
   },
   "forms": {
     "interest": {
       "title": "Get Early Access",
-      "description": "Tell us about your meeting challenges. We'll get back to you within 24 hours."
+      "description": "Tell us about your bug reproduction challenges. We'll get back to you within 24 hours."
     },
     "contact": {
-      "title": "Contact Us", 
-      "description": "Have questions or want a demo? We're here to help."
+      "title": "Request Demo",
+      "description": "See how Meetio.ai can eliminate your reproduction tax."
     },
     "waitlist": {
       "title": "Join Waitlist",
-      "description": "Tell us about your meeting challenges or ask your questions..."
+      "description": "Be first to try the AI Intake Engineer."
     },
     "fields": {
       "name": "Full Name",
@@ -168,7 +163,7 @@
       "company": "Company",
       "role": "Role",
       "message": "Message",
-      "placeholder": "Tell us about your meeting challenges or ask your questions..."
+      "placeholder": "Tell us about your bug reproduction challenges..."
     },
     "submit": "Send Message",
     "sending": "Sending...",
@@ -177,36 +172,22 @@
   },
   "aboutUs": {
     "title": "About Us",
-    "subtitle": "We transform meetings from time wasters into strategic capital.",
-    "intro1": "We are Elina, Ehsan and Juan. Before we founded Meetio.ai, we spent years in leading technology corporations, consulting and heavily regulated industries. We all had one thing in common: Our calendar was full of meetings.",
-    "intro2": "And in these meetings something paradoxical happened: The most valuable information was exchanged, brilliant ideas were born and critical decisions were made. But as soon as the \"Leave\" button was clicked, this knowledge began to evaporate.",
-    "frustration": {
-      "title": "The frustration that drove us",
-      "intro": "Each of us experienced the consequences of this knowledge loss from a different perspective:",
-      "elina": "For Elina, it was the weekly nightmare of manually updating Salesforce after every customer conversation, just to keep other teams informed. Critical insights were lost when this manual process became a bottleneck.",
-      "ehsan": "For Ehsan, it was the constant struggle to translate the essence of stakeholder meetings into concrete, deliverable features. Too often, the true needs and the \"why\" behind decisions remained hidden.",
-      "juan": "For Juan, it was the realization of how often technical knowledge remained trapped in silos and had to be explained again and again in subsequent meetings, slowing down development.",
-      "conclusion": "We realized: The most valuable capital of a company – the implicit knowledge, the justifications for decisions and the strategic context – evaporates the moment a meeting ends. Companies thereby lose not only time, but above all their collective intelligence."
-    },
-    "mission": {
-      "title": "Our Mission",
-      "intro": "Meetio.ai was born from exactly this frustration. We're not just building another note-taking assistant. We're creating organizational memory.",
-      "description": "Our platform doesn't just capture what was said, but also extracts the why and what's next. We automate tedious follow-ups, feed insights directly into the systems you already use (CRM, project management), and make your company's collective knowledge searchable and usable.",
-      "conclusion": "We want you and your teams to be able to focus on what really matters: the discussion, the strategy, the human connection. Meetio.ai takes care of the rest."
-    },
+    "subtitle": "We're building the AI Intake Engineer for bug reports.",
+    "intro1": "We are Elina, Ehsan and Juan. After talking to 30+ B2B SaaS teams, we discovered a universal pain: engineers spend 30-120 minutes trying to reproduce each bug, burning €20,000-40,000 per month in productivity.",
+    "intro2": "Existing tools capture screenshots. We capture reality. Our AI interviews users, captures the exact DOM state, and generates deterministic test scripts.",
     "team": {
-      "title": "Our Team: Three Perspectives, One Mission",
+      "title": "Our Team",
       "elina": {
         "name": "Elina Lesyk",
-        "description": "Elina is the architect for the big picture. With her experience in designing enterprise systems, she bridges the gap between sales, IT security and technical implementation. She understands the complex requirements of large enterprises, from GDPR audits to data sovereignty, and ensures that Meetio.ai is not only intelligent, but also secure and scalable."
+        "description": "Enterprise systems architect with deep expertise in security and data governance."
       },
       "ehsan": {
-        "name": "Ehsan Olyaee", 
-        "description": "Ehsan is the translator between AI potential and real business value. He has led AI projects from start to finish and knows how to develop concrete product features from abstract conversations. His strength lies in understanding the needs of all stakeholders and translating AI research into measurable results for practice."
+        "name": "Ehsan Olyaee",
+        "description": "AI product leader who translates research into production-ready features."
       },
       "juan": {
         "name": "Juan Carlos Suarez Mora",
-        "description": "Juan is the technical foundation on which our vision is built. With his experience in building machine learning systems at Siemens Healthineers and developing LLM backends for production use, he brings the engineering expertise essential for a robust enterprise product. He has worked in heavily regulated environments and successfully led multiple software teams."
+        "description": "ML engineer with experience building LLM systems at Siemens Healthineers."
       }
     }
   }

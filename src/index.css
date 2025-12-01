@@ -1,82 +1,92 @@
+/* Import distinctive fonts - must be first */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* meetio.ai Design System - Premium Meeting Intelligence Platform
-All colors MUST be HSL. Sophisticated gradients and animations for enterprise appeal.
+/* meetio.ai Design System - Editorial Confidence
+A human-crafted aesthetic that feels intentional, not generated.
 */
 
 @layer base {
   :root {
-    /* Brand Foundation */
-    --background: 35 46% 97%; /* #fff7f3 - Warm, sophisticated cream */
-    --foreground: 215 12% 25%; /* #40434f - Professional dark text */
-    
-    /* Brand Colors */
-    --brand-primary: 257 89% 59%; /* #7833ff - meetio.ai signature purple */
-    --brand-primary-light: 257 89% 75%; /* Lighter purple for hover states */
-    --brand-primary-dark: 257 89% 45%; /* Darker purple for active states */
-    --brand-accent: 42 78% 60%; /* #f59e0b - Warm orange for highlights */
-    --brand-success: 142 71% 45%; /* #22c55e - Success green */
-    --brand-warning: 25 95% 53%; /* Warning orange */
-    
+    /*
+     * Color Philosophy:
+     * - Near-black for authority
+     * - Warm off-white for approachability
+     * - Purple only as a deliberate accent, never a crutch
+     */
+
+    /* Foundation */
+    --background: 40 33% 98%; /* Warm paper white */
+    --foreground: 240 10% 10%; /* Rich near-black */
+
+    /* Brand Colors - Use sparingly */
+    --brand-primary: 262 83% 58%; /* Your purple, slightly refined */
+    --brand-primary-light: 262 80% 68%;
+    --brand-primary-dark: 262 85% 48%;
+    --brand-accent: 24 95% 64%; /* Warm coral for energy */
+    --brand-success: 158 64% 40%;
+    --brand-warning: 38 92% 50%;
+
     /* Surface Colors */
-    --card: 35 46% 98%; /* Slightly lighter than background */
-    --card-foreground: 215 12% 25%;
-    --popover: 35 46% 99%;
-    --popover-foreground: 215 12% 25%;
-    
+    --card: 40 33% 99%;
+    --card-foreground: 240 10% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 10%;
+
     /* Interactive Elements */
-    --primary: 257 89% 59%; /* Brand purple */
+    --primary: 262 83% 58%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 35 20% 94%; /* #f5f4f2 - Neutral secondary */
-    --secondary-foreground: 215 12% 25%;
-    
+    --secondary: 40 20% 96%;
+    --secondary-foreground: 240 10% 10%;
+
     /* Text Hierarchy */
-    --muted: 35 20% 92%;
-    --muted-foreground: 215 10% 55%; /* Subtle text */
-    --accent: 35 30% 90%;
-    --accent-foreground: 215 12% 25%;
-    
+    --muted: 40 20% 94%;
+    --muted-foreground: 240 5% 46%;
+    --accent: 40 30% 96%;
+    --accent-foreground: 240 10% 10%;
+
     /* States */
-    --destructive: 0 84% 60%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
-    --border: 35 20% 88%;
-    --input: 35 20% 88%;
-    --ring: 257 89% 59%;
-    
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--brand-primary)) 0%, hsl(var(--brand-primary-dark)) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(var(--brand-primary)) 0%, hsl(215 100% 70%) 50%, hsl(var(--brand-primary-light)) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(var(--brand-accent)) 0%, hsl(25 95% 65%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(35 40% 95%) 100%);
-    
-    /* Shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(var(--brand-primary) / 0.2);
-    --shadow-hover: 0 20px 40px -15px hsl(var(--brand-primary) / 0.3);
-    --shadow-glow: 0 0 40px hsl(var(--brand-primary) / 0.15);
-    --shadow-card: 0 4px 20px -2px hsl(215 12% 25% / 0.08);
-    
+    --border: 40 20% 90%;
+    --input: 40 20% 90%;
+    --ring: 262 83% 58%;
+
+    /* Refined Gradients - Subtle, not flashy */
+    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%) 0%, hsl(262 85% 48%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(40 33% 98%) 0%, hsl(40 25% 96%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(24 95% 64%) 0%, hsl(38 92% 50%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(40 33% 98%) 0%, hsl(40 20% 96%) 100%);
+
+    /* Shadows - Soft, natural shadows */
+    --shadow-elegant: 0 1px 2px hsl(240 10% 10% / 0.04), 0 4px 12px hsl(240 10% 10% / 0.06);
+    --shadow-hover: 0 4px 8px hsl(240 10% 10% / 0.04), 0 12px 32px hsl(240 10% 10% / 0.08);
+    --shadow-glow: 0 0 0 1px hsl(262 83% 58% / 0.1), 0 4px 16px hsl(262 83% 58% / 0.12);
+    --shadow-card: 0 1px 3px hsl(240 10% 10% / 0.04), 0 6px 16px hsl(240 10% 10% / 0.06);
+
     /* Animations */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    --transition-fast: all 0.2s ease-out;
-    
-    /* Typography Scale */
-    --font-geist: 'Geist', system-ui, -apple-system, sans-serif;
-    --font-poppins: 'Poppins', system-ui, -apple-system, sans-serif;
-    
-    --radius: 0.75rem;
-    
-    /* Sidebar (keeping for consistency) */
-    --sidebar-background: 35 46% 98%;
-    --sidebar-foreground: 215 12% 25%;
-    --sidebar-primary: 257 89% 59%;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition-fast: all 0.15s ease-out;
+
+    /* Typography - Distinctive choices */
+    --font-display: 'Instrument Serif', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+
+    --radius: 0.5rem;
+
+    /* Sidebar */
+    --sidebar-background: 40 33% 99%;
+    --sidebar-foreground: 240 10% 10%;
+    --sidebar-primary: 262 83% 58%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 35 20% 94%;
-    --sidebar-accent-foreground: 215 12% 25%;
-    --sidebar-border: 35 20% 88%;
-    --sidebar-ring: 257 89% 59%;
+    --sidebar-accent: 40 20% 96%;
+    --sidebar-accent-foreground: 240 10% 10%;
+    --sidebar-border: 40 20% 90%;
+    --sidebar-ring: 262 83% 58%;
   }
 
   .dark {

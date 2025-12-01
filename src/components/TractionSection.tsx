@@ -1,19 +1,18 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { ArrowRight, Mail } from "lucide-react";
+import { Handshake, Rocket, ArrowRight, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { InterestContactForm } from "./InterestContactForm";
-import { motion } from "framer-motion";
 
-export const ContactSection = () => {
+export const TractionSection = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
   const [formModalOpen, setFormModalOpen] = useState(false);
   const [formType, setFormType] = useState<'interest' | 'contact' | 'waitlist'>('waitlist');
   const { t } = useTranslation('pages');
-
-  const [ref, inView] = useInView({
-    threshold: 0.3,
-    triggerOnce: true,
-  });
 
   const handleWaitlistClick = () => {
     setFormType('waitlist');
@@ -25,13 +24,82 @@ export const ContactSection = () => {
     setFormModalOpen(true);
   };
 
+  const stats = [
+    {
+      icon: Handshake,
+      number: "3",
+      label: "Design partners",
+    },
+    {
+      icon: Rocket,
+      number: "Q1",
+      label: "Pilots starting",
+    },
+  ];
+
   return (
-    <section ref={ref} className="pt-4 sm:pt-8 pb-16 sm:pb-24 px-4 sm:px-6 bg-background">
-      <div className="max-w-3xl mx-auto">
+    <section
+      ref={ref}
+      className="py-20 sm:py-28 px-4 sm:px-6 bg-foreground/[0.015]"
+    >
+      <div className="max-w-4xl mx-auto">
+        {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
+          className="text-center mb-12 sm:mb-16"
+        >
+          <p className="font-body text-xs uppercase tracking-[0.2em] text-foreground/40 mb-4">
+            Momentum
+          </p>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-foreground tracking-[-0.02em]">
+            Early traction
+          </h2>
+        </motion.div>
+
+        {/* Stats Grid */}
+        <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 max-w-lg mx-auto mb-10">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+              className="flex-1 text-center"
+            >
+              <div className="bg-background rounded-xl p-6 sm:p-8 border border-foreground/[0.06]">
+                <div className="w-10 h-10 rounded-lg bg-foreground/[0.04] flex items-center justify-center mx-auto mb-4">
+                  <stat.icon className="h-5 w-5 text-foreground/60" />
+                </div>
+                <div className="font-display text-4xl sm:text-5xl text-foreground mb-1 tracking-tight">
+                  {stat.number}
+                </div>
+                <p className="font-body text-foreground/50 text-sm">
+                  {stat.label}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA Text */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-center mb-10"
+        >
+          <p className="font-body text-base text-foreground/50">
+            Want to be a pilot customer or design partner?
+          </p>
+        </motion.div>
+
+        {/* CTA Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.6 }}
           className="relative bg-foreground rounded-2xl p-8 sm:p-12 md:p-16 text-center overflow-hidden"
         >
           {/* Subtle texture */}
@@ -43,17 +111,14 @@ export const ContactSection = () => {
           />
 
           <div className="relative z-10">
-            {/* Title */}
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-4 sm:mb-6 leading-tight tracking-[-0.02em]">
               {t('contact.title')}
             </h2>
 
-            {/* Subtitle */}
             <p className="font-body text-base sm:text-lg text-white/60 mb-8 sm:mb-10 max-w-xl mx-auto leading-relaxed">
               {t('contact.subtitle')}
             </p>
 
-            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
               <button
                 onClick={handleWaitlistClick}
