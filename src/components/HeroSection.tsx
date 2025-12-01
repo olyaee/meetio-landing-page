@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { MeetingCanvas } from "./MeetingCanvas";
@@ -6,23 +6,18 @@ import { InterestContactForm } from "./InterestContactForm";
 import { motion } from "framer-motion";
 
 export const HeroSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const [formModalOpen, setFormModalOpen] = useState(false);
   const [formType, setFormType] = useState<'interest' | 'contact' | 'waitlist'>('waitlist');
   const { t } = useTranslation('pages');
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 200);
-    return () => clearTimeout(timer);
-  }, []);
 
   const handleWaitlistClick = () => {
     setFormType('waitlist');
     setFormModalOpen(true);
   };
 
-  const handleDemoClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleContactSalesClick = () => {
+    setFormType('contact');
+    setFormModalOpen(true);
   };
 
   return (
@@ -96,12 +91,12 @@ export const HeroSection = () => {
             <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
           </button>
 
-          {/* Secondary CTA - Understated elegance */}
+          {/* Secondary CTA - Contact Sales */}
           <button
-            onClick={handleDemoClick}
+            onClick={handleContactSalesClick}
             className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[15px] font-body font-semibold text-foreground bg-transparent hover:bg-foreground/[0.04] border border-foreground/20 hover:border-foreground/30 rounded-lg transition-all duration-200"
           >
-            {t('hero.ctaDemo')}
+            Contact Sales
             <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
           </button>
         </motion.div>
