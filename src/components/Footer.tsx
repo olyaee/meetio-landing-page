@@ -77,9 +77,6 @@ export const Footer = () => {
               >
                 <Mail className="h-4 w-4" />
               </Button>
-              {/* <Button variant="ghost" size="sm" className="text-background/80 hover:text-background hover:bg-background/10">
-                <MessageSquare className="h-4 w-4" />
-              </Button> */}
               <Button 
                 variant="ghost" 
                 size="sm" 

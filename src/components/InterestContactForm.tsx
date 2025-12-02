@@ -5,12 +5,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Mail, MessageSquare, X, CheckCircle, Loader2 } from "lucide-react";
+import { CheckCircle, Loader2 } from "lucide-react";
 import emailjs from '@emailjs/browser';
 import posthog from 'posthog-js';
 
 type FormType = 'interest' | 'contact' | 'waitlist';
-type ContactMethod = 'email' | 'whatsapp';
 
 interface InterestContactFormProps {
   isOpen: boolean;
@@ -19,10 +18,8 @@ interface InterestContactFormProps {
 }
 
 export const InterestContactForm = ({ isOpen, onClose, formType }: InterestContactFormProps) => {
-  const [contactMethod, setContactMethod] = useState<ContactMethod>('email');
   const [formData, setFormData] = useState({
     email: '',
-    whatsapp: '',
     message: '',
     company: '',
     name: ''
@@ -64,20 +61,10 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
       newErrors.name = 'Name is required';
     }
 
-    if (contactMethod === 'email') {
-      if (!formData.email.trim()) {
-        newErrors.email = 'Email is required';
-      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-        newErrors.email = 'Please enter a valid email address';
-      }
-    }
-
-    if (contactMethod === 'whatsapp') {
-      if (!formData.whatsapp.trim()) {
-        newErrors.whatsapp = 'WhatsApp number is required';
-      } else if (!/^\+?[\d\s-()]+$/.test(formData.whatsapp)) {
-        newErrors.whatsapp = 'Please enter a valid phone number';
-      }
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
     }
 
     if (formType === 'contact' && !formData.message.trim()) {
@@ -101,11 +88,9 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
     // This object's keys MUST match the variable names in your EmailJS template
     const templateParams = {
       formType: formType,
-      contactMethod: contactMethod,
       name: formData.name,
       company: formData.company || 'Not specified',
       email: formData.email,
-      whatsapp: formData.whatsapp,
       message: formData.message || 'No additional message.',
       // Dynamic auto-reply content
       autoReplyTitle: isWaitlist ? "You're on the list!" : "Thanks for reaching out!",
@@ -128,36 +113,31 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
-      // Send auto-reply to user (only if they provided email)
-      if (formData.email) {
-        await emailjs.send(
-          import.meta.env.VITE_EMAILJS_SERVICE_ID,
-          import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID,
-          templateParams,
-          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-        );
-      }
+      // Send auto-reply to user
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
 
       // Track successful submission in PostHog
       posthog.capture('form_submitted', {
         form_type: formType,
-        contact_method: contactMethod,
         has_company: !!formData.company,
       });
 
-      // Identify user if email provided
-      if (formData.email) {
-        posthog.identify(formData.email, {
-          name: formData.name,
-          company: formData.company || undefined,
-        });
-      }
+      // Identify user
+      posthog.identify(formData.email, {
+        name: formData.name,
+        company: formData.company || undefined,
+      });
 
       setIsSubmitted(true);
 
       // Close modal after success message
       setTimeout(() => {
-        handleClose(); // handleClose resets the form
+        handleClose();
       }, 2000);
 
     } catch (error) {
@@ -180,7 +160,7 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
   const handleClose = () => {
     onClose();
     setIsSubmitted(false);
-    setFormData({ email: '', whatsapp: '', message: '', company: '', name: '' });
+    setFormData({ email: '', message: '', company: '', name: '' });
     setErrors({});
   };
 
@@ -250,90 +230,23 @@ export const InterestContactForm = ({ isOpen, onClose, formType }: InterestConta
                   />
                 </div>
 
-                {/* Contact Method Selection */}
-                <div className="space-y-4">
-                  <Label className="font-medium">
-                    How should we reach you? *
-                  </Label>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <Button
-                      type="button"
-                      variant={contactMethod === 'email' ? 'default' : 'outline'}
-                      onClick={() => setContactMethod('email')}
-                      className="justify-start h-auto p-4"
-                    >
-                      <Mail className="mr-3 h-5 w-5" />
-                      <div className="text-left">
-                        <div className="font-medium">Email</div>
-                        <div className="text-xs opacity-70">Professional</div>
-                      </div>
-                    </Button>
-
-                    <Button
-                      type="button"
-                      variant={contactMethod === 'whatsapp' ? 'default' : 'outline'}
-                      onClick={() => setContactMethod('whatsapp')}
-                      className="justify-start h-auto p-4"
-                    >
-                      <MessageSquare className="mr-3 h-5 w-5" />
-                      <div className="text-left">
-                        <div className="font-medium">WhatsApp</div>
-                        <div className="text-xs opacity-70">Quick</div>
-                      </div>
-                    </Button>
-                  </div>
-                </div>
-
                 {/* Email Input */}
-                {contactMethod === 'email' && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="space-y-2"
-                  >
-                    <Label htmlFor="email" className="font-medium">
-                      Email Address *
-                    </Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => handleInputChange('email', e.target.value)}
-                      placeholder="your@email.com"
-                      className={errors.email ? 'border-destructive' : ''}
-                    />
-                    {errors.email && (
-                      <p className="text-destructive text-sm">{errors.email}</p>
-                    )}
-                  </motion.div>
-                )}
-
-                {/* WhatsApp Input */}
-                {contactMethod === 'whatsapp' && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="space-y-2"
-                  >
-                    <Label htmlFor="whatsapp" className="font-medium">
-                      WhatsApp Number *
-                    </Label>
-                    <Input
-                      id="whatsapp"
-                      type="tel"
-                      value={formData.whatsapp}
-                      onChange={(e) => handleInputChange('whatsapp', e.target.value)}
-                      placeholder="+1 234 567 8900"
-                      className={errors.whatsapp ? 'border-destructive' : ''}
-                    />
-                    {errors.whatsapp && (
-                      <p className="text-destructive text-sm">{errors.whatsapp}</p>
-                    )}
-                  </motion.div>
-                )}
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="font-medium">
+                    Email Address *
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => handleInputChange('email', e.target.value)}
+                    placeholder="your@email.com"
+                    className={errors.email ? 'border-destructive' : ''}
+                  />
+                  {errors.email && (
+                    <p className="text-destructive text-sm">{errors.email}</p>
+                  )}
+                </div>
 
                 {/* Message Field (for contact form) */}
                 {formType === 'contact' && (

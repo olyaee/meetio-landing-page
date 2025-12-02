@@ -118,8 +118,8 @@ export const Navigation = () => {
 
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 border-t border-foreground/[0.06]">
-              <div className="flex flex-col gap-1 mt-4">
+            <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-foreground/[0.06] shadow-lg">
+              <div className="flex flex-col gap-1 px-4 py-4">
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
@@ -130,7 +130,7 @@ export const Navigation = () => {
                     {item.name}
                   </Link>
                 ))}
-                <div className="pt-4 mt-2 border-t border-foreground/[0.06]">
+                <div className="pt-3 mt-2 border-t border-foreground/[0.06]">
                   <button
                     onClick={() => handleOpenForm('waitlist')}
                     className="w-full inline-flex items-center justify-center px-4 py-2.5 text-sm font-body font-medium text-white bg-foreground hover:bg-foreground/90 rounded-md transition-all duration-200"

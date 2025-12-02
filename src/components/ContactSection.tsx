@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useInView } from "react-intersection-observer";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Mail, MessageCircle } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { InterestContactForm } from "./InterestContactForm";
 import { motion } from "framer-motion";
