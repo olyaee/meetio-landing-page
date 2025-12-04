@@ -34,9 +34,9 @@ export const SolutionSection = () => {
         {/* Section Header */}
         <motion.div
           className="text-center mb-14 sm:mb-20"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
         >
           <p className="font-body text-xs uppercase tracking-[0.2em] text-foreground/40 mb-4">
             How it works
@@ -47,13 +47,15 @@ export const SolutionSection = () => {
         </motion.div>
 
         {/* 3-Step Flow */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-16 sm:mb-20">
-          {steps.map((step, index) => (
-            <motion.div
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.4 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-16 sm:mb-20"
+        >
+          {steps.map((step) => (
+            <div
               key={step.number}
-              initial={{ opacity: 0, y: 40 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
               className="relative"
             >
               <div className="group bg-background border border-foreground/[0.06] rounded-xl p-6 sm:p-8 hover:border-foreground/[0.12] transition-all duration-300 h-full">
@@ -84,15 +86,15 @@ export const SolutionSection = () => {
                   ))}
                 </ul>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Output Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.4 }}
           className="mb-12"
         >
           <div className="text-center mb-8">
@@ -125,9 +127,9 @@ export const SolutionSection = () => {
 
         {/* Tagline */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.8, delay: 1 }}
+          initial={{ opacity: 0, y: 15 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.4 }}
           className="max-w-2xl mx-auto"
         >
           <div className="bg-foreground/[0.02] border border-foreground/[0.06] rounded-xl p-6 sm:p-8 text-center">

@@ -36,9 +36,9 @@ export const ProblemSection = () => {
       <div className="max-w-5xl mx-auto">
         {/* Title */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-14 sm:mb-20"
         >
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-foreground mb-4 tracking-[-0.02em]">
@@ -51,17 +51,14 @@ export const ProblemSection = () => {
 
         {/* Pain Points Grid */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.4 }}
           className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-16 sm:mb-20"
         >
-          {painPoints.map((point, index) => (
-            <motion.div
+          {painPoints.map((point) => (
+            <div
               key={point.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
               className="group p-6 sm:p-8 bg-foreground/[0.02] border border-foreground/[0.06] rounded-xl hover:border-foreground/[0.12] hover:bg-foreground/[0.03] transition-all duration-300"
             >
               <div className="w-10 h-10 rounded-lg bg-foreground/[0.06] flex items-center justify-center mb-5">
@@ -73,15 +70,15 @@ export const ProblemSection = () => {
               <p className="font-body text-foreground/50 text-[15px] leading-relaxed">
                 {point.description}
               </p>
-            </motion.div>
+            </div>
           ))}
         </motion.div>
 
         {/* The Reproduction Tax - Editorial Style */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          initial={{ opacity: 0, y: 15 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.4 }}
           className="relative"
         >
           <div className="bg-foreground/[0.02] border border-foreground/[0.08] rounded-xl p-8 sm:p-12 overflow-hidden">

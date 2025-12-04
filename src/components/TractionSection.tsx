@@ -45,9 +45,9 @@ export const TractionSection = () => {
       <div className="max-w-4xl mx-auto">
         {/* Title */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-12 sm:mb-16"
         >
           <p className="font-body text-xs uppercase tracking-[0.2em] text-foreground/40 mb-4">
@@ -59,13 +59,15 @@ export const TractionSection = () => {
         </motion.div>
 
         {/* Stats Grid */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 max-w-lg mx-auto mb-10">
-          {stats.map((stat, index) => (
-            <motion.div
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.4 }}
+          className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 max-w-lg mx-auto mb-10"
+        >
+          {stats.map((stat) => (
+            <div
               key={stat.label}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
               className="flex-1 text-center"
             >
               <div className="bg-background rounded-xl p-6 sm:p-8 border border-foreground/[0.06]">
@@ -79,15 +81,15 @@ export const TractionSection = () => {
                   {stat.label}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* CTA Text */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-10"
         >
           <p className="font-body text-base text-foreground/50">
@@ -97,9 +99,9 @@ export const TractionSection = () => {
 
         {/* CTA Card */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="relative bg-foreground rounded-2xl p-8 sm:p-12 md:p-16 text-center overflow-hidden"
         >
           {/* Subtle texture */}

@@ -36,52 +36,34 @@ export const HeroSection = () => {
       {/* Main Content */}
       <motion.div
         className="relative z-10 max-w-4xl mx-auto text-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
       >
         {/* Eyebrow / Badge - understated */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mb-8"
-        >
+        <div className="mb-8">
           <span className="inline-flex items-center gap-2 px-4 py-2 text-sm font-body font-medium text-foreground/70 bg-foreground/[0.03] border border-foreground/[0.08] rounded-full">
             <Sparkles className="w-3.5 h-3.5 text-brand-primary" />
             AI Intake Engineer for bug reports
           </span>
-        </motion.div>
+        </div>
 
         {/* Main Headline - Editorial serif for impact */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-        >
+        <div>
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground mb-6 leading-[1.1] tracking-[-0.02em] px-2">
             {t('hero.painLine')}
           </h1>
-        </motion.div>
+        </div>
 
         {/* Subheadline - Confident, not screaming */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-        >
+        <div>
           <p className="font-body text-xl sm:text-2xl md:text-3xl text-foreground/60 mb-12 px-2 max-w-2xl mx-auto leading-relaxed">
             {t('hero.solutionLine')}
           </p>
-        </motion.div>
+        </div>
 
         {/* CTA Buttons - Refined, human-crafted */}
-        <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.1 }}
-        >
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
           {/* Primary CTA - Solid, confident */}
           <button
             onClick={handleWaitlistClick}
@@ -99,17 +81,12 @@ export const HeroSection = () => {
             Contact Sales
             <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
           </button>
-        </motion.div>
+        </div>
 
         {/* Social proof hint - subtle credibility */}
-        <motion.p
-          className="mt-8 text-sm font-body text-foreground/40"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.4 }}
-        >
+        <p className="mt-8 text-sm font-body text-foreground/40">
           Join 50+ teams already on the waitlist
-        </motion.p>
+        </p>
       </motion.div>
 
       {/* Scroll Indicator - Minimal */}
@@ -117,7 +94,7 @@ export const HeroSection = () => {
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1.8 }}
+        transition={{ duration: 0.4 }}
       >
         <motion.div
           className="w-px h-12 bg-gradient-to-b from-foreground/20 to-transparent"

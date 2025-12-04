@@ -29,9 +29,9 @@ export const ContactSection = () => {
     <section ref={ref} className="pt-4 sm:pt-8 pb-16 sm:pb-24 px-4 sm:px-6 bg-background">
       <div className="max-w-3xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           className="relative bg-foreground rounded-2xl p-8 sm:p-12 md:p-16 text-center overflow-hidden"
         >
           {/* Subtle texture */}

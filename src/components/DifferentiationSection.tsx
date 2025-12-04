@@ -39,9 +39,9 @@ export const DifferentiationSection = () => {
       <div className="max-w-5xl mx-auto">
         {/* Title */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-14 sm:mb-20"
         >
           <p className="font-body text-xs uppercase tracking-[0.2em] text-foreground/40 mb-4">
@@ -56,13 +56,15 @@ export const DifferentiationSection = () => {
         </motion.div>
 
         {/* Comparison Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-          {columns.map((column, index) => (
-            <motion.div
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.4 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6"
+        >
+          {columns.map((column) => (
+            <div
               key={column.title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
               className={`rounded-xl p-6 sm:p-8 border transition-all duration-300 h-full ${
                 column.isHighlighted
                   ? 'bg-foreground text-white border-foreground'
@@ -104,9 +106,9 @@ export const DifferentiationSection = () => {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -21,9 +21,9 @@ export const DemoSection = () => {
       <div className="max-w-4xl mx-auto">
         {/* Title */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-10"
         >
           <p className="font-body text-xs uppercase tracking-[0.2em] text-foreground/40 mb-4">
@@ -36,9 +36,9 @@ export const DemoSection = () => {
 
         {/* Video Container */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.4 }}
           className="relative"
         >
           <div className="aspect-video bg-foreground/[0.02] rounded-xl border border-foreground/[0.08] overflow-hidden">

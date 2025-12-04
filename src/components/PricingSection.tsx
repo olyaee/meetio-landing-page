@@ -3,20 +3,18 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Check, ArrowRight, Shield, Lock, Server } from "lucide-react";
 
-const PricingTier = ({ 
-  name, 
-  price, 
-  roi, 
-  features, 
-  isPopular = false, 
-  delay = 0 
-}: { 
-  name: string; 
-  price: string; 
-  roi: string; 
-  features: string[]; 
-  isPopular?: boolean; 
-  delay?: number; 
+const PricingTier = ({
+  name,
+  price,
+  roi,
+  features,
+  isPopular = false,
+}: {
+  name: string;
+  price: string;
+  roi: string;
+  features: string[];
+  isPopular?: boolean;
 }) => {
   const [ref, inView] = useInView({
     threshold: 0.3,
@@ -24,12 +22,11 @@ const PricingTier = ({
   });
 
   return (
-    <Card 
+    <Card
       ref={ref}
-      className={`relative transition-all duration-700 hover:shadow-hover ${
+      className={`relative transition-all duration-300 hover:shadow-hover ${
         isPopular ? 'border-2 border-brand-primary shadow-glow' : ''
       } ${inView ? 'animate-scale-in' : 'opacity-0'}`}
-      style={{ transitionDelay: `${delay}ms` }}
     >
       {isPopular && (
         <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
@@ -75,16 +72,14 @@ const PricingTier = ({
   );
 };
 
-const SecurityFeature = ({ 
-  icon: Icon, 
-  title, 
-  description, 
-  delay = 0 
-}: { 
-  icon: any; 
-  title: string; 
-  description: string; 
-  delay?: number; 
+const SecurityFeature = ({
+  icon: Icon,
+  title,
+  description,
+}: {
+  icon: any;
+  title: string;
+  description: string;
 }) => {
   const [ref, inView] = useInView({
     threshold: 0.3,
@@ -92,12 +87,11 @@ const SecurityFeature = ({
   });
 
   return (
-    <div 
+    <div
       ref={ref}
-      className={`text-center p-6 transition-all duration-700 ${
+      className={`text-center p-6 transition-all duration-300 ${
         inView ? 'animate-fade-in-up' : 'opacity-0'
       }`}
-      style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="mb-4 flex justify-center">
         <div className="p-3 rounded-xl bg-brand-primary/10 text-brand-primary">
@@ -184,9 +178,9 @@ export const PricingSection = () => {
     <section className="py-20 px-6 bg-background">
       <div className="max-w-6xl mx-auto">
         {/* Pricing Header */}
-        <div 
+        <div
           ref={titleRef}
-          className={`text-center mb-16 transition-all duration-700 ${
+          className={`text-center mb-16 transition-all duration-300 ${
             titleInView ? 'animate-fade-in-up' : 'opacity-0'
           }`}
         >
@@ -204,15 +198,14 @@ export const PricingSection = () => {
             <PricingTier
               key={index}
               {...tier}
-              delay={index * 200}
             />
           ))}
         </div>
 
         {/* Security Section */}
-        <div 
+        <div
           ref={securityRef}
-          className={`transition-all duration-700 ${
+          className={`transition-all duration-300 ${
             securityInView ? 'animate-fade-in-up' : 'opacity-0'
           }`}
         >
@@ -230,7 +223,6 @@ export const PricingSection = () => {
               <SecurityFeature
                 key={index}
                 {...feature}
-                delay={index * 200}
               />
             ))}
           </div>

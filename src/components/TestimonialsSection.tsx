@@ -2,16 +2,14 @@ import { useInView } from "react-intersection-observer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
 
-const TestimonialCard = ({ 
-  quote, 
-  author, 
-  metric, 
-  delay = 0 
-}: { 
-  quote: string; 
-  author: string; 
-  metric: string; 
-  delay?: number; 
+const TestimonialCard = ({
+  quote,
+  author,
+  metric,
+}: {
+  quote: string;
+  author: string;
+  metric: string;
 }) => {
   const [ref, inView] = useInView({
     threshold: 0.3,
@@ -19,12 +17,11 @@ const TestimonialCard = ({
   });
 
   return (
-    <Card 
+    <Card
       ref={ref}
-      className={`transition-all duration-700 hover:shadow-hover ${
+      className={`transition-all duration-300 hover:shadow-hover ${
         inView ? 'animate-fade-in-up' : 'opacity-0'
       }`}
-      style={{ transitionDelay: `${delay}ms` }}
     >
       <CardContent className="p-4 sm:p-6 md:p-8">
         {/* Stars */}
@@ -81,9 +78,9 @@ export const TestimonialsSection = () => {
     <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-subtle">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div 
+        <div
           ref={titleRef}
-          className={`text-center mb-12 sm:mb-16 transition-all duration-700 ${
+          className={`text-center mb-12 sm:mb-16 transition-all duration-300 ${
             titleInView ? 'animate-fade-in-up' : 'opacity-0'
           }`}
         >
@@ -101,7 +98,6 @@ export const TestimonialsSection = () => {
             <TestimonialCard
               key={index}
               {...testimonial}
-              delay={index * 200}
             />
           ))}
         </div>
