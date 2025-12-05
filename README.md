@@ -78,6 +78,10 @@ netlify deploy --prod --dir=dist
 
 Run `npm run build` to create the production build in the `dist/` folder.
 
+## Video Hosting (Cloudinary)
+
+Demo videos are hosted on [Cloudinary](https://cloudinary.com/) (account: `dvxnhjnfy`). Videos are served with automatic quality optimization (`q_auto`).
+
 ## Email Setup (EmailJS)
 
 The contact form uses [EmailJS](https://www.emailjs.com/) to send emails.

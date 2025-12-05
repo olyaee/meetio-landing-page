@@ -2,8 +2,8 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const CLOUDINARY_VIDEO_URL = "https://res.cloudinary.com/dvxnhjnfy/video/upload/q_auto/input1_v4u5jj.mp4";
-const CLOUDINARY_POSTER_URL = "https://res.cloudinary.com/dvxnhjnfy/video/upload/so_0,f_jpg,q_auto/input1_v4u5jj.jpg";
+const CLOUDINARY_VIDEO_URL = "https://res.cloudinary.com/dvxnhjnfy/video/upload/q_auto/final_demo_q9nnco.mp4";
+const CLOUDINARY_POSTER_URL = "https://res.cloudinary.com/dvxnhjnfy/video/upload/so_0,f_jpg,q_auto/final_demo_q9nnco.jpg";
 
 export const DemoSection = () => {
   const { t } = useTranslation('pages');
