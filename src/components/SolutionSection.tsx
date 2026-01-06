@@ -41,7 +41,7 @@ export const SolutionSection = () => {
           <p className="font-body text-xs uppercase tracking-[0.2em] text-foreground/40 mb-4">
             How it works
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-foreground tracking-[-0.02em] px-2">
+          <h2 className="font-body font-medium text-3xl sm:text-4xl md:text-5xl text-foreground tracking-[-0.02em] px-2">
             {t('solution.title')}
           </h2>
         </motion.div>
@@ -70,7 +70,7 @@ export const SolutionSection = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="font-body font-semibold text-lg text-foreground mb-4">
+                <h3 className="font-body font-medium text-lg text-foreground mb-4">
                   {step.title}
                 </h3>
 
@@ -101,7 +101,7 @@ export const SolutionSection = () => {
             <p className="font-body text-xs uppercase tracking-[0.2em] text-foreground/40 mb-3">
               What you get
             </p>
-            <h3 className="font-display text-xl sm:text-2xl text-foreground tracking-[-0.01em]">
+            <h3 className="font-body font-medium text-xl sm:text-2xl text-foreground tracking-[-0.01em]">
               {t('solution.output.title')}
             </h3>
           </div>

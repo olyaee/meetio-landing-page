@@ -47,7 +47,7 @@ export const DifferentiationSection = () => {
           <p className="font-body text-xs uppercase tracking-[0.2em] text-foreground/40 mb-4">
             Why meetio
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-foreground tracking-[-0.02em]">
+          <h2 className="font-body font-medium text-3xl sm:text-4xl md:text-5xl text-foreground tracking-[-0.02em]">
             {t('differentiation.title')}{" "}
             <span className="text-brand-primary">
               {t('differentiation.titleHighlight')}
@@ -82,7 +82,7 @@ export const DifferentiationSection = () => {
                     column.isHighlighted ? 'text-white/80' : 'text-foreground/50'
                   }`} />
                 </div>
-                <h3 className={`font-body font-semibold text-base ${
+                <h3 className={`font-body font-medium text-base ${
                   column.isHighlighted ? 'text-white' : 'text-foreground/70'
                 }`}>
                   {column.title}

@@ -44,20 +44,20 @@ export const HeroSection = () => {
         <div className="mb-8">
           <span className="inline-flex items-center gap-2 px-4 py-2 text-sm font-body font-medium text-foreground/70 bg-foreground/[0.03] border border-foreground/[0.08] rounded-full">
             <Sparkles className="w-3.5 h-3.5 text-brand-primary" />
-            AI Intake Engineer for bug reports
+            AI-Powered Solution for efficiently handling bugs and errors
           </span>
         </div>
 
         {/* Main Headline - Editorial serif for impact */}
         <div>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground mb-6 leading-[1.1] tracking-[-0.02em] px-2">
+          <h1 className="font-body text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground mb-6 leading-[1.1] tracking-[-0.02em] px-2">
             {t('hero.painLine')}
           </h1>
         </div>
 
         {/* Subheadline - Confident, not screaming */}
         <div>
-          <p className="font-body text-xl sm:text-2xl md:text-3xl text-foreground/60 mb-12 px-2 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body text-xl sm:text-2xl md:text-3xl font-medium text-foreground/60 mb-12 px-2 max-w-2xl mx-auto leading-relaxed">
             {t('hero.solutionLine')}
           </p>
         </div>
@@ -67,7 +67,7 @@ export const HeroSection = () => {
           {/* Primary CTA - Solid, confident */}
           <button
             onClick={handleWaitlistClick}
-            className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[15px] font-body font-semibold text-white bg-foreground hover:bg-foreground/90 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
+            className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[15px] font-body font-medium text-white bg-foreground hover:bg-foreground/90 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
           >
             {t('hero.ctaPrimary')}
             <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -76,7 +76,7 @@ export const HeroSection = () => {
           {/* Secondary CTA - Contact Sales */}
           <button
             onClick={handleContactSalesClick}
-            className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[15px] font-body font-semibold text-foreground bg-transparent hover:bg-foreground/[0.04] border border-foreground/20 hover:border-foreground/30 rounded-lg transition-all duration-200"
+            className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[15px] font-body font-medium text-foreground bg-transparent hover:bg-foreground/[0.04] border border-foreground/20 hover:border-foreground/30 rounded-lg transition-all duration-200"
           >
             Contact Sales
             <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -84,7 +84,7 @@ export const HeroSection = () => {
         </div>
 
         {/* Social proof hint - subtle credibility */}
-        <p className="mt-8 text-sm font-body text-foreground/40">
+        <p className="mt-8 text-sm font-body font-medium text-foreground/40">
           Join 50+ teams already on the waitlist
         </p>
       </motion.div>

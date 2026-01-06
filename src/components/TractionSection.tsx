@@ -53,7 +53,7 @@ export const TractionSection = () => {
           <p className="font-body text-xs uppercase tracking-[0.2em] text-foreground/40 mb-4">
             Momentum
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-foreground tracking-[-0.02em]">
+          <h2 className="font-body font-medium text-3xl sm:text-4xl md:text-5xl text-foreground tracking-[-0.02em]">
             Early traction
           </h2>
         </motion.div>
@@ -74,7 +74,7 @@ export const TractionSection = () => {
                 <div className="w-10 h-10 rounded-lg bg-foreground/[0.04] flex items-center justify-center mx-auto mb-4">
                   <stat.icon className="h-5 w-5 text-foreground/60" />
                 </div>
-                <div className="font-display text-4xl sm:text-5xl text-foreground mb-1 tracking-tight">
+                <div className="font-body font-medium text-4xl sm:text-5xl text-foreground mb-1 tracking-tight">
                   {stat.number}
                 </div>
                 <p className="font-body text-foreground/50 text-sm">
@@ -113,7 +113,7 @@ export const TractionSection = () => {
           />
 
           <div className="relative z-10">
-            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-4 sm:mb-6 leading-tight tracking-[-0.02em]">
+            <h2 className="font-body font-medium text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-4 sm:mb-6 leading-tight tracking-[-0.02em]">
               {t('contact.title')}
             </h2>
 
@@ -124,7 +124,7 @@ export const TractionSection = () => {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
               <button
                 onClick={handleWaitlistClick}
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[15px] font-body font-semibold text-foreground bg-white hover:bg-white/95 rounded-lg transition-all duration-200"
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[15px] font-body font-medium text-foreground bg-white hover:bg-white/95 rounded-lg transition-all duration-200"
               >
                 {t('contact.ctaPrimary')}
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -132,7 +132,7 @@ export const TractionSection = () => {
 
               <button
                 onClick={handleDemoClick}
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[15px] font-body font-semibold text-white bg-white/10 hover:bg-white/15 border border-white/20 rounded-lg transition-all duration-200"
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[15px] font-body font-medium text-white bg-white/10 hover:bg-white/15 border border-white/20 rounded-lg transition-all duration-200"
               >
                 <Mail className="w-4 h-4" />
                 {t('contact.ctaSecondary')}

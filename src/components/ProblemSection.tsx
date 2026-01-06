@@ -41,7 +41,7 @@ export const ProblemSection = () => {
           transition={{ duration: 0.4 }}
           className="text-center mb-14 sm:mb-20"
         >
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-foreground mb-4 tracking-[-0.02em]">
+          <h2 className="font-body font-medium text-3xl sm:text-4xl md:text-5xl text-foreground mb-4 tracking-[-0.02em]">
             {t('problem.title')}
           </h2>
           <p className="font-body text-lg sm:text-xl text-foreground/50 max-w-2xl mx-auto">
@@ -64,7 +64,7 @@ export const ProblemSection = () => {
               <div className="w-10 h-10 rounded-lg bg-foreground/[0.06] flex items-center justify-center mb-5">
                 <point.icon className="h-5 w-5 text-foreground/70" />
               </div>
-              <h3 className="font-body font-semibold text-lg text-foreground mb-2">
+              <h3 className="font-body font-medium text-lg text-foreground mb-2">
                 {point.title}
               </h3>
               <p className="font-body text-foreground/50 text-[15px] leading-relaxed">
@@ -86,26 +86,26 @@ export const ProblemSection = () => {
               <p className="font-body text-xs uppercase tracking-[0.2em] text-foreground/40 mb-4 text-center">
                 The hidden cost
               </p>
-              <h3 className="font-display text-2xl sm:text-3xl text-foreground mb-8 text-center tracking-[-0.02em]">
+              <h3 className="font-body font-medium text-2xl sm:text-3xl text-foreground mb-8 text-center tracking-[-0.02em]">
                 The Reproduction Tax
               </h3>
 
               {/* The Formula - Clean, typographic */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8">
                 <div className="px-5 py-3 border border-foreground/10 rounded-lg">
-                  <span className="font-body font-semibold text-lg text-foreground">
+                  <span className="font-body font-medium text-lg text-foreground">
                     {t('problem.tax.volume')}
                   </span>
                 </div>
                 <span className="text-xl text-foreground/30 font-light">×</span>
                 <div className="px-5 py-3 border border-foreground/10 rounded-lg">
-                  <span className="font-body font-semibold text-lg text-foreground">
+                  <span className="font-body font-medium text-lg text-foreground">
                     {t('problem.tax.time')}
                   </span>
                 </div>
                 <span className="text-xl text-foreground/30 font-light">=</span>
                 <div className="px-5 py-3 bg-foreground rounded-lg">
-                  <span className="font-body font-semibold text-lg text-white">
+                  <span className="font-body font-medium text-lg text-white">
                     {t('problem.tax.cost')}
                   </span>
                 </div>

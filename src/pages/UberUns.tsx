@@ -112,6 +112,26 @@ const UberUns: React.FC = () => {
             </div>
           </div>
         </div>
+        {/* Founder */}
+        <div className="border-t border-foreground/[0.08] pt-12">
+          <p className="font-body text-xs uppercase tracking-[0.2em] text-foreground/40 mb-6">
+            Co-Founder
+          </p>
+
+          <div className="flex items-start gap-4">
+            <div className="w-14 h-14 rounded-full bg-foreground/[0.06] flex items-center justify-center flex-shrink-0">
+              <span className="font-display text-xl text-foreground/60">K</span>
+            </div>
+            <div className="flex-1">
+              <h3 className="font-body font-semibold text-lg text-foreground mb-1">
+                {t('aboutUs.founder2.name')}
+              </h3>
+              <p className="font-body text-foreground/50 text-[15px] leading-relaxed mb-1">
+                {t('aboutUs.founder2.description')}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

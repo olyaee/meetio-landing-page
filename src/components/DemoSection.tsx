@@ -29,7 +29,7 @@ export const DemoSection = () => {
           <p className="font-body text-xs uppercase tracking-[0.2em] text-foreground/40 mb-4">
             See it in action
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-foreground leading-tight tracking-[-0.02em]">
+          <h2 className="font-body text-3xl sm:text-4xl md:text-5xl font-medium text-foreground leading-tight tracking-[-0.02em]">
             {t('demo.title')}
           </h2>
         </motion.div>
