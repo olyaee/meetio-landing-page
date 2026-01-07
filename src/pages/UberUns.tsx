@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 
 const WHATSAPP_NUMBER = '4915788363568';
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
+const LINKEDIN_URL = 'https://www.linkedin.com/in/kianrogerdi/';
 
 const WhatsAppButton: React.FC = () => {
   const { i18n } = useTranslation();
@@ -53,6 +54,61 @@ const WhatsAppButton: React.FC = () => {
         strokeLinecap="round"
         strokeLinejoin="round"
         className="w-4 h-4 text-[#25D366] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ml-1"
+      >
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </motion.svg>
+    </motion.a>
+  );
+};
+
+const LinkedInButton: React.FC = () => {
+  const { i18n } = useTranslation();
+  const isGerman = i18n.language === 'de';
+
+  return (
+    <motion.a
+      href={LINKEDIN_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex items-center gap-3 mt-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4, delay: 0.2 }}
+    >
+      {/* LinkedIn Icon Circle - matching the founder avatar style */}
+      <motion.div
+        className="w-10 h-10 rounded-full bg-[#0A66C2]/10 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-[#0A66C2] group-hover:shadow-lg group-hover:shadow-[#0A66C2]/25"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="w-5 h-5 text-[#0A66C2] transition-colors duration-300 group-hover:text-white"
+        >
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+        </svg>
+      </motion.div>
+
+      {/* Text - matching the founder description style */}
+      <div className="flex flex-col">
+        <span className="font-body text-[15px] text-foreground/70 group-hover:text-[#0A66C2] transition-colors duration-300">
+          {isGerman ? 'Besuche mein LinkedIn-Profil' : 'Visit my LinkedIn profile'}
+        </span>
+        <span className="font-body text-xs text-foreground/40">
+          {isGerman ? 'Lass uns verbunden sein' : 'Let\'s connect'}
+        </span>
+      </div>
+
+      {/* Arrow - appears on hover */}
+      <motion.svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-4 h-4 text-[#0A66C2] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ml-1"
       >
         <path d="M5 12h14M12 5l7 7-7 7"/>
       </motion.svg>
@@ -129,6 +185,9 @@ const UberUns: React.FC = () => {
               <p className="font-body text-foreground/50 text-[15px] leading-relaxed mb-1">
                 {t('aboutUs.founder2.description')}
               </p>
+
+              {/* LinkedIn Contact - integrated as contact info */}
+              <LinkedInButton />
             </div>
           </div>
         </div>

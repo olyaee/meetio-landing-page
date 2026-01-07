@@ -9,7 +9,6 @@ const Index = () => {
   return (
     <>
       <HeroSection />
-      <DemoSection />
       <ProblemSection />
       <SolutionSection />
       <DifferentiationSection />
