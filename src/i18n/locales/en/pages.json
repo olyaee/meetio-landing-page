@@ -22,8 +22,8 @@
         "description": "Support, Product managers, and engineers waste time chasing missing details."
       },
       "cannotReproduce": {
-        "title": "Impossible Reproduce",
-        "description": "20-40% of bug reports ended up closed without resolution as they are impossible to reproduce."
+        "title": "Impossible to Reproduce",
+        "description": "20-40% of bug reports ended up closed without resolution as they are almost impossible to reproduce."
       }
     },
     "tax": {
