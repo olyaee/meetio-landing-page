@@ -105,22 +105,45 @@ export const SolutionSection = () => {
               {t('solution.output.title')}
             </h3>
           </div>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
-            <div className="flex items-center gap-3 px-5 py-3 bg-foreground/[0.03] border border-foreground/[0.06] rounded-lg">
-              <span className="w-6 h-6 rounded-md bg-foreground text-white flex items-center justify-center font-body text-xs font-semibold">
-                1
-              </span>
-              <span className="font-body font-medium text-foreground">
-                {t('solution.output.ticket')}
-              </span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+            <div className="group bg-background border border-foreground/[0.06] rounded-xl p-6 sm:p-8 hover:border-foreground/[0.12] transition-all duration-300 h-full">
+              <div className="text-center">
+                <p className="font-body text-xs uppercase tracking-[0.2em] text-foreground/40 mb-3">
+                  {t('solution.output.timeSaved.label')}
+                </p>
+                <p className="font-body font-semibold text-2xl sm:text-3xl text-foreground mb-3">
+                  {t('solution.output.timeSaved.value')}
+                </p>
+                <p className="font-body text-[15px] text-foreground/60 leading-relaxed">
+                  {t('solution.output.timeSaved.description')}
+                </p>
+              </div>
             </div>
-            <div className="flex items-center gap-3 px-5 py-3 bg-foreground/[0.03] border border-foreground/[0.06] rounded-lg">
-              <span className="w-6 h-6 rounded-md bg-foreground text-white flex items-center justify-center font-body text-xs font-semibold">
-                2
-              </span>
-              <span className="font-body font-medium text-foreground">
-                {t('solution.output.scripts')}
-              </span>
+            <div className="group bg-background border border-foreground/[0.06] rounded-xl p-6 sm:p-8 hover:border-foreground/[0.12] transition-all duration-300 h-full">
+              <div className="text-center">
+                <p className="font-body text-xs uppercase tracking-[0.2em] text-foreground/40 mb-3">
+                  {t('solution.output.implementation.label')}
+                </p>
+                <p className="font-body font-semibold text-2xl sm:text-3xl text-foreground mb-3">
+                  {t('solution.output.implementation.value')}
+                </p>
+                <p className="font-body text-[15px] text-foreground/60 leading-relaxed">
+                  {t('solution.output.implementation.description')}
+                </p>
+              </div>
+            </div>
+            <div className="group bg-background border border-foreground/[0.06] rounded-xl p-6 sm:p-8 hover:border-foreground/[0.12] transition-all duration-300 h-full">
+              <div className="text-center">
+                <p className="font-body text-xs uppercase tracking-[0.2em] text-foreground/40 mb-3">
+                  {t('solution.output.roi.label')}
+                </p>
+                <p className="font-body font-semibold text-2xl sm:text-3xl text-foreground mb-3">
+                  {t('solution.output.roi.value')}
+                </p>
+                <p className="font-body text-[15px] text-foreground/60 leading-relaxed">
+                  {t('solution.output.roi.description')}
+                </p>
+              </div>
             </div>
           </div>
         </motion.div>

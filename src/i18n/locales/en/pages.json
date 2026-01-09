@@ -63,9 +63,22 @@
       }
     },
     "output": {
-      "title": "The Outcome",
-      "ticket": "Considerable amount of time saved",
-      "scripts": "Quality increased, team moral improved"
+      "title": "Immediate Return on Investment",
+      "timeSaved": {
+        "label": "Time Saved Per Bug",
+        "value": "90-120 min",
+        "description": "Reduce bug reproduction time from 30-120 minutes to just a few seconds"
+      },
+      "implementation": {
+        "label": "Time to Implementation",
+        "value": "5 minutes",
+        "description": "Setup is straightforward - get started within minutes, no complex configuration needed"
+      },
+      "roi": {
+        "label": "Monthly Cost Recovery",
+        "value": "€20-40K",
+        "description": "Save the exact reproduction tax your team currently pays every month"
+      }
     }
   },
   "differentiation": {

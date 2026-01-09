@@ -63,9 +63,22 @@
       }
     },
     "output": {
-      "title": "Das Ergebnis",
-      "ticket": "Aussagekräftiges Jira-Ticket",
-      "scripts": "QA Test-Scripts"
+      "title": "Unmittelbare Kapitalrendite",
+      "timeSaved": {
+        "label": "Zeit pro Bug gespart",
+        "value": "90-120 min",
+        "description": "Reduziere die Bug-Reproduktion von 30-120 Minuten auf nur wenige Sekunden"
+      },
+      "implementation": {
+        "label": "Zeit bis zur Implementierung",
+        "value": "5 Minuten",
+        "description": "Einfache Einrichtung - starten Sie in Minuten, keine komplexe Konfiguration erforderlich"
+      },
+      "roi": {
+        "label": "Monatliche Kostenersparnis",
+        "value": "€20-40K",
+        "description": "Sparen Sie die Reproduktions-Steuer, die Ihr Team jeden Monat zahlt"
+      }
     }
   },
   "differentiation": {
