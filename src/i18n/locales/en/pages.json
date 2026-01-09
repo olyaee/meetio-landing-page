@@ -98,6 +98,29 @@
       }
     }
   },
+  "security": {
+    "label": "Security & Compliance",
+    "title": "Your data is protected with enterprise-grade security",
+    "trustStatement": "We take security and privacy seriously. All data is encrypted, processed securely, and compliant with international regulations.",
+    "features": {
+      "dataProtection": {
+        "title": "Data Protection",
+        "description": "Your user data is encrypted both in transit and at rest, following industry best practices and compliance standards."
+      },
+      "encryption": {
+        "title": "End-to-End Encryption",
+        "description": "All sensitive information is encrypted using military-grade encryption protocols to ensure complete data security."
+      },
+      "compliance": {
+        "title": "GDPR & SOC 2 Compliant",
+        "description": "We comply with GDPR, SOC 2, and other international regulations to ensure your data meets the highest privacy standards."
+      },
+      "privacy": {
+        "title": "Privacy First",
+        "description": "We minimize data collection, never sell your data, and give you complete control over your information."
+      }
+    }
+  },
   "traction": {
     "title": "Early traction",
     "stats": {

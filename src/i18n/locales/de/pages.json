@@ -98,6 +98,29 @@
       }
     }
   },
+  "security": {
+    "label": "Sicherheit & Compliance",
+    "title": "Deine Daten sind durch unternehmensweite Sicherheitsstandards geschützt",
+    "trustStatement": "Wir nehmen Sicherheit und Datenschutz ernst. Alle Daten werden verschlüsselt, sicher verarbeitet und erfüllen internationale Vorschriften.",
+    "features": {
+      "dataProtection": {
+        "title": "Datenschutz",
+        "description": "Deine Benutzerdaten werden sowohl bei der Übertragung als auch im Ruhezustand verschlüsselt, nach Best Practices und Compliance-Standards."
+      },
+      "encryption": {
+        "title": "End-to-End-Verschlüsselung",
+        "description": "Alle sensiblen Informationen werden mit militärischen Verschlüsselungsprotokollen verschlüsselt, um maximale Datensicherheit zu gewährleisten."
+      },
+      "compliance": {
+        "title": "GDPR & SOC 2 konform",
+        "description": "Wir erfüllen GDPR, SOC 2 und andere internationale Vorschriften, um sicherzustellen, dass deine Daten höchste Datenschutzstandards erfüllen."
+      },
+      "privacy": {
+        "title": "Privacy First",
+        "description": "Wir minimieren die Datenerfassung, verkaufen deine Daten nie und geben dir vollständige Kontrolle über deine Informationen."
+      }
+    }
+  },
   "traction": {
     "title": "Frühe Traktion",
     "stats": {
