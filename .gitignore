@@ -26,6 +26,7 @@ dist-ssr
 # Env
 .env.local
 .env
+.mcp.json
 # Local Netlify folder
 .netlify
 .gitignore

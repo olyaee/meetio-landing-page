@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "posthog": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote@latest",
+        "https://mcp.posthog.com/mcp?region=eu",
+        "--header",
+        "Authorization:Bearer YOUR_POSTHOG_PERSONAL_API_KEY"
+      ]
+    }
+  }
+}

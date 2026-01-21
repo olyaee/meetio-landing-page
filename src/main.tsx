@@ -1,15 +1,28 @@
 import { createRoot } from "react-dom/client";
-import posthog from "posthog-js";
+import { StrictMode } from "react";
+import { PostHogProvider } from "posthog-js/react";
 import App from "./App.tsx";
 import "./index.css";
 import "./i18n";
 
-// Initialize PostHog
-posthog.init("phc_jqqsUYTHT4IpWgC69alnHYHZqhL9vJLFUIKeuQR8V9A", {
-  api_host: "https://us.i.posthog.com",
-  person_profiles: "identified_only",
-  capture_pageview: true,
-  capture_pageleave: true,
-});
-
-createRoot(document.getElementById("root")!).render(<App />);
+const root = createRoot(document.getElementById("root")!);
+root.render(
+  <StrictMode>
+    <PostHogProvider
+      apiKey={import.meta.env.VITE_PUBLIC_POSTHOG_KEY}
+      options={{
+        api_host: import.meta.env.VITE_PUBLIC_POSTHOG_HOST,
+        defaults: "2025-05-24",
+        capture_exceptions: true,
+        debug: import.meta.env.MODE === "development",
+        disable_session_recording: false,
+        session_recording: {
+          maskAllInputs: false,
+          maskTextSelector: ".ph-mask",
+        },
+      }}
+    >
+      <App />
+    </PostHogProvider>
+  </StrictMode>
+);
