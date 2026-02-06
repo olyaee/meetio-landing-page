@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Handshake, Rocket, ArrowRight, Mail } from "lucide-react";
+import { Handshake, Rocket, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { InterestContactForm } from "./InterestContactForm";
 
@@ -14,12 +14,7 @@ export const TractionSection = () => {
   const [formType, setFormType] = useState<'interest' | 'contact' | 'waitlist'>('waitlist');
   const { t } = useTranslation('pages');
 
-  const handleWaitlistClick = () => {
-    setFormType('waitlist');
-    setFormModalOpen(true);
-  };
-
-  const handleDemoClick = () => {
+  const handleBookDemoClick = () => {
     setFormType('contact');
     setFormModalOpen(true);
   };
@@ -123,20 +118,20 @@ export const TractionSection = () => {
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
               <button
-                onClick={handleWaitlistClick}
+                onClick={handleBookDemoClick}
                 className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[15px] font-body font-medium text-foreground bg-white hover:bg-white/95 rounded-lg transition-all duration-200"
               >
                 {t('contact.ctaPrimary')}
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
               </button>
 
-              <button
-                onClick={handleDemoClick}
+              <a
+                href="https://app.meetio.ai"
                 className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[15px] font-body font-medium text-white bg-white/10 hover:bg-white/15 border border-white/20 rounded-lg transition-all duration-200"
               >
-                <Mail className="w-4 h-4" />
                 {t('contact.ctaSecondary')}
-              </button>
+                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+              </a>
             </div>
           </div>
         </motion.div>

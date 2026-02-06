@@ -3,7 +3,7 @@
     "painLine": "Hör auf, 30-120 Minuten pro Bug zu verbrennen.",
     "solutionLine": "Verwandle jeden Bug-Report in einen reproduzierbaren Test.",
     "subtitle": "Der erste KI-Intake-Engineer, der deine User interviewt, das DOM erfasst und ein deterministisches Test-Script erstellt.",
-    "ctaPrimary": "Zur Warteliste",
+    "ctaPrimary": "Demo buchen",
     "ctaDemo": "Demo ansehen"
   },
   "demo": {
@@ -153,8 +153,8 @@
   "contact": {
     "title": "Hör auf, Stunden mit Bug-Reproduktion zu verschwenden.",
     "subtitle": "Lass den KI-Intake-Engineer das für dich erledigen.",
-    "ctaPrimary": "Zur Warteliste",
-    "ctaSecondary": "Demo anfordern"
+    "ctaPrimary": "Demo buchen",
+    "ctaSecondary": "Login"
   },
   "footer": {
     "description": "Der KI-Intake-Engineer, der vage Bug-Reports in reproduzierbare Tests verwandelt. Automatisch.",

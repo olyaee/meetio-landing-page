@@ -3,7 +3,7 @@
     "painLine": "The fastest path from bug discovery to verified resolution.",
     "solutionLine": "Automatic context capture, guided reproduction, dev ready resolution workflows, and final verification you can trust.",
     "subtitle": "The first AI Intake Engineer that interviews your users, captures the DOM, and creates a deterministic test script.",
-    "ctaPrimary": "Join Waitlist",
+    "ctaPrimary": "Book a Demo",
     "ctaDemo": "Watch Demo"
   },
   "demo": {
@@ -153,8 +153,8 @@
   "contact": {
     "title": "Stop wasting hours reproducing bugs.",
     "subtitle": "Let the AI Intake Engineer do it for you.",
-    "ctaPrimary": "Join Waitlist",
-    "ctaSecondary": "Request Demo"
+    "ctaPrimary": "Book a Demo",
+    "ctaSecondary": "Login"
   },
   "footer": {
     "description": "Our AI Powered Solution captures bugs into reproducible detailed reports automatically.",

@@ -10,12 +10,7 @@ export const HeroSection = () => {
   const [formType, setFormType] = useState<'interest' | 'contact' | 'waitlist'>('waitlist');
   const { t } = useTranslation('pages');
 
-  const handleWaitlistClick = () => {
-    setFormType('waitlist');
-    setFormModalOpen(true);
-  };
-
-  const handleContactSalesClick = () => {
+  const handleBookDemoClick = () => {
     setFormType('contact');
     setFormModalOpen(true);
   };
@@ -62,30 +57,30 @@ export const HeroSection = () => {
           </p>
         </div>
 
-        {/* CTA Buttons - Refined, human-crafted */}
+        {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
-          {/* Primary CTA - Solid, confident */}
+          {/* Primary CTA - Book a Demo */}
           <button
-            onClick={handleWaitlistClick}
+            onClick={handleBookDemoClick}
             className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[15px] font-body font-medium text-white bg-foreground hover:bg-foreground/90 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
           >
             {t('hero.ctaPrimary')}
             <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
           </button>
 
-          {/* Secondary CTA - Contact Sales */}
-          <button
-            onClick={handleContactSalesClick}
+          {/* Secondary CTA - Login */}
+          <a
+            href="https://app.meetio.ai"
             className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[15px] font-body font-medium text-foreground bg-transparent hover:bg-foreground/[0.04] border border-foreground/20 hover:border-foreground/30 rounded-lg transition-all duration-200"
           >
-            Contact Sales
+            Login
             <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-          </button>
+          </a>
         </div>
 
-        {/* Social proof hint - subtle credibility */}
+        {/* Social proof hint */}
         <p className="mt-8 text-sm font-body font-medium text-foreground/40">
-          Join 50+ teams already on the waitlist
+          Trusted by 50+ teams
         </p>
       </motion.div>
 

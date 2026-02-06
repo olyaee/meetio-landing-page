@@ -98,12 +98,18 @@ export const Navigation = () => {
             </div>
 
             {/* Desktop CTAs */}
-            <div className="hidden md:flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-4">
+              <a
+                href="https://app.meetio.ai"
+                className="text-sm font-body font-medium text-foreground/60 hover:text-foreground transition-colors duration-200"
+              >
+                Login
+              </a>
               <button
-                onClick={() => handleOpenForm('waitlist')}
+                onClick={() => handleOpenForm('contact')}
                 className="inline-flex items-center justify-center px-4 py-2 text-sm font-body font-medium text-white bg-foreground hover:bg-foreground/90 rounded-md transition-all duration-200"
               >
-                Join Waitlist
+                Book a Demo
               </button>
             </div>
 
@@ -130,12 +136,18 @@ export const Navigation = () => {
                     {item.name}
                   </Link>
                 ))}
-                <div className="pt-3 mt-2 border-t border-foreground/[0.06]">
+                <div className="pt-3 mt-2 border-t border-foreground/[0.06] flex flex-col gap-2">
+                  <a
+                    href="https://app.meetio.ai"
+                    className="w-full inline-flex items-center justify-center px-4 py-2.5 text-sm font-body font-medium text-foreground/70 hover:text-foreground transition-colors duration-200"
+                  >
+                    Login
+                  </a>
                   <button
-                    onClick={() => handleOpenForm('waitlist')}
+                    onClick={() => handleOpenForm('contact')}
                     className="w-full inline-flex items-center justify-center px-4 py-2.5 text-sm font-body font-medium text-white bg-foreground hover:bg-foreground/90 rounded-md transition-all duration-200"
                   >
-                    Join Waitlist
+                    Book a Demo
                   </button>
                 </div>
               </div>
