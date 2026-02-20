@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Navigation } from "./Navigation";
 import { Footer } from "./Footer";
+import { useSEO } from "@/hooks/useSEO";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,6 +10,8 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
+
+  useSEO(location.pathname);
 
   useEffect(() => {
     // Only scroll to top for actual page changes, not hash changes

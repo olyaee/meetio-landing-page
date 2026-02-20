@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://meetio.ai/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- About Us -->
+  <url>
+    <loc>https://meetio.ai/uber-uns</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://meetio.ai/uber-uns"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meetio.ai/about-us"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://meetio.ai/about-us</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://meetio.ai/uber-uns"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meetio.ai/about-us"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://meetio.ai/datenschutz</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://meetio.ai/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meetio.ai/privacy"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://meetio.ai/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://meetio.ai/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meetio.ai/privacy"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Terms & Conditions -->
+  <url>
+    <loc>https://meetio.ai/agbs</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://meetio.ai/agbs"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meetio.ai/terms"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://meetio.ai/terms</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://meetio.ai/agbs"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meetio.ai/terms"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Cookie Policy -->
+  <url>
+    <loc>https://meetio.ai/cookie-richtlinie</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://meetio.ai/cookie-richtlinie"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meetio.ai/cookies"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://meetio.ai/cookies</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://meetio.ai/cookie-richtlinie"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meetio.ai/cookies"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Imprint -->
+  <url>
+    <loc>https://meetio.ai/impressum</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://meetio.ai/impressum"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meetio.ai/imprint"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://meetio.ai/imprint</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://meetio.ai/impressum"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meetio.ai/imprint"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>

@@ -146,7 +146,7 @@ const UberUns: React.FC = () => {
         </div>
 
         {/* Founder */}
-        <div className="border-t border-foreground/[0.08] pt-12">
+        <div className="border-t border-foreground/[0.08] pt-12 pb-8">
           <p className="font-body text-xs uppercase tracking-[0.2em] text-foreground/40 mb-6">
             Founder
           </p>
