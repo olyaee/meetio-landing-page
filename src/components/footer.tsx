@@ -2,22 +2,21 @@ const FOOTER_COLUMNS = [
   {
     title: "Product",
     links: [
-      { label: "Features", href: "#demo" },
-      { label: "Chrome Extension", href: "#demo" },
+      { label: "Chrome Extension", href: "https://chromewebstore.google.com/detail/meetio/pdgedjihhemnhfocoogmhpnehcpeclfb" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About", href: "/" },
-      { label: "Blog", href: "/" },
+      { label: "About", href: "/about" },
+      { label: "LinkedIn", href: "https://linkedin.com/company/meetio-ai/" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { label: "Documentation", href: "/" },
-      { label: "Support", href: "/" },
+      { label: "Support", href: "mailto:founders@meetio.ai" },
+      { label: "Privacy Policy", href: "/privacy" },
     ],
   },
 ];

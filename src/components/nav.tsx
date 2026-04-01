@@ -4,8 +4,8 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
-  { href: "#demo", label: "Features" },
-  { href: "#integrations", label: "Integrations" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
 ];
 
 const SECTION_IDS = ["hero", "demo", "ai-report", "dev-context", "integrations", "video"];
@@ -74,6 +74,10 @@ export function Nav() {
 
   const handleNavClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      if (!href.startsWith("#")) {
+        setMobileOpen(false);
+        return;
+      }
       e.preventDefault();
       const id = href.replace("#", "");
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -92,11 +96,7 @@ export function Nav() {
               : "bg-white border-border/60"
           }`}
         >
-          <a
-            href="#hero"
-            onClick={(e) => handleNavClick(e, "#hero")}
-            className="font-bold text-lg"
-          >
+          <a href="/" className="font-bold text-lg">
             meetio
           </a>
 
