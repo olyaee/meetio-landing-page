@@ -1,18 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
-  { href: "#features", label: "Features" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#blog", label: "Blog" },
-  { href: "#docs", label: "Docs" },
+  { href: "#demo", label: "Features" },
+  { href: "#integrations", label: "Integrations" },
 ];
+
+const SECTION_IDS = ["hero", "demo", "ai-report", "dev-context", "integrations", "video"];
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -20,12 +21,58 @@ export function Nav() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Track active section
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    const visibleSections = new Map<string, number>();
+
+    SECTION_IDS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            visibleSections.set(id, entry.intersectionRatio);
+          } else {
+            visibleSections.delete(id);
+          }
+          // Active = the most visible section
+          let best = "";
+          let bestRatio = 0;
+          visibleSections.forEach((ratio, sectionId) => {
+            if (ratio > bestRatio) {
+              best = sectionId;
+              bestRatio = ratio;
+            }
+          });
+          if (best) setActiveSection(best);
+        },
+        { threshold: [0, 0.25, 0.5, 0.75, 1] },
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
+
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
+
+  const handleNavClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      e.preventDefault();
+      const id = href.replace("#", "");
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      setMobileOpen(false);
+    },
+    [],
+  );
 
   return (
     <>
@@ -37,14 +84,25 @@ export function Nav() {
               : "bg-white border-border/60"
           }`}
         >
-          <div className="font-bold text-lg">meetio</div>
+          <a
+            href="#hero"
+            onClick={(e) => handleNavClick(e, "#hero")}
+            className="font-bold text-lg"
+          >
+            meetio
+          </a>
 
           <div className="hidden md:flex gap-8 text-sm text-muted">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="hover:text-foreground transition-colors"
+                onClick={(e) => handleNavClick(e, link.href)}
+                className={`transition-colors ${
+                  activeSection === link.href.replace("#", "")
+                    ? "text-foreground font-medium"
+                    : "hover:text-foreground"
+                }`}
               >
                 {link.label}
               </a>
@@ -53,7 +111,8 @@ export function Nav() {
 
           <div className="flex items-center gap-2">
             <a
-              href="#"
+              href="#demo"
+              onClick={(e) => handleNavClick(e, "#demo")}
               className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 scrolled
                   ? "bg-foreground text-white hover:bg-[#333]"
@@ -79,7 +138,7 @@ export function Nav() {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={() => setMobileOpen(false)}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="py-2 border-b border-border/60"
               >
                 {link.label}
@@ -91,3 +150,4 @@ export function Nav() {
     </>
   );
 }
+
