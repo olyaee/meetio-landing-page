@@ -1,15 +1,24 @@
 const FOOTER_COLUMNS = [
   {
     title: "Product",
-    links: ["Features", "Pricing", "Chrome Extension", "Widget SDK"],
+    links: [
+      { label: "Features", href: "#demo" },
+      { label: "Chrome Extension", href: "#demo" },
+    ],
   },
   {
     title: "Company",
-    links: ["About", "Blog", "Careers"],
+    links: [
+      { label: "About", href: "/" },
+      { label: "Blog", href: "/" },
+    ],
   },
   {
     title: "Resources",
-    links: ["Documentation", "Changelog", "Support"],
+    links: [
+      { label: "Documentation", href: "/" },
+      { label: "Support", href: "/" },
+    ],
   },
 ];
 
@@ -30,11 +39,11 @@ export function Footer() {
             </h4>
             {col.links.map((link) => (
               <a
-                key={link}
-                href="#"
+                key={link.label}
+                href={link.href}
                 className="block text-sm text-muted mb-2 hover:text-foreground transition-colors"
               >
-                {link}
+                {link.label}
               </a>
             ))}
           </div>

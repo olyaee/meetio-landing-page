@@ -1,10 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { Camera, Mic, AppWindow, Sun, FileText, LogOut, ChevronDown } from "lucide-react";
-import { Caveat } from "next/font/google";
-
-const caveat = Caveat({ subsets: ["latin"], weight: ["400", "700"] });
+import { caveat } from "@/lib/fonts";
+import { buildArrowHeadPath } from "@/lib/arrow-utils";
 
 export function Hero() {
   return (
@@ -72,8 +70,7 @@ function ExtensionPopup() {
   );
 }
 
-const ARROW_ANGLE = Math.atan2(55 - 44, 54 - 83);
-const HEAD_D = `M${(54 - 17 * Math.cos(ARROW_ANGLE - 0.4)).toFixed(1)} ${(55 - 17 * Math.sin(ARROW_ANGLE - 0.4)).toFixed(1)} L54 55 L${(54 - 17 * Math.cos(ARROW_ANGLE + 0.4)).toFixed(1)} ${(55 - 17 * Math.sin(ARROW_ANGLE + 0.4)).toFixed(1)}`;
+const HEAD_D = buildArrowHeadPath(54, 55, 83, 44, 17);
 
 function ArrowSvg() {
   return (
@@ -105,7 +102,7 @@ function HandDrawnHint() {
 
 function IconBtn({ children }: { children: React.ReactNode }) {
   return (
-    <span className="w-7 h-7 rounded-md flex items-center justify-center text-muted">
+    <span aria-hidden="true" className="w-7 h-7 rounded-md flex items-center justify-center text-muted">
       {children}
     </span>
   );

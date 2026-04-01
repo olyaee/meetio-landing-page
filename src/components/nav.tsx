@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
@@ -14,6 +14,8 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -59,6 +61,12 @@ export function Nav() {
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
+    if (mobileOpen) {
+      const firstLink = menuRef.current?.querySelector("a");
+      firstLink?.focus();
+    } else {
+      hamburgerRef.current?.focus();
+    }
     return () => {
       document.body.style.overflow = "";
     };
@@ -122,7 +130,11 @@ export function Nav() {
               Get started
             </a>
             <button
+              ref={hamburgerRef}
               onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-nav"
               className="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-border text-foreground"
             >
               {mobileOpen ? <X size={16} /> : <Menu size={16} />}
@@ -132,7 +144,7 @@ export function Nav() {
       </div>
 
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-white pt-20 px-6 md:hidden">
+        <div ref={menuRef} id="mobile-nav" role="dialog" aria-modal="true" className="fixed inset-0 z-40 bg-white pt-20 px-6 md:hidden">
           <div className="flex flex-col gap-6 text-2xl font-medium">
             {NAV_LINKS.map((link) => (
               <a

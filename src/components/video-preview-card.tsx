@@ -2,6 +2,7 @@
 
 import { useRef, useState, useCallback, useEffect } from "react";
 import { X } from "lucide-react";
+import Image from "next/image";
 
 interface VideoPreviewCardProps {
   ctaText?: string;
@@ -22,6 +23,12 @@ interface VideoPreviewCardProps {
   showInnerBorder?: boolean;
   particleCount?: number;
   particleSize?: number;
+  height?: number;
+  mobileCtaHeight?: number;
+  mobileVideoHeight?: number;
+  mobileGap?: number;
+  mobileFontSize?: number;
+  mobileBorderRadius?: number;
 }
 
 export function VideoPreviewCard({
@@ -43,12 +50,27 @@ export function VideoPreviewCard({
   showInnerBorder = false,
   particleCount = 200,
   particleSize = 3,
+  height = 120,
+  mobileCtaHeight = 100,
+  mobileVideoHeight = 180,
+  mobileGap = 22,
+  mobileFontSize = 18,
+  mobileBorderRadius = 24,
 }: VideoPreviewCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
-      <div className="flex flex-col md:flex-row items-stretch" style={{ gap: `${gap}px` }}>
+      <style>{`
+        @media(min-width:768px){[data-video-percent="${videoPercent}"]{flex:0 0 ${videoPercent}%!important}}
+        @media(max-width:767px){
+          [data-cta-mobile]{gap:${mobileGap}px!important}
+          [data-cta-mobile]>[data-particle-card]{height:${mobileCtaHeight}px!important;border-radius:${mobileBorderRadius}px!important}
+          [data-cta-mobile]>[data-particle-card] h2{font-size:${mobileFontSize}px!important}
+          [data-cta-mobile]>[data-video-percent]{min-height:${mobileVideoHeight}px!important;border-radius:${mobileBorderRadius}px!important}
+        }
+      `}</style>
+      <div data-cta-mobile className="flex flex-col md:flex-row items-stretch" style={{ gap: `${gap}px` }}>
         {/* Left: Particle rain CTA */}
         <ParticleRainCard
           text={ctaText}
@@ -65,19 +87,24 @@ export function VideoPreviewCard({
           showInnerBorder={showInnerBorder}
           particleCount={particleCount}
           particleSize={particleSize}
+          height={height}
         />
 
         {/* Right: Video thumbnail */}
         <div
           className="overflow-hidden cursor-pointer relative group"
-          style={{ flex: `0 0 ${videoPercent}%`, minHeight: "120px", borderRadius: `${borderRadius}px` }}
+          style={{ minHeight: `${height}px`, borderRadius: `${borderRadius}px` }}
+          data-video-percent={videoPercent}
           onClick={() => demoVideoLink && setIsModalOpen(true)}
         >
           {videoThumbnail ? (
-            <img
+            <Image
               src={videoThumbnail}
               alt="Demo video"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 34vw"
             />
           ) : (
             <div className="w-full h-full bg-[#2a2a2a] flex items-center justify-center">
@@ -97,12 +124,10 @@ export function VideoPreviewCard({
 
       {/* Modal */}
       {isModalOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
-          onClick={() => setIsModalOpen(false)}
-        >
+        <VideoModal onClose={() => setIsModalOpen(false)}>
           <button
             className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors cursor-pointer"
+            aria-label="Close video"
             onClick={() => setIsModalOpen(false)}
           >
             <X size={28} />
@@ -116,11 +141,42 @@ export function VideoPreviewCard({
               className="w-full h-full"
               allow="autoplay; fullscreen"
               allowFullScreen
+              sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
+              title="meetio demo video"
             />
           </div>
-        </div>
+        </VideoModal>
       )}
     </>
+  );
+}
+
+function VideoModal({ onClose, children }: { onClose: () => void; children: React.ReactNode }) {
+  const closeRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const prev = document.activeElement as HTMLElement | null;
+    const firstBtn = closeRef.current?.querySelector("button");
+    firstBtn?.focus();
+    const handleKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", handleKey);
+    return () => {
+      document.removeEventListener("keydown", handleKey);
+      prev?.focus();
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      ref={closeRef}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Demo video"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      {children}
+    </div>
   );
 }
 
@@ -141,6 +197,7 @@ function ParticleRainCard({
   showInnerBorder,
   particleCount,
   particleSize,
+  height,
 }: {
   text: string;
   subtext: string;
@@ -156,6 +213,7 @@ function ParticleRainCard({
   showInnerBorder: boolean;
   particleCount: number;
   particleSize: number;
+  height: number;
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -207,6 +265,9 @@ function ParticleRainCard({
     // Compute once outside loop
     const isLight = isLightColor(tintColor);
     const particleColor = isLight ? "0, 0, 0" : "255, 255, 255";
+
+    // Skip particle animation if user prefers reduced motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const animate = () => {
       animFrameRef.current = requestAnimationFrame(animate);
@@ -288,8 +349,9 @@ function ParticleRainCard({
   return (
     <div
       ref={cardRef}
+      data-particle-card
       className="relative flex-1 overflow-hidden cursor-pointer select-none"
-      style={{ borderRadius: `${borderRadius}px`, minHeight: "120px" }}
+      style={{ borderRadius: `${borderRadius}px`, height: `${height}px` }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -301,6 +363,7 @@ function ParticleRainCard({
       {/* Canvas */}
       <canvas
         ref={canvasRef}
+        aria-hidden="true"
         className="absolute inset-0 w-full h-full"
         style={{ pointerEvents: "none" }}
       />
@@ -318,7 +381,7 @@ function ParticleRainCard({
       )}
 
       {/* Text content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full py-10 gap-2 pointer-events-none">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full py-4 gap-1 pointer-events-none">
         <h2
           className="uppercase"
           style={{

@@ -8,9 +8,9 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section className={`px-6 py-12 md:py-24 max-w-[1100px] mx-auto ${className}`}>
+    <div className={`px-6 py-12 md:py-24 max-w-[1100px] mx-auto ${className}`}>
       {children}
-    </section>
+    </div>
   );
 }
 

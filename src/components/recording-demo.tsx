@@ -8,6 +8,11 @@ import {
 } from "react";
 import { Pencil, EyeOff, Square, RotateCcw } from "lucide-react";
 import { Section } from "@/components/ui/section";
+import { caveat } from "@/lib/fonts";
+import { buildArrowHeadPath } from "@/lib/arrow-utils";
+
+const HINT_HEAD_D = buildArrowHeadPath(80, 20, 92, 46, 12);
+const HINT_HEAD_D_MOBILE = buildArrowHeadPath(58, 160, 61, 200, 16);
 import { BrowserChrome } from "@/components/ui/browser-chrome";
 import { VerticalTimeline } from "@/components/vertical-timeline";
 
@@ -215,6 +220,7 @@ interface StrokeLayer {
 function createStrokeLayer(container: HTMLDivElement): StrokeLayer {
   const dpr = window.devicePixelRatio || 1;
   const c = document.createElement("canvas");
+  c.setAttribute("aria-hidden", "true");
   c.style.position = "absolute";
   c.style.top = "0";
   c.style.left = "0";
@@ -244,7 +250,7 @@ function fadeStrokeLayer(canvas: HTMLCanvasElement) {
 
 // ── Main component ──
 
-export function RecordingDemo() {
+export function RecordingDemo({ arrowOverlay, mobileArrowOverlay }: { arrowOverlay?: React.ReactNode; mobileArrowOverlay?: React.ReactNode } = {}) {
   // ── State ──
   const [showModal, setShowModal] = useState(false);
   const [showToolbar, setShowToolbar] = useState(false);
@@ -361,6 +367,7 @@ export function RecordingDemo() {
   // ── Main animated sequence ──
   const startSequence = useCallback(async () => {
     const myId = ++sequenceIdRef.current;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     setRecording(true);
     setShowToolbar(true);
     setupHitCanvas();
@@ -378,6 +385,14 @@ export function RecordingDemo() {
       // Show voice transcript immediately
       setShowVoice(true);
       startTranscript();
+
+      // If reduced motion, skip animations and show final state
+      if (prefersReducedMotion) {
+        setShowModal(true);
+        setShowBugLabel(true);
+        setPhase("blur");
+        return;
+      }
 
       // Show modal
       await wait(500);
@@ -551,7 +566,7 @@ export function RecordingDemo() {
       setPhase("report");
       setStopPressed(true);
       setTimeout(() => {
-        document.getElementById("ai-report")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        document.getElementById("ai-report")?.scrollIntoView({ behavior: "smooth", block: "center" });
       }, 100);
     }, 50);
   }, []);
@@ -594,30 +609,16 @@ export function RecordingDemo() {
 
   // ── Modal fields ──
   const fields = [
-    { key: "name", label: "Name", value: "Sarah Chen" },
-    { key: "email", label: "Email", value: "sarah.chen@acme.com" },
+    { key: "name", label: "Name", value: "Bug McFixface" },
+    { key: "email", label: "Email", value: "bug@oops.dev" },
     { key: "phone", label: "Phone", value: "+1 (555) 234-5678" },
     { key: "card", label: "Card", value: "**** **** **** 4242" },
   ];
 
   return (
     <Section className="!py-10 md:!py-16 !px-3 md:!px-6">
-      <style>{`
-        @keyframes wave {
-          0%, 100% { transform: scaleY(1); }
-          50% { transform: scaleY(0.4); }
-        }
-        @keyframes pulseDot {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.5; }
-        }
-        @keyframes clickRipple {
-          0% { transform: scale(0.5); opacity: 1; }
-          100% { transform: scale(1.5); opacity: 0; }
-        }
-      `}</style>
 
-      <div ref={sectionRef} id="recording-demo">
+      <div ref={sectionRef} id="recording-demo" className="relative pb-44 md:pb-16">
         <div className="flex flex-col md:flex-row gap-6 md:gap-12 items-center">
           {/* Left: Title + vertical timeline */}
           <div className="md:w-[320px] shrink-0 text-center md:text-left flex flex-col items-center md:items-start">
@@ -750,6 +751,7 @@ export function RecordingDemo() {
               {/* Draw canvas (hit area) */}
               <canvas
                 ref={hitCanvasRef}
+                aria-hidden="true"
                 className="absolute top-0 left-0 w-full h-full z-[8]"
                 style={{
                   cursor: "crosshair",
@@ -856,6 +858,28 @@ export function RecordingDemo() {
           </BrowserChrome>
           </div>
         </div>
+        {arrowOverlay ?? (
+          <>
+            <svg className="absolute z-30 pointer-events-none hidden md:block" style={{ top: "544px", left: "630px" }} width="200" height="200" viewBox="0 0 200 200" fill="none">
+              <path d="M47 68 C104 83, 92 46, 80 20" stroke="#111" strokeWidth="1.8" strokeLinecap="round" />
+              <path d={HINT_HEAD_D} stroke="#111" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <span className={`${caveat.className} absolute z-30 text-[#555] pointer-events-none hidden md:block`} style={{ top: "591px", left: "566px", fontSize: "24px" }}>
+              Try buttons!
+            </span>
+          </>
+        )}
+        {mobileArrowOverlay ?? (
+          <>
+            <svg className="absolute z-30 pointer-events-none md:hidden" style={{ top: "590px", left: "130px" }} width="200" height="200" viewBox="0 0 200 200" fill="none" overflow="visible">
+              <path d="M12 192 C52 195, 61 200, 58 160" stroke="#111" strokeWidth="1.8" strokeLinecap="round" />
+              <path d={HINT_HEAD_D_MOBILE} stroke="#111" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <span className={`${caveat.className} absolute z-30 text-[#555] pointer-events-none md:hidden`} style={{ top: "765px", left: "50px", fontSize: "20px" }}>
+              Try buttons!
+            </span>
+          </>
+        )}
       </div>
 
 
