@@ -3,6 +3,8 @@
 import { useRef, useState, useCallback, useEffect } from "react";
 import { X } from "lucide-react";
 import Image from "next/image";
+import { DemoForm } from "@/components/demo-form";
+import { toast } from "@/components/toast";
 
 interface VideoPreviewCardProps {
   ctaText?: string;
@@ -58,6 +60,7 @@ export function VideoPreviewCard({
   mobileBorderRadius = 24,
 }: VideoPreviewCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
 
   return (
     <>
@@ -88,6 +91,7 @@ export function VideoPreviewCard({
           particleCount={particleCount}
           particleSize={particleSize}
           height={height}
+          onClick={() => setIsDemoOpen(true)}
         />
 
         {/* Right: Video thumbnail */}
@@ -147,6 +151,33 @@ export function VideoPreviewCard({
           </div>
         </VideoModal>
       )}
+
+      {isDemoOpen && (
+        <VideoModal onClose={() => setIsDemoOpen(false)}>
+          <div
+            className="w-full max-w-md mx-4 bg-white rounded-2xl p-6 md:p-8 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-center mb-6">
+              <div>
+                <h2 className="text-xl font-bold">Request a demo</h2>
+                <p className="text-sm text-muted mt-1">We&apos;ll get back to you within 24 hours.</p>
+              </div>
+              <button
+                onClick={() => setIsDemoOpen(false)}
+                aria-label="Close form"
+                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface transition-colors text-muted cursor-pointer"
+              >
+                <X size={18} />
+              </button>
+            </div>
+            <DemoForm onSuccess={() => {
+              setIsDemoOpen(false);
+              toast("Sent! We'll get back to you within 24 hours.");
+            }} />
+          </div>
+        </VideoModal>
+      )}
     </>
   );
 }
@@ -198,6 +229,7 @@ function ParticleRainCard({
   particleCount,
   particleSize,
   height,
+  onClick,
 }: {
   text: string;
   subtext: string;
@@ -214,6 +246,7 @@ function ParticleRainCard({
   particleCount: number;
   particleSize: number;
   height: number;
+  onClick?: () => void;
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -354,6 +387,7 @@ function ParticleRainCard({
       style={{ borderRadius: `${borderRadius}px`, height: `${height}px` }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={onClick}
     >
       {/* Background — supports solid colors and gradients */}
       <div className="absolute inset-0" style={{ background: tintColor }} />

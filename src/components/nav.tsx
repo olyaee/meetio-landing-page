@@ -119,15 +119,14 @@ export function Nav() {
 
           <div className="flex items-center gap-2">
             <a
-              href="#demo"
-              onClick={(e) => handleNavClick(e, "#demo")}
+              href="https://app.meetio.ai"
               className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 scrolled
                   ? "bg-foreground text-white hover:bg-[#333]"
                   : "bg-transparent text-foreground border border-border hover:bg-surface"
               }`}
             >
-              Get started
+              Log in
             </a>
             <button
               ref={hamburgerRef}
