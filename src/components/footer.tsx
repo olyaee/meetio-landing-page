@@ -15,7 +15,7 @@ const FOOTER_COLUMNS = [
   {
     title: "Resources",
     links: [
-      { label: "Support", href: "mailto:founders@meetio.ai" },
+      { label: "Support", href: "/support" },
       { label: "Privacy Policy", href: "/privacy" },
     ],
   },
