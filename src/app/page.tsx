@@ -31,7 +31,8 @@ export default function Home() {
       <section id="integrations">
         <Integrations />
       </section>
-      <section id="video" className="w-full px-6 py-12 md:py-24 max-w-[615px] mx-auto">
+      <SectionDivider />
+      <section id="video" className="w-full px-6 py-12 md:py-16 max-w-[615px] mx-auto">
         <VideoPreviewCard />
       </section>
       <Footer />

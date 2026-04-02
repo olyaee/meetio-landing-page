@@ -51,7 +51,7 @@ export async function POST(request: Request) {
         <div style="font-family: -apple-system, sans-serif; max-width: 500px;">
           <h2>Thanks for reaching out!</h2>
           <p>Hi ${body.name},</p>
-          <p>We received your demo request and will get back to you within 24 hours.</p>
+          <p>We received your demo request and will get back to you soon.</p>
           <p>In the meantime, you can try our Chrome extension:</p>
           <p><a href="https://chromewebstore.google.com/detail/meetio/pdgedjihhemnhfocoogmhpnehcpeclfb" style="color: #111; font-weight: 600;">Install meetio for Chrome</a></p>
           <p style="color: #888; margin-top: 24px;">— The meetio team</p>

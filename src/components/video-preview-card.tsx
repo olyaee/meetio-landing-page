@@ -161,7 +161,7 @@ export function VideoPreviewCard({
             <div className="flex justify-between items-center mb-6">
               <div>
                 <h2 className="text-xl font-bold">Request a demo</h2>
-                <p className="text-sm text-muted mt-1">We&apos;ll get back to you within 24 hours.</p>
+                <p className="text-sm text-muted mt-1">We&apos;ll get back to you soon.</p>
               </div>
               <button
                 onClick={() => setIsDemoOpen(false)}
@@ -173,7 +173,7 @@ export function VideoPreviewCard({
             </div>
             <DemoForm onSuccess={() => {
               setIsDemoOpen(false);
-              toast("Sent! We'll get back to you within 24 hours.");
+              toast("Sent! We'll get back to you soon.");
             }} />
           </div>
         </VideoModal>
