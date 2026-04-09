@@ -19,7 +19,7 @@ const FOUNDERS: TeamMember[] = [
 const ADVISORS: TeamMember[] = [
   {
     name: "Bergen Helms",
-    desc: "Seasoned product leader with deep SaaS expertise. Founded Soley, a B2B SaaS leveraging graph analytics that enabled companies like Bosch and Viessmann to save millions annually. Pioneered the Product Mining category.",
+    desc: "Co-founded Soley – pioneering Product Mining and helping manufacturers like Bosch and Viessmann save millions. Now building P2M at encoway, an AI-powered sales empowerment solution for variant manufacturers. PhD from TU Munich, 15+ years at the intersection of data, AI, and product.",
     linkedin: "https://www.linkedin.com/in/helmsbergen/",
     image: "/team/bergen.jpg",
   },
