@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Send, Loader2 } from "lucide-react";
 import { toast } from "@/components/toast";
+import { usePostHog } from "@/components/posthog-provider";
 
 type FormState = "idle" | "loading" | "error";
 
@@ -12,6 +13,7 @@ export function SupportForm() {
   const [message, setMessage] = useState("");
   const [state, setState] = useState<FormState>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const posthog = usePostHog();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,6 +32,9 @@ export function SupportForm() {
         throw new Error(data.error || "Something went wrong");
       }
 
+      posthog?.capture("form_submitted", { form_type: "support" });
+      posthog?.identify(email, { subject });
+
       setEmail("");
       setSubject("");
       setMessage("");
@@ -38,6 +43,7 @@ export function SupportForm() {
     } catch (err) {
       setState("error");
       setErrorMsg(err instanceof Error ? err.message : "Something went wrong");
+      posthog?.capture("form_error", { form_type: "support" });
     }
   };
 
