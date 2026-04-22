@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { BRAND_NAME, FOUNDER_EMAIL, SITE_URL } from "@/lib/brand";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — meetio",
-  description: "meetio privacy policy. Learn how we handle your data.",
+  title: "Privacy Policy — nicecatch",
+  description: "nicecatch privacy policy. Learn how we handle your data.",
 };
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -30,21 +31,21 @@ function Link({ href, children }: { href: string; children: React.ReactNode }) {
 export default function PrivacyPage() {
   return (
     <div className="max-w-3xl mx-auto px-6 py-24">
-      <h1 className="text-4xl font-bold mb-4 text-center">meetio Privacy Policy</h1>
+      <h1 className="text-4xl font-bold mb-4 text-center">nicecatch Privacy Policy</h1>
       <p className="text-muted mb-8 text-center"><strong>Last updated: January 20, 2025</strong></p>
 
       <P>
-        meetio is a voice-powered bug reporting tool. We only collect data when you actively start a recording. Your recordings stay on your device until you choose to submit them. We do not sell your data or use it for advertising.
+        nicecatch is a voice-powered bug reporting tool. We only collect data when you actively start a recording. Your recordings stay on your device until you choose to submit them. We do not sell your data or use it for advertising.
       </P>
 
       <hr className="my-8 border-border" />
 
       <Section title="Data Controller">
-        <P>meetio is operated by <strong>meetio.ai</strong>, located at Stiftsbogen 144, 81375 Munich, Germany. For privacy inquiries, contact <Link href="mailto:founders@meetio.ai">founders@meetio.ai</Link>.</P>
+        <P>{BRAND_NAME} is operated by <strong>nicecatch.dev</strong>, located at Stiftsbogen 144, 81375 Munich, Germany. For privacy inquiries, contact <Link href={`mailto:${FOUNDER_EMAIL}`}>{FOUNDER_EMAIL}</Link>.</P>
       </Section>
 
       <Section title="What We Collect">
-        <P>The meetio extension collects data only when you actively initiate a recording. We do not collect any data in the background or without your explicit action.</P>
+        <P>The {BRAND_NAME} extension collects data only when you actively initiate a recording. We do not collect any data in the background or without your explicit action.</P>
         <P>When you click &ldquo;Start Recording,&rdquo; the extension captures screen activity (visual snapshots of the webpage, user interactions like clicks and scrolls, page changes, and navigation), optional audio narration if you enable it and grant microphone permission, network activity (HTTP requests and responses with sensitive data automatically redacted), system context (browser version, operating system, screen resolution, page URL, timezone), and thumbnail screenshots for visual preview.</P>
         <P>We do not collect GPS location, webcam footage, files from your computer, browsing history outside of the recorded session, data from other tabs, or passwords and credentials (these are automatically redacted).</P>
       </Section>
@@ -63,7 +64,7 @@ export default function PrivacyPage() {
       </Section>
 
       <Section title="Data Retention">
-        <P>Local drafts remain stored until you delete them or clear your browser data. Submitted reports are retained while your account is active or as configured by your organization. You can request deletion of your data at any time by contacting <Link href="mailto:founders@meetio.ai">founders@meetio.ai</Link>.</P>
+        <P>Local drafts remain stored until you delete them or clear your browser data. Submitted reports are retained while your account is active or as configured by your organization. You can request deletion of your data at any time by contacting <Link href={`mailto:${FOUNDER_EMAIL}`}>{FOUNDER_EMAIL}</Link>.</P>
       </Section>
 
       <Section title="Data Processing">
@@ -77,7 +78,7 @@ export default function PrivacyPage() {
 
       <Section title="Your Privacy Rights">
         <P>You have the right to access and view your recorded data before submission, delete recordings and request deletion of submitted reports, export your data in a portable format, withdraw consent by stopping use of the extension at any time, and lodge a complaint with your local data protection authority if you believe your rights have been violated.</P>
-        <P>To exercise these rights, contact <Link href="mailto:founders@meetio.ai">founders@meetio.ai</Link>.</P>
+        <P>To exercise these rights, contact <Link href={`mailto:${FOUNDER_EMAIL}`}>{FOUNDER_EMAIL}</Link>.</P>
       </Section>
 
       <Section title="California Privacy Rights (CCPA)">
@@ -87,7 +88,7 @@ export default function PrivacyPage() {
       <Section title="European Users (GDPR)">
         <P>As a Germany-based company, we are committed to GDPR compliance. If you are in the European Economic Area, you have additional rights including rectification of inaccurate personal data, restriction of processing, objection to processing based on legitimate interests, and data portability.</P>
         <P>Our legal bases for processing are consent (Art. 6(1)(a)), contract performance (Art. 6(1)(b)), and legitimate interests (Art. 6(1)(f)).</P>
-        <P>To exercise these rights or lodge a complaint, contact <Link href="mailto:founders@meetio.ai">founders@meetio.ai</Link> or your local supervisory authority. In Germany, this is the Bayerisches Landesamt für Datenschutzaufsicht (BayLDA).</P>
+        <P>To exercise these rights or lodge a complaint, contact <Link href={`mailto:${FOUNDER_EMAIL}`}>{FOUNDER_EMAIL}</Link> or your local supervisory authority. In Germany, this is the Bayerisches Landesamt für Datenschutzaufsicht (BayLDA).</P>
       </Section>
 
       <Section title="Data Protection Features">
@@ -101,11 +102,11 @@ export default function PrivacyPage() {
       </Section>
 
       <Section title="Children&apos;s Privacy">
-        <P>meetio is not intended for use by children under 16. We do not knowingly collect personal data from children. If you believe a child has provided us with personal data, contact <Link href="mailto:founders@meetio.ai">founders@meetio.ai</Link>.</P>
+        <P>{BRAND_NAME} is not intended for use by children under 16. We do not knowingly collect personal data from children. If you believe a child has provided us with personal data, contact <Link href={`mailto:${FOUNDER_EMAIL}`}>{FOUNDER_EMAIL}</Link>.</P>
       </Section>
 
       <Section title="Chrome Web Store Compliance">
-        <P>meetio&apos;s use of information received from Google APIs adheres to the <Link href="https://developer.chrome.com/docs/webstore/program-policies/">Chrome Web Store User Data Policy</Link>, including the Limited Use requirements.</P>
+        <P>{BRAND_NAME}&apos;s use of information received from Google APIs adheres to the <Link href="https://developer.chrome.com/docs/webstore/program-policies/">Chrome Web Store User Data Policy</Link>, including the Limited Use requirements.</P>
       </Section>
 
       <Section title="Changes to This Policy">
@@ -113,7 +114,7 @@ export default function PrivacyPage() {
       </Section>
 
       <Section title="Contact Us">
-        <P>For questions about this privacy policy or your data, email <Link href="mailto:founders@meetio.ai">founders@meetio.ai</Link> or visit <Link href="https://meetio.ai">https://meetio.ai</Link>.</P>
+        <P>For questions about this privacy policy or your data, email <Link href={`mailto:${FOUNDER_EMAIL}`}>{FOUNDER_EMAIL}</Link> or visit <Link href={SITE_URL}>{SITE_URL}</Link>.</P>
       </Section>
 
       <p className="text-muted text-sm italic">

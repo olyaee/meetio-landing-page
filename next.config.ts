@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { LEGACY_SITE_URL, SITE_URL } from "./src/lib/brand";
 
 const nextConfig: NextConfig = {
   images: {
@@ -23,6 +24,24 @@ const nextConfig: NextConfig = {
     ];
   },
   skipTrailingSlashRedirect: true,
+  async redirects() {
+    const legacyHost = new URL(LEGACY_SITE_URL).host.replace(".", "\\.");
+
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: legacyHost }],
+        destination: `${SITE_URL}/:path*`,
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: `www\\.${legacyHost}` }],
+        destination: `${SITE_URL}/:path*`,
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

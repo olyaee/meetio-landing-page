@@ -1,15 +1,17 @@
+import { BRAND_NAME, CHROME_EXTENSION_URL, LINKEDIN_URL } from "@/lib/brand";
+
 const FOOTER_COLUMNS = [
   {
     title: "Product",
     links: [
-      { label: "Chrome Extension", href: "https://chromewebstore.google.com/detail/meetio/pdgedjihhemnhfocoogmhpnehcpeclfb" },
+      { label: "Chrome Extension", href: CHROME_EXTENSION_URL },
     ],
   },
   {
     title: "Company",
     links: [
       { label: "About", href: "/about" },
-      { label: "LinkedIn", href: "https://linkedin.com/company/meetio-ai/" },
+      { label: "LinkedIn", href: LINKEDIN_URL },
     ],
   },
   {
@@ -26,7 +28,7 @@ export function Footer() {
     <footer>
       <div className="max-w-[1100px] mx-auto px-6 pt-16 pb-10 flex flex-wrap justify-between gap-10">
         <div>
-          <div className="font-bold text-lg mb-2">meetio</div>
+          <div className="font-bold text-lg mb-2">{BRAND_NAME}</div>
           <div className="text-[13px] text-muted">
             Bug reporting that developers actually love.
           </div>
@@ -49,7 +51,7 @@ export function Footer() {
         ))}
       </div>
       <div className="max-w-[1100px] mx-auto px-6 py-5 border-t border-border text-[13px] text-muted">
-        &copy; {new Date().getFullYear()} meetio. All rights reserved.
+        &copy; {new Date().getFullYear()} {BRAND_NAME}. All rights reserved.
       </div>
     </footer>
   );

@@ -5,6 +5,7 @@ import { X } from "lucide-react";
 import Image from "next/image";
 import { DemoForm } from "@/components/demo-form";
 import { toast } from "@/components/toast";
+import { BRAND_NAME } from "@/lib/brand";
 
 interface VideoPreviewCardProps {
   ctaText?: string;
@@ -35,7 +36,7 @@ interface VideoPreviewCardProps {
 
 export function VideoPreviewCard({
   ctaText = "BOOK A DEMO",
-  ctaSubtext = "See meetio in action",
+  ctaSubtext = "See nicecatch in action",
   demoVideoLink = "https://www.youtube.com/embed/K2CeOGOyl10",
   videoThumbnail = "https://img.youtube.com/vi/K2CeOGOyl10/maxresdefault.jpg",
   tintColor = "radial-gradient(89% 77% at 50% 50%, rgb(120,120,120) 0%, rgb(0,0,0) 85%)",
@@ -146,7 +147,7 @@ export function VideoPreviewCard({
               allow="autoplay; fullscreen"
               allowFullScreen
               sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
-              title="meetio demo video"
+              title={`${BRAND_NAME} demo video`}
             />
           </div>
         </VideoModal>

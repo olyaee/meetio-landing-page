@@ -1,3 +1,5 @@
+import { BRAND_NAME } from "@/lib/brand";
+
 export function AiReportHeading() {
   return (
     <div className="text-center mb-12">
@@ -6,7 +8,7 @@ export function AiReportHeading() {
         <span className="text-muted">AI writes the report.</span>
       </h2>
       <p className="text-base text-muted mt-3 max-w-[540px] mx-auto leading-relaxed">
-        Just describe what happened with your voice. meetio transcribes it and
+        Just describe what happened with your voice. {BRAND_NAME} transcribes it and
         generates a structured bug report with steps to reproduce, expected vs
         actual behavior, and console errors.
       </p>

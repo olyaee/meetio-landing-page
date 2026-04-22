@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { FOUNDER_EMAIL, NOTIFICATIONS_FROM } from "@/lib/brand";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -22,8 +23,8 @@ export async function POST(request: Request) {
     }
 
     await resend.emails.send({
-      from: "meetio <noreply@notifications.meetio.ai>",
-      to: "founders@meetio.ai",
+      from: NOTIFICATIONS_FROM,
+      to: FOUNDER_EMAIL,
       replyTo: body.email,
       subject: `[Support] ${body.subject}`,
       html: `

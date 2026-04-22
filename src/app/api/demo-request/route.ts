@@ -1,5 +1,11 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import {
+  BRAND_NAME,
+  CHROME_EXTENSION_URL,
+  FOUNDER_EMAIL,
+  NOTIFICATIONS_FROM,
+} from "@/lib/brand";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -24,8 +30,8 @@ export async function POST(request: Request) {
 
     // Send notification to founders
     await resend.emails.send({
-      from: "meetio <noreply@notifications.meetio.ai>",
-      to: "founders@meetio.ai",
+      from: NOTIFICATIONS_FROM,
+      to: FOUNDER_EMAIL,
       replyTo: body.email,
       subject: `New demo request from ${body.name}`,
       html: `
@@ -43,9 +49,9 @@ export async function POST(request: Request) {
 
     // Send auto-reply to user
     await resend.emails.send({
-      from: "meetio <noreply@notifications.meetio.ai>",
+      from: NOTIFICATIONS_FROM,
       to: body.email,
-      replyTo: "founders@meetio.ai",
+      replyTo: FOUNDER_EMAIL,
       subject: `Thanks for your interest, ${body.name}!`,
       html: `
         <div style="font-family: -apple-system, sans-serif; max-width: 500px;">
@@ -53,8 +59,8 @@ export async function POST(request: Request) {
           <p>Hi ${body.name},</p>
           <p>We received your demo request and will get back to you soon.</p>
           <p>In the meantime, you can try our Chrome extension:</p>
-          <p><a href="https://chromewebstore.google.com/detail/meetio/pdgedjihhemnhfocoogmhpnehcpeclfb" style="color: #111; font-weight: 600;">Install meetio for Chrome</a></p>
-          <p style="color: #888; margin-top: 24px;">— The meetio team</p>
+          <p><a href="${CHROME_EXTENSION_URL}" style="color: #111; font-weight: 600;">Install ${BRAND_NAME} for Chrome</a></p>
+          <p style="color: #888; margin-top: 24px;">— The ${BRAND_NAME} team</p>
         </div>
       `,
     });

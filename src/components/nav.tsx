@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState, useCallback, useRef } from "react";
 import { Menu, X } from "lucide-react";
+import { APP_URL, BRAND_NAME } from "@/lib/brand";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -96,9 +98,9 @@ export function Nav() {
               : "bg-white border-border/60"
           }`}
         >
-          <a href="/" className="font-bold text-lg">
-            meetio
-          </a>
+          <Link href="/" className="font-bold text-lg">
+            {BRAND_NAME}
+          </Link>
 
           <div className="hidden md:flex gap-8 text-sm text-muted">
             {NAV_LINKS.map((link) => (
@@ -119,7 +121,7 @@ export function Nav() {
 
           <div className="flex items-center gap-2">
             <a
-              href="https://app.meetio.ai"
+              href={APP_URL}
               className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 scrolled
                   ? "bg-foreground text-white hover:bg-[#333]"
@@ -161,4 +163,3 @@ export function Nav() {
     </>
   );
 }
-

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { BRAND_NAME } from "@/lib/brand";
 
 type TeamMember = {
   name: string;
@@ -10,7 +11,7 @@ type TeamMember = {
 const FOUNDERS: TeamMember[] = [
   {
     name: "Ehsan Olyaee",
-    desc: "Got mass-reported for debugging a bug before lunch. Talks to AI more than humans. Previously built AI systems at enterprise scale, now building meetio so no one ever has to say \"works on my machine\" again.",
+    desc: "Got mass-reported for debugging a bug before lunch. Talks to AI more than humans. Previously built AI systems at enterprise scale, now building nicecatch so no one ever has to say \"works on my machine\" again.",
     linkedin: "https://www.linkedin.com/in/ehsanolyaee/",
     image: "/team/ehsan.jpg",
   },
@@ -54,11 +55,11 @@ export function About() {
       <section className="text-center pt-12 pb-16 md:pt-20 md:pb-24">
         <h1 className="text-3xl md:text-[56px] font-extrabold leading-[1.15] md:leading-[1.1] tracking-tight mb-4 md:mb-5">
           The people behind{" "}
-          <span className="text-muted">meetio</span>
+          <span className="text-muted">{BRAND_NAME}</span>
         </h1>
         <p className="text-base md:text-lg text-muted leading-relaxed max-w-[520px] mx-auto">
           We talked to 40+ teams and found the same problem everywhere: engineers
-          burn hours reproducing bugs that users can&apos;t explain. So we built meetio.
+          burn hours reproducing bugs that users can&apos;t explain. So we built {BRAND_NAME}.
         </p>
       </section>
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Geist_Mono, Space_Grotesk } from "next/font/google";
 import { PostHogProvider } from "@/components/posthog-provider";
 import { ToastProvider } from "@/components/toast";
+import { BRAND_NAME, SITE_URL } from "@/lib/brand";
 import "./globals.css";
 
 const inter = Inter({
@@ -21,24 +22,25 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "meetio — Bug reporting that developers actually love",
+  metadataBase: new URL(SITE_URL),
+  title: "nicecatch — Bug reporting that developers actually love",
   description:
     "Record your screen, describe the bug with your voice, and let AI write the report. Devs get console logs, network requests, and a full DOM replay.",
-  alternates: { canonical: "https://meetio.ai" },
+  alternates: { canonical: SITE_URL },
   openGraph: {
-    title: "meetio — Bug reporting that developers actually love",
+    title: "nicecatch — Bug reporting that developers actually love",
     description:
       "Record your screen, describe the bug with your voice, and let AI write the report.",
-    url: "https://meetio.ai",
-    siteName: "meetio",
+    url: SITE_URL,
+    siteName: BRAND_NAME,
     type: "website",
-    images: [{ url: "https://meetio.ai/og-image.png", width: 1200, height: 630, alt: "meetio — Report bugs in seconds" }],
+    images: [{ url: "/logo.png", alt: "nicecatch — Report bugs in seconds" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "meetio — Bug reporting that developers actually love",
+    title: "nicecatch — Bug reporting that developers actually love",
     description: "Record your screen, describe the bug with your voice, and let AI write the report.",
-    images: ["https://meetio.ai/og-image.png"],
+    images: ["/logo.png"],
   },
 };
 
