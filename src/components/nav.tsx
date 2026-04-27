@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState, useCallback, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { APP_URL, BRAND_NAME } from "@/lib/brand";
+import { BrandLogo } from "@/components/brand-logo";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -98,8 +99,8 @@ export function Nav() {
               : "bg-white border-border/60"
           }`}
         >
-          <Link href="/" className="font-bold text-lg">
-            {BRAND_NAME}
+          <Link href="/" aria-label={BRAND_NAME}>
+            <BrandLogo textClassName="font-bold text-lg tracking-tight" />
           </Link>
 
           <div className="hidden md:flex gap-8 text-sm text-muted">

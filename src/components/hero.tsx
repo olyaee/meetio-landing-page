@@ -1,9 +1,9 @@
 "use client";
 
 import { Camera, Mic, AppWindow, Sun, FileText, LogOut, ChevronDown } from "lucide-react";
+import { BrandLogo } from "@/components/brand-logo";
 import { caveat } from "@/lib/fonts";
 import { buildArrowHeadPath } from "@/lib/arrow-utils";
-import { BRAND_NAME } from "@/lib/brand";
 
 export function Hero() {
   return (
@@ -30,7 +30,7 @@ function ExtensionPopup() {
   return (
     <div className="w-[260px] bg-white rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.15)] p-4 text-left scale-110 sm:scale-125 origin-top select-none">
       <div className="flex justify-between items-center mb-4">
-        <span className="font-semibold text-base tracking-tight">{BRAND_NAME}</span>
+        <BrandLogo iconSize={18} textClassName="font-semibold text-base tracking-tight" />
         <div className="flex gap-1">
           <IconBtn><Sun size={14} /></IconBtn>
           <IconBtn><FileText size={14} /></IconBtn>

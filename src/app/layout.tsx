@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Geist_Mono, Space_Grotesk } from "next/font/google";
 import { PostHogProvider } from "@/components/posthog-provider";
 import { ToastProvider } from "@/components/toast";
-import { BRAND_NAME, SITE_URL } from "@/lib/brand";
+import { BRAND_DESCRIPTION, BRAND_NAME, BRAND_OG_IMAGE, SITE_URL } from "@/lib/brand";
 import "./globals.css";
 
 const inter = Inter({
@@ -24,8 +24,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "nicecatch — Bug reporting that developers actually love",
-  description:
-    "Record your screen, describe the bug with your voice, and let AI write the report. Devs get console logs, network requests, and a full DOM replay.",
+  description: BRAND_DESCRIPTION,
   alternates: { canonical: SITE_URL },
   openGraph: {
     title: "nicecatch — Bug reporting that developers actually love",
@@ -34,13 +33,25 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: BRAND_NAME,
     type: "website",
-    images: [{ url: "/logo.png", alt: "nicecatch — Report bugs in seconds" }],
+    images: [
+      {
+        url: BRAND_OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "nicecatch — Report bugs in seconds",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "nicecatch — Bug reporting that developers actually love",
     description: "Record your screen, describe the bug with your voice, and let AI write the report.",
-    images: ["/logo.png"],
+    images: [
+      {
+        url: BRAND_OG_IMAGE,
+        alt: "nicecatch — Report bugs in seconds",
+      },
+    ],
   },
 };
 
