@@ -1,3 +1,4 @@
+import { BrandLogo } from "@/components/brand-logo";
 import { BRAND_NAME, CHROME_EXTENSION_URL, LINKEDIN_URL } from "@/lib/brand";
 
 const FOOTER_COLUMNS = [
@@ -28,7 +29,7 @@ export function Footer() {
     <footer>
       <div className="max-w-[1100px] mx-auto px-6 pt-16 pb-10 flex flex-wrap justify-between gap-10">
         <div>
-          <div className="font-bold text-lg mb-2">{BRAND_NAME}</div>
+          <BrandLogo className="mb-2" iconSize={22} textClassName="font-bold text-lg" />
           <div className="text-[13px] text-muted">
             Bug reporting that developers actually love.
           </div>
